@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>E-Book</title>
+
+    <link rel="stylesheet" href="../resources/css/ui.base.css">
+
+</head>
+
+<body>
+<div class="base-wrap">
+    <main class="page-content">
+        <div class="max-w-50">
+            <h2 class="title-size-40-700 text-center">회원가입</h2>
+            <div class="member-form-group">
+                <div class="member-form-item">
+                    <span class="member-form-item-title requisite">이름</span>
+                    <input type="text" class="input-size-48-transparent" placeholder="홍길동" />
+                    <button type="button" class="input-value-del">
+                        <i class="icon-del"></i>
+                    </button>
+                </div>
+                <p class="error-massage">유효성 메세지 영역</p>
+                <div class="member-form-item">
+                    <span class="member-form-item-title requisite">이메일</span>
+                    <input type="text" class="input-size-48-transparent" placeholder="abc@gmail.com" />
+                    <button type="button" class="input-value-del">
+                        <i class="icon-del"></i>
+                    </button>
+                </div>
+                <p class="error-massage">유효성 메세지 영역</p>
+                <div class="member-form-item">
+                    <span class="member-form-item-title requisite">비밀번호</span>
+                    <input type="password" class="input-size-48-transparent" placeholder="영문자+숫자+특수문자 8~15자리" />
+                    <button type="button" class="input-value-del">
+                        <i class="icon-del"></i>
+                    </button>
+                </div>
+                <p class="error-massage">유효성 메세지 영역</p>
+                <div class="member-form-item">
+                    <span class="member-form-item-title requisite">비밀번호 확인</span>
+                    <input type="password" class="input-size-48-transparent" placeholder="비밀번호 확인" />
+                    <button type="button" class="input-value-del">
+                        <i class="icon-del"></i>
+                    </button>
+                </div>
+                <p class="error-massage">유효성 메세지 영역</p>
+                <div class="member-agree-list mdl-acco" data-id="agreeAcco">
+                    <div class="member-agree-item all-agree">
+                        <span class="box-checkbox-a box-checkbox-size-24">
+                            <input type="checkbox" id="all-agree" class="form-checkbox" />
+                            <label for="all-agree" class="font-600">전체동의</label>
+                        </span>
+                    </div>
+                </div>
+                <script>
+                    const memberAgree = [
+                        { id: "agree1", title: "만 14세 이상 (필수)"},
+                        { id: "agree2", title: "서비스 이용약관(필수)"},
+                        { id: "agree3", title: "개인정보 수집 및 이용 동의(필수)"},
+                        { id: "agree4", title: "제 3자 제공 동의(필수)"},
+                        { id: "agree5", title: "이벤트 및 할인 혜택 안내 동의(선택)"},
+
+                    ];
+                    memberAgree.forEach(function (data, i) {
+                        const template = `
+                            <div class="mdl-acco-item">
+                                <div class="member-agree-item mdl-acco-head">
+                                    <span class="box-checkbox-a box-checkbox-size-24">
+                                        <input type="checkbox" id="${memberAgree[i].id}" class="form-checkbox" />
+                                        <label for="${memberAgree[i].id}">
+                                            <button type="button" class="agree-link mdl-acco-btn" aria-label="title open">
+                                                ${memberAgree[i].title}
+                                                <i class="arrow-bullet"></i>
+                                            </button>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div class="mdl-acco-body">
+                                    <div class="agree-content-box">
+                                        <div class="scrollbar-8">
+                                            <p class="agree-desc font-600">제1조(목적)</p>
+                                            <p class="agree-desc">이약관은 (주)티몬(이하"회사"라함)이운영하는 인터넷사이트(이하"사이트"라함)를통하여 제공하는 전자상거래 서비스(이하"서비스"라함)와관련하여 "회사"와"회원"(제2조에정합니다)의권리와 의무,책임사항 및 "회원"의"서비스"이용절차에 관한 사항을 규정함을 목적으로 합니다.이 약관은 PC통신,스마트폰(안드로이드폰,아이폰 등)앱,무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는한 준용됩니다.</p>
+                                            <p class="agree-desc font-600">제2조(용어의정의)</p>
+                                            <p class="agree-desc">이약관은 (주)티몬(이하"회사"라함)이운영하는 인터넷사이트(이하"사이트"라함)를통하여 제공하는 전자상거래 서비스(이하"서비스"라함)와관련하여 "회사"와"회원"(제2조에정합니다)의권리와 의무,책임사항 및 "회원"의"서비스"이용절차에 관한 사항을 규정함을 목적으로 합니다.이 약관은 PC통신,스마트폰(안드로이드폰,아이폰 등)앱,무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는한 준용됩니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        document.querySelector(".member-agree-list").insertAdjacentHTML("beforeend", template);
+                    });
+                </script>
+                <button type="button" class="btn-base btn-color-blue btn-size-64 mt-28">회원가입</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../resources/js/ui.global.js"></script>
+    <script src="../resources/js/ui.common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            UI.exe.agreeAcco = new Accordion({
+                id :'agreeAcco',
+                current: null,
+                callback: (v) => {
+                    console.log('callback:', v);
+                }
+            });
+
+        });
+    </script>
+</div>
+</body>
+</html>

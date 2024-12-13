@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>E-Book</title>
+
+    <link rel="stylesheet" href="../resources/css/ui.base.css">
+
+</head>
+
+<body>
+<div class="base-wrap">
+    <main class="page-content">
+        <div class="max-w-50">
+            <h2 class="title-size-40-700 text-center">회원탈퇴</h2>
+            <div class="member-form-group">
+               <div class="leave-list">
+                   <p class="leave-list-title">탈퇴사유 선택</p>
+                   <div class="leave-list-item">
+                       <span class="form_element-radio">
+                            <input type="radio" id="typeA-1" name="choiceA">
+                            <label for="typeA-1">새계정을 만들고 싶습니다.</label>
+                        </span>
+                   </div>
+                   <div class="leave-list-item">
+                       <span class="form_element-radio">
+                            <input type="radio" id="typeA-2" name="choiceA">
+                            <label for="typeA-2">앞으로 로그인 할 필요가 없습니다.</label>
+                        </span>
+                   </div>
+                   <div class="leave-list-item">
+                       <span class="form_element-radio">
+                            <input type="radio" id="typeA-3" name="choiceA">
+                            <label for="typeA-3">입력한 개인정보를 삭제하고 싶습니다.</label>
+                        </span>
+                   </div>
+                   <div class="leave-list-item">
+                       <span class="form_element-radio">
+                            <input type="radio" id="typeA-4" name="choiceA">
+                            <label for="typeA-4">기타</label>
+                        </span>
+                       <div class="member-form-item mt-24" data-dir="column">
+                           <textarea placeholder="회원탈퇴 사유를 자유롭게입력해 주세요. (1,000자 이내)" class="input-size-48-transparent min-h-158"></textarea>
+                           <p class="write-data">0/1000자</p>
+                       </div>
+                   </div>
+                   <p class="leave-list-title">탈퇴안내</p>
+                   <div class="leave-info-box">
+                       회원탈퇴 후 현재 등록된 이메일로 재가입이 불가 합니다.<br>
+                       회원 탈퇴 시 작성하신 게시물과 댓글은 자동 삭제되지 않습니다.<br>
+                       작성하신 게시물과 댓글은 탈퇴 후 삭제 할 수 없습니다.
+                   </div>
+               </div>
+                <div class="member-agree-item mt-4">
+                    <span class="box-checkbox-a box-checkbox-size-24">
+                        <input type="checkbox" id="all-agree" class="form-checkbox" />
+                        <label for="all-agree" class="font-600">안내사항 모두 확인하였으며 동의함</label>
+                    </span>
+                </div>
+                <button type="button" class="btn-base btn-color-blue btn-size-64">회원탈퇴</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../resources/js/ui.global.js"></script>
+    <script src="../resources/js/ui.common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            UI.exe.agreeAcco = new Accordion({
+                id :'agreeAcco',
+                current: null,
+                callback: (v) => {
+                    console.log('callback:', v);
+                }
+            });
+
+        });
+    </script>
+</div>
+</body>
+</html>
