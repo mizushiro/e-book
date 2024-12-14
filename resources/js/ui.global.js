@@ -705,9 +705,6 @@
 			}
 		}
 	}
-
-
-
     Global.loading = {
 		timerShow : {}, 
 		timerHide : {},
@@ -788,7 +785,6 @@
 			},300);
 		}
 	}
-
    
     //common exe
     Global.parts.resizeState();
@@ -806,6 +802,73 @@
     }
    
 })();
+
+class PDFeBook {
+	constructor(opt) {
+    this.data = opt.data;
+    this.id = opt.id;
+    this.group = document.querySelector('.dmex-ebook--viewer-book');
+    
+    this.init();
+  }
+  init() {
+    const ebook_flip = document.querySelector('.dmex-ebook--viewer');
+
+    for(let i = 0, len = this.data.length; i < len; i++) {
+      this.group.insertAdjacentHTML('beforeend', `<div class="dmex-ebook--viewer-page"><img src="${this.data[i].img}" alt="${this.data[i].title}"></div>`);
+    }
+
+    const page_current = document.querySelector('.dmex-ebook--viewer-paging-current');
+    const page_total = document.querySelector('.dmex-ebook--viewer-paging-total');
+    const page_btns = document.querySelectorAll('.dmex-ebook--viewer-control-btn, .dmex-ebook--viewer-paging-btn');
+    
+    const w = 210 * 3;
+    const h = 297 * 3;
+
+    UI.ebook = {};
+    UI.ebook[this.id] = new St.PageFlip(
+      document.getElementById(this.id),
+      {
+        // start page index
+        width: 400,
+        height: 600,
+        size: "stretch",
+        maxShadowOpacity: .5,
+        showCover: true,
+        mobileScrollSupport: false,
+        showCover: true,
+      }
+    );
+    const pageFlip = UI.ebook[this.id];
+
+    // pageFlip.loadFromImages(['./page1.jpg', './page2.jpg', './page3.jpg', './page4.jpg', './page2.jpg', './page3.jpg', './page4.jpg']);
+    pageFlip.loadFromHTML(document.querySelectorAll('.dmex-ebook--viewer-page'));
+    pageFlip.on('flip', (e) => {
+      console.log("Current page: " + e.data);
+      // ca llback code
+      page_current.textContent = pageFlip.getCurrentPageIndex() + 1;
+    });
+
+    page_current.textContent = pageFlip.getCurrentPageIndex() + 1;
+    page_total.textContent = pageFlip.getPageCount()  ;
+
+    const pageMove = (e) => {
+      const _this = e.target;
+      const _data = _this.dataset.act;
+
+      switch(_data) {
+        case 'prev': pageFlip.flipPrev(); break;
+        case 'next': pageFlip.flipNext(); break;
+        case 'first': pageFlip.turnToPage(0); break;
+        case 'last': pageFlip.turnToPage(pageFlip.getPageCount() -  1); break;
+      }
+    }
+    page_btns.forEach((item) => {
+      item.addEventListener('click', pageMove);
+    });
+
+  }
+}
 
 class ScrollPage {
     constructor() {

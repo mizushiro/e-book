@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ebook</title>
+
+	<link rel="stylesheet" href="../resources/css/ui.base.css">
+	<link rel="stylesheet" href="../resources/css/ui.ebook.css">
+
+</head>
+
+<body class="dmex-ebook">
+	<div class="dmex-ebook--wrap">
+		<!-- 
+		<div class="dmex-ebook--group"></div>
+    <div class="dmex-ebook--chat"></div> 
+		-->
+
+		<!-- PDF 뷰어 -->
+		<div class="dmex-ebook--viewer">
+			<!-- head -->
+			<div class="dmex-ebook--viewer-header">
+				<div class="dmex-ebook--viewer-info">
+					<h2 class="dmex-ebook--viewer-info-title">노무정책.pdf</h2>
+					<div class="dmex-ebook--viewer-info-etc">
+						<span class="dmex-ebook--viewer-info-date">최종 등록일시 2024-11-11</span>
+						<span class="dmex-ebook--viewer-info-size">204KB</span>
+						<span class="dmex-ebook--viewer-info-name">최초등로가 홍길동</span>
+					</div>
+				</div>
+				<div class="dmex-ebook--viewer-auto">
+					<button type="button" class="dmex-ebook--viewer-auto-btn" data-act="auto" aria-label="">자동넘김</button>
+					<button type="button" class="dmex-ebook--viewer-auto-btn" data-act="list" aria-label="">목차</button>
+					<button type="button" class="dmex-ebook--viewer-auto-btn" data-act="zoom" aria-label="">확대</button>
+				</div>
+			</div>
+
+			<!-- body -->
+			<div class="dmex-ebook--viewer-body">
+				<div class="dmex-ebook--viewer-book" id="book"></div>
+				<div class="dmex-ebook--viewer-control">
+					<button type="button" class="dmex-ebook--viewer-control-btn" data-act="prev" aria-label="이전페이지">prev</button>
+					<button type="button" class="dmex-ebook--viewer-control-btn" data-act="next" aria-label="다음페이지">next</button>
+				</div>
+			</div>
+
+			<!-- foot -->
+			<div class="dmex-ebook--viewer-footer">
+				<div class="dmex-ebook--viewer-paging">
+					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="first">first</button>
+					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="prev">prev</button>
+					<div class="dmex-ebook--viewer-paging-number">
+						<b class="dmex-ebook--viewer-paging-current"></b> /
+						<span class="dmex-ebook--viewer-paging-total"></span>
+					</div>
+					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="next">next</button>
+					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="last">last</button>
+				</div>
+
+				<div class="dmex-ebook--viewer-zoom">
+					<button type="button" class="dmex-ebook--viewer-zoom-btn" aria-label="축소">축소</button>
+					<div class="dmex-ebook--viewer-zoom-progress">
+						<input type="range" step="1" min="0" max="100" value="0">
+					</div>
+					<button type="button" class="dmex-ebook--viewer-zoom-btn" aria-label="확대">확대</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="../resources/lib/page-flip.browser.js"></script>
+	<script src="../resources/js/ui.global.js"></script>
+	<script>
+		window.UI = {}
+		document.addEventListener("DOMContentLoaded", function () {
+
+			//pdf 이미지
+			const data_pdf = [
+				{ img: '../resources/dummy/page1.jpg', title: '1페이지' },
+				{ img: '../resources/dummy/page2.jpg', title: '2페이지' },
+				{ img: '../resources/dummy/page3.jpg', title: '3페이지' },
+				{ img: '../resources/dummy/page4.jpg', title: '4페이지' },
+				{ img: '../resources/dummy/page1.jpg', title: '5페이지' },
+				{ img: '../resources/dummy/page2.jpg', title: '6페이지' },
+				{ img: '../resources/dummy/page3.jpg', title: '7페이지' },
+				{ img: '../resources/dummy/page4.jpg', title: '8페이지' },
+			]
+
+
+			const ebookLoad = new PDFeBook({
+				id: 'book',
+				data: data_pdf
+			});
+
+
+
+			// pageFlip.on('flip', (e) => {
+			//   console.log("Current page: " + e.data);
+			//   // callback code
+			//   }
+			// );
+			// get total number of pages
+			//pageFlip.getPageCount();
+			// get the current page index
+			// pageFlip.getCurrentPageIndex();
+			// // turn to a specific page
+			// pageFlip.turnToPage(pageNum: number);
+			// // turn to the next page
+			// pageFlip.turnToNextPage();
+			// // turn to the previous page
+			// pageFlip.turnToPrevPage();
+			// // turn to the next page with animation
+			// pageFlip.flipNext(corner: 'top' | 'bottom');
+			// // turn to the previous page with animation
+			// pageFlip.flipPrev(corner: 'top' | 'bottom');
+			// // turn to a specific page with animation
+			// pageFlip.flip(pageNum: number, corner: 'top' | 'bottom');
+			// // update pages
+			// pageFlip.updateFromHtml(items: NodeListOf | HTMLElement[]);
+			// pageFlip.updateFromImages(images: ['path-to-image1.jpg', ...]);
+			// // destroy the instance
+			// pageFlip.destroy();
+
+			// triggered by page turning
+			// pageFlip.on("flip", (e) => {
+			//   document.querySelector(".page-current").innerText = e.data + 1;
+			// });
+			// // triggered when the state of the book changes
+			// pageFlip.on("changeState", (e) => {
+			//   // ("user_fold", "fold_corner", "flipping", "read")
+			// });
+			// // triggered when page orientation changes
+			// pageFlip.on("changeOrientation", (e) => {
+			//   // ("portrait", "landscape")
+			// });
+			// // triggered when the book is init and the start page is loaded
+			// pageFlip.on("init", (e) => {
+			//   ({page: number, mode: 'portrait'})
+			// });
+			// // triggered when the book pages are updated
+			// pageFlip.on("update", (e) => {
+			//   // ({page: number, mode: 'portrait', 'landscape'})
+			// });
+		});
+	</script>
+</body>
+
+</html>
