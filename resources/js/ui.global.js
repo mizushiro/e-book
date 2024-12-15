@@ -807,8 +807,6 @@ class PDFeBook {
 	constructor(opt) {
 		this.data = opt.data;
 		this.id = opt.id;
-		this.group = document.querySelector('.dmex-ebook--viewer-book');
-
 		this.init();
 	}
 	zoomReset() {
@@ -819,27 +817,22 @@ class PDFeBook {
 		viewer_book.style.zoom = 1;
 	}
 	init() {
-		const body = document.querySelector('body');
 		const viewer = document.querySelector('.dmex-ebook--viewer');
 		const viewer_body = viewer.querySelector('.dmex-ebook--viewer-body');
-		const viewer_book = viewer.querySelector('.dmex-ebook--viewer-book');	
-		let area_rect_org = viewer_book.getBoundingClientRect();
-		//페이지세팅
-		for (let i = 0, len = this.data.length; i < len; i++) {
-			this.group.insertAdjacentHTML('beforeend', `<div class="dmex-ebook--viewer-page"><img src="${this.data[i].img}" alt="${this.data[i].title}"></div>`);
-		}
-
-		//page control
+		const viewer_book = viewer.querySelector('.dmex-ebook--viewer-book');
 		const paging_current = viewer.querySelector('.dmex-ebook--viewer-paging-current');
 		const paging_total = viewer.querySelector('.dmex-ebook--viewer-paging-total');
 		const control_btn = viewer.querySelectorAll('.dmex-ebook--viewer-control-btn, .dmex-ebook--viewer-paging-btn');
-		
-		//page zoom
 		const zoom_btns = viewer.querySelectorAll('.dmex-ebook--viewer-zoom-btn');
 		const zoom_progress = viewer.querySelector('.dmex-ebook--viewer-zoom-progress input');
 
-		
+		let area_rect_org = viewer_book.getBoundingClientRect();
 
+		//페이지세팅
+		for (let i = 0, len = this.data.length; i < len; i++) {
+			viewer_book.insertAdjacentHTML('beforeend', `<div class="dmex-ebook--viewer-page"><img src="${this.data[i].img}" alt="${this.data[i].title}"></div>`);
+		}
+		
 		// A4비율 1:1.414
 		const rect = viewer_body.getBoundingClientRect();
 		const calculateWidth = (height) => {
@@ -848,7 +841,6 @@ class PDFeBook {
 		}
 		const w = calculateWidth(rect.height);
 		const h = rect.height - 60;
-
 		UI.ebook = {};
 		UI.ebook[this.id] = new St.PageFlip(
 			document.getElementById(this.id),
@@ -875,14 +867,11 @@ class PDFeBook {
 		paging_current.textContent = pageFlip.getCurrentPageIndex() + 1;
 		paging_total.textContent = pageFlip.getPageCount();
 
-		//zoom
-		console.log(viewer_book);
+		//zoom 확대축소
 		viewer_book.dataset.zoomArea = 1;
 		viewer_body.dataset.zoomState = 'false';
 		let base_x = 0;
 		let base_y = 0;
-		let timer = null;
-
 		const actZoom = (e) => {
 			const _btn = e.currentTarget;
 			const state = _btn.dataset.zoomState;
@@ -902,15 +891,11 @@ class PDFeBook {
 					}
 					break;
 			}
-
 			zoom_progress.value = 100 - ((5 - Number(viewer_book.dataset.zoomArea)) / 4 * 100);
-
 			viewer_book.dataset.zoomArea = Number(viewer_book.dataset.zoomArea) < 1 ? 1 : Number(viewer_book.dataset.zoomArea) > 5 ? 5 : viewer_book.dataset.zoomArea;
 			viewer_book.style.zoom = viewer_book.dataset.zoomArea;
-
 			area_rect_org = viewer_book.getBoundingClientRect();
 		}
-
 		zoom_btns.forEach((item) => {
 			item.addEventListener('click', actZoom);
 		});
@@ -929,7 +914,7 @@ class PDFeBook {
 			}
 		});
 
-		//zoom move
+		//zoom 확대이동
 		const actStart = (e) => {
 			if (viewer_book.dataset.zoomArea === '1') {
 				return false;
@@ -951,7 +936,7 @@ class PDFeBook {
 
 				viewer_book.style.transform = `translate(calc(${_matrix_l + move_x - start_x}px), calc(${_matrix_t + move_y - start_y}px))`;
 			}
-			const actEnd = (e) => {
+			const actEnd = () => {
 				viewer_body.removeEventListener('mousemove', actMove);
 				viewer_body.removeEventListener('mouseup', actEnd);
 				viewer_body.removeEventListener('touchmove', actMove);
@@ -969,14 +954,12 @@ class PDFeBook {
 		const pageMove = (e) => {
 			const _this = e.target;
 			const _data = _this.dataset.act;
-
 			switch (_data) {
 				case 'prev': pageFlip.flipPrev(); break;
 				case 'next': pageFlip.flipNext(); break;
 				case 'first': pageFlip.turnToPage(0); break;
 				case 'last': pageFlip.turnToPage(pageFlip.getPageCount() - 1); break;
 			}
-
 			this.zoomReset();
 		}
 		control_btn.forEach((item) => {
