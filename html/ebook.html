@@ -76,7 +76,7 @@
 		window.UI = {}
 		document.addEventListener("DOMContentLoaded", function () {
 
-			//pdf 이미지
+			//pdf 정보 
 			const data_pdf = [
 				{ img: '../resources/dummy/page1.jpg', title: '1페이지' },
 				{ img: '../resources/dummy/page2.jpg', title: '2페이지' },
@@ -87,8 +87,6 @@
 				{ img: '../resources/dummy/page3.jpg', title: '7페이지' },
 				{ img: '../resources/dummy/page4.jpg', title: '8페이지' },
 			]
-
-
 			const ebookLoad = new PDFeBook({
 				id: 'book',
 				data: data_pdf
