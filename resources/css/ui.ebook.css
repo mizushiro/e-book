@@ -33,6 +33,7 @@
   flex-direction: column;
   border:.1rem solid #eee;
   flex:1;
+  width: 100%;
 }
 .dmex-ebook--viewer-header {
   display: flex;
@@ -57,6 +58,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  max-height: calc(100dvh - 18rem);
+  overflow: hidden;
 }
 
 .dmex-ebook--viewer-auto {
@@ -113,11 +116,11 @@
 
 
 .dmex-ebook--viewer-book {
-  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.2);
   margin: 0 auto;
   display: none;
-  z-index: 100;
-  background-color: #fff;
+  /* z-index: 100;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff; */
 }
 .dmex-ebook--viewer-page {
   -webkit-user-select: none;
@@ -153,7 +156,7 @@
   }
 }
 
-.dmex-ebook--viewer-page--right {
+.dmex-ebook--viewer-page.--right {
   border-left: 0;
   /* box-shadow: inset 0.7rem 0 3rem -0.7rem rgba(0, 0, 0, 0.4); */
   &::before {
@@ -217,3 +220,7 @@
   background-size: cover
 }
 
+[data-zoom-state='true'] .stf__wrapper {pointer-events: none;}
+[data-zoom-state='true'] .dmex-ebook--viewer-book {
+
+}
