@@ -21,23 +21,22 @@
 			<!-- head -->
 			<div class="dmex-ebook--viewer-header">
 				<div class="dmex-ebook--viewer-info">
-					<h2 class="dmex-ebook--viewer-info-title">노무정책.pdf</h2>
+					<h2 class="dmex-ebook--viewer-info-title">{{pdf 제목}}</h2>
 					<div class="dmex-ebook--viewer-info-etc">
-						<span class="dmex-ebook--viewer-info-date">최종 등록일시 2024-11-11</span>
-						<span class="dmex-ebook--viewer-info-size">204KB</span>
-						<span class="dmex-ebook--viewer-info-name">최초등로가 홍길동</span>
+						<span class="dmex-ebook--viewer-info-date">{{최종 등록일시}}</span>
+						<span class="dmex-ebook--viewer-info-size">{{용량}}</span>
+						<span class="dmex-ebook--viewer-info-name">{{최초등록자}}</span>
 					</div>
 				</div>
-				<div class="dmex-ebook--viewer-auto">
-					<button type="button" class="dmex-ebook--viewer-auto-btn" data-act="auto" aria-label="">자동넘김</button>
-					<button type="button" class="dmex-ebook--viewer-auto-btn" data-act="list" aria-label="">목차</button>
-					<button type="button" class="dmex-ebook--viewer-auto-btn" data-act="zoom" aria-label="">확대</button>
+				<div class="dmex-ebook--viewer-util">
+					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="auto" aria-label="">자동넘김</button>
+					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="list" aria-label="">목차</button>
+					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="full" aria-label="">확대</button>
 				</div>
 			</div>
 
 			<!-- body -->
 			<div class="dmex-ebook--viewer-body">
-				<div class="dmex-ebook--viewer-book" id="book"></div>
 				<div class="dmex-ebook--viewer-control">
 					<button type="button" class="dmex-ebook--viewer-control-btn" data-act="prev" aria-label="이전페이지">prev</button>
 					<button type="button" class="dmex-ebook--viewer-control-btn" data-act="next" aria-label="다음페이지">next</button>
@@ -73,21 +72,36 @@
 	<script src="../resources/lib/page-flip.browser.js"></script>
 	<script src="../resources/js/ui.global.js"></script>
 	<script>
-		window.UI = {}
+		// window.UI = {}
 		document.addEventListener("DOMContentLoaded", function () {
 
 			//pdf 정보 
-			const data_pdf = [
-				{ img: '../resources/dummy/page1.jpg', title: '1페이지' },
-				{ img: '../resources/dummy/page2.jpg', title: '2페이지' },
-				{ img: '../resources/dummy/page3.jpg', title: '3페이지' },
-				{ img: '../resources/dummy/page4.jpg', title: '4페이지' },
-				{ img: '../resources/dummy/page1.jpg', title: '5페이지' },
-				{ img: '../resources/dummy/page2.jpg', title: '6페이지' },
-				{ img: '../resources/dummy/page3.jpg', title: '7페이지' },
-				{ img: '../resources/dummy/page4.jpg', title: '8페이지' },
-			]
-			const ebookLoad = new PDFeBook({
+			const data_pdf = {
+				title: '노무정책.pdf',
+				date: '2024-11-11',
+				size: 204, //kb
+				name: '홍길동',
+				page: [
+					{ img: '../resources/dummy/page1.jpg', title: '1페이지' },
+					{ img: '../resources/dummy/page2.jpg', title: '2페이지' },
+					{ img: '../resources/dummy/page3.jpg', title: '3페이지' },
+					{ img: '../resources/dummy/page4.jpg', title: '4페이지' },
+					{ img: '../resources/dummy/page5.jpg', title: '5페이지' },
+					{ img: '../resources/dummy/page6.jpg', title: '6페이지' },
+					{ img: '../resources/dummy/page7.jpg', title: '7페이지' },
+					{ img: '../resources/dummy/page8.jpg', title: '8페이지' },
+					{ img: '../resources/dummy/page9.jpg', title: '9페이지' },
+					{ img: '../resources/dummy/page10.jpg', title: '10페이지' },
+					{ img: '../resources/dummy/page11.jpg', title: '11페이지' },
+					{ img: '../resources/dummy/page12.jpg', title: '12페이지' },
+					{ img: '../resources/dummy/page13.jpg', title: '13페이지' },
+					{ img: '../resources/dummy/page14.jpg', title: '14페이지' },
+					{ img: '../resources/dummy/page15.jpg', title: '15페이지' },
+					{ img: '../resources/dummy/page16.jpg', title: '16페이지' },
+				]
+			}
+			
+			UI.exe.ebook = new PDFeBook({
 				id: 'book',
 				data: data_pdf
 			});
