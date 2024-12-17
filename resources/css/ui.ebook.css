@@ -53,13 +53,68 @@
 .dmex-ebook--viewer-body {
   flex:1;
   width: 100%;
-  padding: 3rem;
+  padding: 0;
   background-color: #eee;
   display: flex;
   align-items: center;
   justify-content: center;
   max-height: calc(100dvh - 18rem);
   overflow: hidden;
+  position: relative;
+}
+.dmex-ebook--viewer-main {
+  flex:1;
+  width: 100%;
+  padding: 3rem;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: calc(100dvh - 18rem);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+[data-list-state="true"] .dmex-ebook--viewer-list{
+  display: flex;
+}
+.dmex-ebook--viewer-list{
+  position: relative;
+  top:0;
+  right:0;
+  padding:1.4rem;
+  background-color: #fff;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: none;
+  flex-direction: column;
+  gap:.4rem;
+
+  &::-webkit-scrollbar {
+      position: absolute;
+      width: .8rem;
+      height: 1.2rem;
+      background-color: transparent
+  }
+  &::-webkit-scrollbar-track {
+      background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, .2);
+      border-radius: 3rem;
+      border-radius: .8rem;
+      background-clip: padding-box;
+      border: .3rem solid transparent;
+  }
+  &::-webkit-scrollbar-corner {
+      background-color: transparent;
+  }
+}
+.dmex-ebook--viewer-list-btn{
+  width: 100%;
+  padding: 1rem;
+  border-bottom: .1rem solid #ccc;
 }
 
 .dmex-ebook--viewer-util {
@@ -74,6 +129,19 @@
   min-width: 2rem;
   min-height: 2rem;
   border: .1rem solid #ddd;
+}
+.dmex-ebook--viewer-util-btn[data-act="auto"]::before{
+  content: "자동넘김";
+}
+[data-auto="true"] .dmex-ebook--viewer-util-btn[data-act="auto"]::before{
+  content: "정지";
+}
+
+.dmex-ebook--viewer-util-btn[data-act="full"]::before{
+  content: "확대";
+}
+[data-full="true"] .dmex-ebook--viewer-util-btn[data-act="full"]::before{
+  content: "축소"
 }
 
 .dmex-ebook--viewer-zoom {
@@ -115,9 +183,9 @@
 }
 
 
+
 .dmex-ebook--viewer-book {
   margin: 0 auto;
-  display: none;
   height: 100%;
   width: 100%;
   /* z-index: 100;

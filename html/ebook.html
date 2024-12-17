@@ -28,20 +28,23 @@
 						<span class="dmex-ebook--viewer-info-name">{{최초등록자}}</span>
 					</div>
 				</div>
-				<div class="dmex-ebook--viewer-util">
-					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="auto" aria-label="">자동넘김</button>
+				<div class="dmex-ebook--viewer-util" data-auto="false">
+					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="auto" aria-label="자동넘기기"></button>
 					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="list" aria-label="">목차</button>
-					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="full" aria-label="">확대</button>
+					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="full" aria-label="확대"></button>
 				</div>
 			</div>
 
-			<!-- body -->
 			<div class="dmex-ebook--viewer-body">
-				<div class="dmex-ebook--viewer-control">
-					<button type="button" class="dmex-ebook--viewer-control-btn" data-act="prev" aria-label="이전페이지">prev</button>
-					<button type="button" class="dmex-ebook--viewer-control-btn" data-act="next" aria-label="다음페이지">next</button>
+				<!-- body -->
+				<div class="dmex-ebook--viewer-main">
+					<div class="dmex-ebook--viewer-control">
+						<button type="button" class="dmex-ebook--viewer-control-btn" data-act="prev" aria-label="이전페이지">prev</button>
+						<button type="button" class="dmex-ebook--viewer-control-btn" data-act="next" aria-label="다음페이지">next</button>
+					</div>
 				</div>
 			</div>
+			
 
 			<!-- foot -->
 			<div class="dmex-ebook--viewer-footer">
@@ -82,9 +85,9 @@
 				size: 204, //kb
 				name: '홍길동',
 				page: [
-					{ img: '../resources/dummy/page1.jpg', title: '1페이지' },
-					{ img: '../resources/dummy/page2.jpg', title: '2페이지' },
-					{ img: '../resources/dummy/page3.jpg', title: '3페이지' },
+					{ img: '../resources/dummy/page1.jpg', title: '1페이지 개요' },
+					{ img: '../resources/dummy/page2.jpg', title: '2페이지 1. 역사의 흐름' },
+					{ img: '../resources/dummy/page3.jpg', title: '3페이지 시간이란' },
 					{ img: '../resources/dummy/page4.jpg', title: '4페이지' },
 					{ img: '../resources/dummy/page5.jpg', title: '5페이지' },
 					{ img: '../resources/dummy/page6.jpg', title: '6페이지' },
@@ -98,6 +101,7 @@
 					{ img: '../resources/dummy/page14.jpg', title: '14페이지' },
 					{ img: '../resources/dummy/page15.jpg', title: '15페이지' },
 					{ img: '../resources/dummy/page16.jpg', title: '16페이지' },
+					
 				]
 			}
 			

@@ -803,9 +803,9 @@
 
 })();
 
+//PDF e-Book
 class PDFeBook {
 	constructor(opt) {
-		
 		this.id = opt.id;
 		this.data = opt.data.page;
 		this.title = opt.data.title;
@@ -815,9 +815,10 @@ class PDFeBook {
 
 		this.timer_auto = null;
 		this.auto_current = 0;
-
 		this.timer_reset = null;
 		this.once = true;
+
+		this.list();
 		this.set();
 	}
 	zoomReset() {
@@ -831,24 +832,53 @@ class PDFeBook {
 		const stf__wrapper = document.querySelector('.dmex-ebook--viewer .stf__wrapper');
 		const isLandscape = stf__wrapper.classList.contains('--landscape');
 		const total = isLandscape ? Math.floor(this.data.length / 2) : this.data.length;
+		const _util = document.querySelector('.dmex-ebook--viewer-util');
 
-		if (!v) {
+		if (_util.dataset.auto === 'true') {
+			_util.dataset.auto = false;
 			clearTimeout(this.timer_auto);
 
-			if (this.auto_current < total) {
-				this.timer_auto = setTimeout(() => {
-					this.auto_current = this.auto_current + 1;
-					UI.ebook[this.id].flipNext();
-					this.autoPlayStop();
-				}, 1000);
+		} else {
+			_util.dataset.auto = true;
+			const act = () => {
+				clearTimeout(this.timer_auto);
+				if (this.auto_current < total) {
+					this.timer_auto = setTimeout(() => {
+						this.auto_current = this.auto_current + 1;
+						UI.ebook[this.id].flipNext();
+						act();
+					}, 1000);
+				} else {
+					_util.dataset.auto = false;
+				}
 			}
-		} 
+			act();
+		}
+	}
+	pageReset(){
+		const viewer = document.querySelector('.dmex-ebook--viewer');
+		UI.ebook[this.id].destroy();
+	}
+	pageLoad(n) {
+
+	}
+	list() {
+		const viewer_body = document.querySelector('.dmex-ebook--viewer-body');
+		let html_list = `<ul class="dmex-ebook--viewer-list">`;
+		for (let i = 0, len = this.data.length; i < len; i++) {
+			html_list += `<li><button type="button" data-page-num="${i}" class="dmex-ebook--viewer-list-btn">
+				<span>${this.data[i].title}</span>
+			</button></li>`;
+		}
+		html_list += `</ul>`;
+		viewer_body.insertAdjacentHTML('beforeend', html_list);
 	}
 	set() {
 		const viewer = document.querySelector('.dmex-ebook--viewer');
 		const viewer_body = document.querySelector('.dmex-ebook--viewer-body');
+		const viewer_main = document.querySelector('.dmex-ebook--viewer-main');
 
-		viewer_body.insertAdjacentHTML('afterbegin', `<div class="dmex-ebook--viewer-book" id="${this.id}"></div>`);
+		viewer_main.insertAdjacentHTML('afterbegin', `<div class="dmex-ebook--viewer-book" id="${this.id}"></div>`);
 
 		const viewer_book = viewer.querySelector('.dmex-ebook--viewer-book');
 
@@ -862,16 +892,23 @@ class PDFeBook {
 		viewer_date.textContent = '최종 등록일시 ' + this.date;
 		viewer_size.textContent = this.size + 'KB';
 		viewer_name.textContent = '최초등록자 ' + this.name;
-
+		
+		let html_page = ``;
 		for (let i = 0, len = this.data.length; i < len; i++) {
-			viewer_book.insertAdjacentHTML('beforeend', `<div class="dmex-ebook--viewer-page"><img src="${this.data[i].img}" alt="${this.data[i].title}"></div>`);
+			// if (this.auto_current + 3 > i && this.auto_current - 3 < i) {
+				html_page += `<div class="dmex-ebook--viewer-page"><img src="${this.data[i].img}" data-src="${this.data[i].img}" alt="${this.data[i].title}"></div>`;
+			// } else {
+			// 	html_page += `<div class="dmex-ebook--viewer-page"><img src="../resources/images/ebook/page_bg.jpg" data-src="${this.data[i].img}" alt="${this.data[i].title}"></div>`;
+			// }
 		}
+		viewer_book.insertAdjacentHTML('beforeend', html_page);
 
 		this.init();
 	}
 	init() {
 		const viewer = document.querySelector('.dmex-ebook--viewer');
 		const viewer_body = viewer.querySelector('.dmex-ebook--viewer-body');
+		const viewer_main = document.querySelector('.dmex-ebook--viewer-main');
 
 		const viewer_book = viewer.querySelector('.dmex-ebook--viewer-book');
 		const paging_current = viewer.querySelector('.dmex-ebook--viewer-paging-current');
@@ -882,9 +919,12 @@ class PDFeBook {
 		const zoom_progress = viewer.querySelector('.dmex-ebook--viewer-zoom-progress input');
 
 		const util_btns = viewer.querySelectorAll('.dmex-ebook--viewer-util-btn'); 
+		const list_btns = viewer.querySelectorAll('.dmex-ebook--viewer-list-btn');
+
+		const _util = document.querySelector('.dmex-ebook--viewer-util');
 
 		// A4비율 1:1.414
-		const rect = viewer_body.getBoundingClientRect();
+		const rect = viewer_main.getBoundingClientRect();
 		const calculateWidth = (height) => {
 			const ratio = 1.414;
 			return (height - 60) / ratio;
@@ -899,7 +939,6 @@ class PDFeBook {
 		let h_min =  h / 2;
 		let w_max =  w;
 		let h_max =  h;
-
 		if (w > rect.width / 2) {
 			w_min = w;
 			h_min = h;
@@ -913,6 +952,7 @@ class PDFeBook {
 			h_max = calculateHeight(rect.width);
 		}
 
+		//pageFlip 실행
 		UI.ebook = {};
 		UI.ebook[this.id] = new St.PageFlip(
 			document.getElementById(this.id),
@@ -931,21 +971,22 @@ class PDFeBook {
 				autoSize: true,
 			}
 		);
-		const pageFlip = UI.ebook[this.id];
-		pageFlip.loadFromHTML(document.querySelectorAll('.dmex-ebook--viewer-page'));
-		pageFlip.on('flip', (e) => {
-			paging_current.textContent = pageFlip.getCurrentPageIndex() + 1;
+		UI.ebook[this.id].loadFromHTML(document.querySelectorAll('.dmex-ebook--viewer-page'));
+		UI.ebook[this.id].on('flip', () => {
+			paging_current.textContent = UI.ebook[this.id].getCurrentPageIndex() + 1;
 		});
-		paging_current.textContent = pageFlip.getCurrentPageIndex() + 1;
-		paging_total.textContent = pageFlip.getPageCount();
+		paging_current.textContent = UI.ebook[this.id].getCurrentPageIndex() + 1;
+		paging_total.textContent = UI.ebook[this.id].getPageCount();
 		
-
-		//zoom 확대축소
 		viewer_book.dataset.zoomArea = 1;
 		viewer_body.dataset.zoomState = 'false';
+
+		//act - 확대축소
 		const actZoom = (e) => {
 			const _btn = e.currentTarget;
 			const state = _btn.dataset.zoomState;
+			const viewer_book = viewer.querySelector('.dmex-ebook--viewer-book');
+
 			switch (state) {
 				case 'plus': 
 					viewer_book.dataset.zoomArea = Number(viewer_book.dataset.zoomArea) + 0.5;
@@ -956,8 +997,6 @@ class PDFeBook {
 
 					if (viewer_book.dataset.zoomArea === '1') {
 						viewer_book.style.transform = `translate(0, 0)`;
-						base_x = 0;
-						base_y = 0;
 						viewer_body.dataset.zoomState = 'false';
 					}
 					break;
@@ -965,17 +1004,13 @@ class PDFeBook {
 			zoom_progress.value = 100 - ((5 - Number(viewer_book.dataset.zoomArea)) / 4 * 100);
 			viewer_book.dataset.zoomArea = Number(viewer_book.dataset.zoomArea) < 1 ? 1 : Number(viewer_book.dataset.zoomArea) > 5 ? 5 : viewer_book.dataset.zoomArea;
 			viewer_book.style.zoom = viewer_book.dataset.zoomArea;
-			area_rect_org = viewer_book.getBoundingClientRect();
 		}
-		zoom_btns.forEach((item) => {
-			item.removeEventListener('click', actZoom);
-			item.addEventListener('click', actZoom);
-		});
 		const actProgress = (e) => {
 			const _this = e.currentTarget;
 			const _x = 4; //최대 5배
 			const _v = Number(_this.value);
 			const _zoom = Math.round((_this.value * _x / 100) + 1); 
+			const viewer_book = viewer.querySelector('.dmex-ebook--viewer-book');
 
 			if (_v > 0) {
 				viewer_body.dataset.zoomState = 'true';
@@ -985,11 +1020,9 @@ class PDFeBook {
 				this.zoomReset()
 			}
 		}
-		zoom_progress.removeEventListener('input', actProgress);
-		zoom_progress.addEventListener('input', actProgress);
-
-		//zoom 확대이동
+		//act - zoom 확대이동
 		const actStart = (e) => {
+			const viewer_book = viewer.querySelector('.dmex-ebook--viewer-book');
 			if (viewer_book.dataset.zoomArea === '1') {
 				return false;
 			}
@@ -1011,110 +1044,131 @@ class PDFeBook {
 				viewer_book.style.transform = `translate(calc(${_matrix_l + move_x - start_x}px), calc(${_matrix_t + move_y - start_y}px))`;
 			}
 			const actEnd = () => {
-				viewer_body.removeEventListener('mousemove', actMove);
-				viewer_body.removeEventListener('mouseup', actEnd);
-				viewer_body.removeEventListener('touchmove', actMove);
-				viewer_body.removeEventListener('touchend', actEnd);
+				viewer_main.removeEventListener('mousemove', actMove);
+				viewer_main.removeEventListener('mouseup', actEnd);
+				viewer_main.removeEventListener('touchmove', actMove);
+				viewer_main.removeEventListener('touchend', actEnd);
 			}
-			viewer_body.addEventListener('mouseup', actEnd);
-			viewer_body.addEventListener('touchend', actEnd);
-			viewer_body.addEventListener('mousemove', actMove);
-			viewer_body.addEventListener('touchmove', actMove);
+			viewer_main.addEventListener('mouseup', actEnd);
+			viewer_main.addEventListener('touchend', actEnd);
+			viewer_main.addEventListener('mousemove', actMove);
+			viewer_main.addEventListener('touchmove', actMove);
 		}
-		viewer_body.removeEventListener('mousedown', actStart);
-		viewer_body.removeEventListener('touchstart', actStart);
-		viewer_body.addEventListener('mousedown', actStart);
-		viewer_body.addEventListener('touchstart', actStart);
-
-
-		//page이동
+		//act - page이동
 		const pageMove = (e) => {
 			const _this = e.target;
 			const _data = _this.dataset.act;
+			clearTimeout(this.timer_auto);
+			_util.dataset.auto = false;
 			switch (_data) {
 				case 'prev': 
-					pageFlip.flipPrev();
+					UI.ebook[this.id].flipPrev();
 					this.auto_current = this.auto_current - 1;
 					this.auto_current < 0 ? this.auto_current = 0 : '';
 					break;
 				case 'next': 
-					pageFlip.flipNext(); 
+					UI.ebook[this.id].flipNext(); 
 					this.auto_current = this.auto_current + 1;
-					this.auto_current > pageFlip.getPageCount() - 1 ? this.auto_current = pageFlip.getPageCount() - 1 : '';
+					this.auto_current > UI.ebook[this.id].getPageCount() - 1 ? this.auto_current = UI.ebook[this.id].getPageCount() - 1 : '';
 					break;
 				case 'first': 
-					pageFlip.turnToPage(0); 
+					UI.ebook[this.id].turnToPage(0); 
 					this.auto_current = 0;
 					break;
 				case 'last': 
-					pageFlip.turnToPage(pageFlip.getPageCount() - 1); 
-					this.auto_current = pageFlip.getPageCount() - 1;
+					UI.ebook[this.id].turnToPage(UI.ebook[this.id].getPageCount() - 1); 
+					this.auto_current = UI.ebook[this.id].getPageCount() - 1;
 					break;
 			}
 			this.zoomReset();
 		}
-		control_btn.forEach((item) => {
-			item.removeEventListener('click', pageMove);
-			item.addEventListener('click', pageMove);
-		});
-
-		//auto play stop
+		//act - list page go
+		const pageGo = (e) => {
+			const _this = e.currentTarget;
+			const _num = Number(_this.dataset.pageNum);
+			clearTimeout(this.timer_auto);
+			_util.dataset.auto = false;
+			console.log(_num, this.id);
+			this.auto_current = _num;
+			UI.ebook[this.id].turnToPage(_num); 
+		}
+		//act - auto play stop
 		const utilAct = (e) => {
 			const _this = e.target;
 			const _data = _this.dataset.act;
 			switch (_data) {
 				case 'auto': 
+					console.log('autoauto');
 					this.autoPlayStop(); 
 					break;
 				case 'list': 
-					UI.ebook[this.id].destroy();
-					this.set();
+					if (viewer_body.dataset.listState === 'true') {
+						viewer_body.dataset.listState = 'false';
+					} else {
+						viewer_body.dataset.listState = 'true';
+					}
 					break;
 				case 'full': 
 				 	if (!document.fullscreenElement) {
 						viewer.requestFullscreen(); 
+						viewer.dataset.full = 'true';
 						setTimeout(() => {
-							UI.ebook[this.id].destroy();
+							this.pageReset();
 							this.set();
 						},500)
-						
-						console.log(this.auto_current);
 					} else {
 						if (document.exitFullscreen) {
+							viewer.dataset.full = 'false';
 							document.exitFullscreen();
 							setTimeout(() => {
-								UI.ebook[this.id].destroy();
+								this.pageReset();
 								this.set();
-							},500)
+							},500);
 						}
 					}
-					
 					break;
 			}
 		}
-		util_btns.forEach((item) => {
-			item.removeEventListener('click', utilAct);
-			item.addEventListener('click', utilAct);
-		});
 
-		console.log(this.auto_current, pageFlip)
-		if (this.auto_current !== 0) {
-			
-			pageFlip.turnToPage(this.auto_current); 
+		//event
+		if (this.once) {
+			zoom_btns.forEach((item) => {
+				item.addEventListener('click', actZoom);
+			});
+			zoom_progress.addEventListener('input', actProgress);
+
+			viewer_main.addEventListener('mousedown', actStart);
+			viewer_main.addEventListener('touchstart', actStart);
+
+			control_btn.forEach((item) => {
+				item.addEventListener('click', pageMove);
+			});
+
+			util_btns.forEach((item) => {
+				item.addEventListener('click', utilAct);
+			});
+			list_btns.forEach((item) => {
+				console.log(item)
+				item.addEventListener('click', pageGo);
+			});
 		}
 		
-
+		//마지막 선택한 페이지 이동
+		if (this.auto_current !== 0) {
+			UI.ebook[this.id].turnToPage(this.auto_current); 
+		}
 		//ebook resize
 		if (this.once) {
 			this.once = false;
 			const resizeObserver = new ResizeObserver(entries => {
+				console.log(entries.length);
 				clearTimeout(this.timer_reset);
 				this.timer_reset = setTimeout(() => {
-					UI.ebook[this.id].destroy();
+					this.pageReset();
 					this.set();
 				}, 200);
 			});
-			resizeObserver.observe(viewer_body);
+			resizeObserver.observe(viewer_main);
 		}
 	}
 }
