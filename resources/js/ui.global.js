@@ -965,7 +965,6 @@ class PDFeBook {
 				minHeight: h_min,
 				size: "stretch",
 				maxShadowOpacity: .5,
-				showCover: true,
 				mobileScrollSupport: false,
 				showCover: true,
 				autoSize: true,
@@ -1932,7 +1931,7 @@ class Layer {
 	backClick = (e) => {
 		//mouse click, touch 인 경우만 실행. ''값은 방향키로 이동 시
 		if (e.pointerType !== '') {
-			e.srcElement.querySelector('.mdl-layer[role="listbox]') ?? this.hide();
+			e.srcElement.querySelector('.mdl-layer[role="listbox"]') ?? this.hide();
 		}
 
 	}

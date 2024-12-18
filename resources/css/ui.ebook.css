@@ -102,7 +102,6 @@
   }
   &::-webkit-scrollbar-thumb {
       background-color: rgba(0, 0, 0, .2);
-      border-radius: 3rem;
       border-radius: .8rem;
       background-clip: padding-box;
       border: .3rem solid transparent;
