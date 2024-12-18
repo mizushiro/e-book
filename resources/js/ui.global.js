@@ -1165,7 +1165,7 @@ class PDFeBook {
 				this.timer_reset = setTimeout(() => {
 					this.pageReset();
 					this.set();
-				}, 200);
+				}, 0);
 			});
 			resizeObserver.observe(viewer_main);
 		}
