@@ -891,7 +891,7 @@ class PDFeBook {
 		viewer_title.textContent = this.title;
 		viewer_date.textContent = '최종 등록일시 ' + this.date;
 		viewer_size.textContent = this.size + 'KB';
-		viewer_name.textContent = '최초등록자 ' + this.name;
+		viewer_name.textContent = '최종 등록자 ' + this.name;
 		
 		let html_page = ``;
 		for (let i = 0, len = this.data.length; i < len; i++) {

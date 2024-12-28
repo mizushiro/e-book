@@ -21,17 +21,22 @@
 			<!-- head -->
 			<div class="dmex-ebook--viewer-header">
 				<div class="dmex-ebook--viewer-info">
-					<h2 class="dmex-ebook--viewer-info-title">{{pdf 제목}}</h2>
-					<div class="dmex-ebook--viewer-info-etc">
-						<span class="dmex-ebook--viewer-info-date">{{최종 등록일시}}</span>
-						<span class="dmex-ebook--viewer-info-size">{{용량}}</span>
-						<span class="dmex-ebook--viewer-info-name">{{최초등록자}}</span>
-					</div>
+                    <i class="icon-pdf"></i>
+                    <div>
+                        <h2 class="dmex-ebook--viewer-info-title">{{pdf 제목}}</h2>
+                        <div class="dmex-ebook--viewer-info-etc">
+                            <span class="dmex-ebook--viewer-info-date">{{최종 등록일시}}</span>
+                            <span class="dmex-ebook--viewer-info-etc-line">|</span>
+                            <span class="dmex-ebook--viewer-info-size">{{용량}}</span>
+                            <span class="dmex-ebook--viewer-info-etc-line">|</span>
+                            <span class="dmex-ebook--viewer-info-name">{{최종 등록자}}</span>
+                        </div>
+                    </div>
 				</div>
 				<div class="dmex-ebook--viewer-util" data-auto="false">
-					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="auto" aria-label="자동넘기기"></button>
-					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="list" aria-label="">목차</button>
-					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="full" aria-label="확대"></button>
+					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="auto" aria-label="자동넘기기"><i class="icon-auto-play"></i></button>
+					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="list" aria-label=""><i class="icon-e-b-list"></i>목차</button>
+					<button type="button" class="dmex-ebook--viewer-util-btn" data-act="full" aria-label="확대"><i class="icon-e-b-full"></i></button>
 				</div>
 			</div>
 
@@ -39,8 +44,8 @@
 				<!-- body -->
 				<div class="dmex-ebook--viewer-main">
 					<div class="dmex-ebook--viewer-control">
-						<button type="button" class="dmex-ebook--viewer-control-btn" data-act="prev" aria-label="이전페이지">prev</button>
-						<button type="button" class="dmex-ebook--viewer-control-btn" data-act="next" aria-label="다음페이지">next</button>
+						<button type="button" class="dmex-ebook--viewer-control-btn" data-act="prev" aria-label="이전페이지"><i class="icon-e-p-prev-big"></i></button>
+						<button type="button" class="dmex-ebook--viewer-control-btn" data-act="next" aria-label="다음페이지"><i class="icon-e-p-next-big"></i></button>
 					</div>
 				</div>
 			</div>
@@ -49,22 +54,22 @@
 			<!-- foot -->
 			<div class="dmex-ebook--viewer-footer">
 				<div class="dmex-ebook--viewer-paging">
-					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="first">first</button>
-					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="prev">prev</button>
+					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="first"><i class="icon-e-p-first"></i></button>
+					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="prev"><i class="icon-e-p-prev"></i></button>
 					<div class="dmex-ebook--viewer-paging-number">
 						<b class="dmex-ebook--viewer-paging-current"></b> /
 						<span class="dmex-ebook--viewer-paging-total"></span>
 					</div>
-					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="next">next</button>
-					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="last">last</button>
+					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="next"><i class="icon-e-p-next"></i></button>
+					<button type="button" class="dmex-ebook--viewer-paging-btn" data-act="last"><i class="icon-e-p-last"></i></button>
 				</div>
 
 				<div class="dmex-ebook--viewer-zoom">
-					<button type="button" class="dmex-ebook--viewer-zoom-btn" aria-label="축소" data-zoom-state="minus">축소</button>
+					<button type="button" class="dmex-ebook--viewer-zoom-btn" aria-label="축소" data-zoom-state="minus"><i class="icon-view-minus"></i></button>
 					<div class="dmex-ebook--viewer-zoom-progress">
 						<input type="range" step="1" min="0" max="100" value="0">
 					</div>
-					<button type="button" class="dmex-ebook--viewer-zoom-btn" aria-label="확대" data-zoom-state="plus">확대</button>
+					<button type="button" class="dmex-ebook--viewer-zoom-btn" aria-label="확대" data-zoom-state="plus"><i class="icon-view-plus"></i></button>
 				</div>
 			</div>
 		</div>
