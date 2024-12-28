@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		:root {
+			--n: 0.8rem;
+			--list-roundbox-num: 3rem;
+		}
+
+		html {
+			font-size: 10px;
+		}
+
+		html,
+		body {
+			padding: 0;
+			margin: 0;
+		}
+
+		*,
+		*::after,
+		*::before {
+			box-sizing: border-box;
+		}
+
+		ol,
+		ul {
+			padding: 0;
+			margin: 0;
+		}
+
+
+		.list-roundbox {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			width: 100%;
+			gap: calc(var(--n) * 2);
+		}
+
+		.list-roundbox--item {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			
+			counter-increment: dep1 1;
+		}
+
+		.list-roundbox--header {
+			position: relative;
+			display: flex;
+			width: 100%;
+			border-bottom: 0;
+			gap: calc(var(--n) / 2);
+		}
+		.list-roundbox--header:before {
+			content: counter(dep1) '위';
+			display: flex;
+			top: 0;
+			left: calc(var(--list-roundbox-num) * -1);
+			width: 3rem;
+			height: 3rem;
+			background-color: #222;
+			color: #fff;
+			font-size: 1.1rem;
+			font-weight: 700;
+			justify-content: center;
+			align-items: center;
+			border-radius: calc(var(--n));
+			z-index: 1;
+		}
+
+		.list-roundbox--header-box {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			flex:1;
+			border: .1rem solid #ccc;
+			border-bottom: 0;
+			padding: 1.2rem 1.2rem .9rem;
+			border-top-left-radius: calc(var(--n));
+			border-top-right-radius: calc(var(--n));
+			background-color: #f3f3f3;
+			bottom: calc(100%);
+		}
+
+		.list-roundbox--round {
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: calc(var(--n) * -1);
+			width: calc(var(--n));
+			height: calc(var(--n));
+			background-color: #f3f3f3;
+			overflow: hidden;
+		}
+
+		.list-roundbox--round::after {
+			content: "";
+			display: block;
+			width: calc(100% + .2rem);
+			height: calc(100% + .2rem);
+			margin: -.2rem 0 0 -.2rem;
+			background-color: #fff;
+			border: .1rem solid #ccc;
+			border-bottom-right-radius: calc(var(--n));
+		}
+
+		.list-roundbox--body{
+			border: .1rem solid #ccc;
+			background-color: #f3f3f3;
+			padding: 1.2rem;
+			border-radius: calc(var(--n));
+			border-top-right-radius: 0;
+			margin-top: -.1rem;
+
+		}
+		.list-roundbox--body-box{
+			border: .1rem solid #ccc;
+			background-color: #fff;
+			padding: 1.2rem;
+			border-radius: calc(var(--n));
+			display: flex;
+			justify-content: center;
+		}
+
+	</style>
+</head>
+
+<body style="padding: 1.4rem;">
+	<p>
+		안녕 잘잤나요?<br>
+		배경이 단색일 경우에만 가능해요.<br>
+		- <strong><strong><strong><strong>이쁜 지연이에게</strong></strong></strong></strong>
+	</p>
+	<ol class="list-roundbox">
+		<li class="list-roundbox--item">
+			<div class="list-roundbox--header">
+				<div class="list-roundbox--header-box">
+					<strong class="list-roundbox--title">컨슈머 논-듀어러블즈</strong>
+					<em class="list-roundbox--percent">+0.91%</em>
+					<div class="list-roundbox--round"></div>
+				</div>
+			</div>
+			<div class="list-roundbox--body">
+				<div class="list-roundbox--body-box">마이크로소프트</div>
+			</div>
+		</li>
+
+		<li class="list-roundbox--item">
+			<div class="list-roundbox--header">
+				<div class="list-roundbox--header-box">
+					<strong class="list-roundbox--title">컨슈머 논-듀어러블즈</strong>
+					<em class="list-roundbox--percent">+0.91%</em>
+					<div class="list-roundbox--round"></div>
+				</div>
+			</div>
+			<div class="list-roundbox--body">
+				<div class="list-roundbox--body-box">마이크로소프트</div>
+			</div>
+		</li>
+	</ol>
+
+</body>
+
+</html>
