@@ -813,11 +813,12 @@ class PDFeBook {
 		this.size = opt.data.size;
 		this.name = opt.data.name;
 
+		this.autoSpeed = opt.data.autoSpeed ? opt.data.autoSpeed : 4000;
 		this.timer_auto = null;
 		this.auto_current = 0;
 		this.timer_reset = null;
 		this.once = true;
-
+console.log(this.autoSpeed)
 		this.list();
 		this.set();
 	}
@@ -847,7 +848,7 @@ class PDFeBook {
 						this.auto_current = this.auto_current + 1;
 						UI.ebook[this.id].flipNext();
 						act();
-					}, 1000);
+					}, this.autoSpeed);
 				} else {
 					_util.dataset.auto = false;
 				}
