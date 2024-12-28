@@ -925,16 +925,20 @@ class PDFeBook {
 
 		// A4비율 1:1.414
 		const rect = viewer_main.getBoundingClientRect();
+
+		//상하여백
+		const space = 0 //30 * 2; 
+
 		const calculateWidth = (height) => {
 			const ratio = 1.414;
-			return (height - 60) / ratio;
+			return (height - space) / ratio;
 		}
 		const calculateHeight = (width) => {
 			const ratio = 1.414;
-			return (width - 60) * ratio;
+			return (width - space) * ratio;
 		}
 		let w = calculateWidth(rect.height);
-		let h = rect.height - 60;
+		let h = rect.height - space;
 		let w_min =  w / 2;
 		let h_min =  h / 2;
 		let w_max =  w;
@@ -944,11 +948,11 @@ class PDFeBook {
 			h_min = h;
 		} 
 		if (w > rect.width) {
-			w = rect.width - 60;
+			w = rect.width - space;
 			h = calculateHeight(rect.width);
-			w_min = rect.width - 60;
+			w_min = rect.width - space;
 			h_min = calculateHeight(rect.width);
-			w_max = rect.width - 60;
+			w_max = rect.width - space;
 			h_max = calculateHeight(rect.width);
 		}
 
