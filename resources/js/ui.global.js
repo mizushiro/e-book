@@ -881,6 +881,7 @@ console.log(this.autoSpeed)
 		this.set();
 	}
 	zoomReset() {
+		console.log('zoomreset')
 		const viewer_body = document.querySelector('.dmex-ebook--viewer-body');
 		const viewer_book = document.querySelector('.dmex-ebook--viewer-book');	
 		viewer_book.style.transform = `translate(0, 0)`;
@@ -922,7 +923,8 @@ console.log(this.autoSpeed)
 
 	}
 	list() {
-		const viewer_body = document.querySelector('.dmex-ebook--viewer-body');
+		
+		const viewer_body = document.querySelector('.dmex-ebook--viewer-wrap');
 		let html_list = `<ul class="dmex-ebook--viewer-list">`;
 		for (let i = 0, len = this.data.length; i < len; i++) {
 			html_list += `<li><button type="button" data-page-num="${i}" class="dmex-ebook--viewer-list-btn">
@@ -930,6 +932,8 @@ console.log(this.autoSpeed)
 			</button></li>`;
 		}
 		html_list += `</ul>`;
+
+		console.log('l;list',viewer_body)
 		viewer_body.insertAdjacentHTML('beforeend', html_list);
 	}
 	set() {
@@ -966,6 +970,7 @@ console.log(this.autoSpeed)
 	}
 	init() {
 		const viewer = document.querySelector('.dmex-ebook--viewer');
+		const viewer_wrap = viewer.querySelector('.dmex-ebook--viewer-wrap');
 		const viewer_body = viewer.querySelector('.dmex-ebook--viewer-body');
 		const viewer_main = document.querySelector('.dmex-ebook--viewer-main');
 
@@ -1045,6 +1050,7 @@ console.log(this.autoSpeed)
 
 		//act - 확대축소
 		const actZoom = (e) => {
+			console.log('actZoom', e)
 			const _btn = e.currentTarget;
 			const state = _btn.dataset.zoomState;
 			const viewer_book = viewer.querySelector('.dmex-ebook--viewer-book');
@@ -1164,10 +1170,10 @@ console.log(this.autoSpeed)
 					this.autoPlayStop(); 
 					break;
 				case 'list': 
-					if (viewer_body.dataset.listState === 'true') {
-						viewer_body.dataset.listState = 'false';
+					if (viewer_wrap.dataset.listState === 'true') {
+						viewer_wrap.dataset.listState = 'false';
 					} else {
-						viewer_body.dataset.listState = 'true';
+						viewer_wrap.dataset.listState = 'true';
 					}
 					break;
 				case 'full': 
@@ -1210,7 +1216,6 @@ console.log(this.autoSpeed)
 				item.addEventListener('click', utilAct);
 			});
 			list_btns.forEach((item) => {
-				console.log(item)
 				item.addEventListener('click', pageGo);
 			});
 		}
