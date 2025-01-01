@@ -801,7 +801,65 @@
 		}
 	}
 
+	Global.radioButton = {
+		init(option) {
+			console.log(option)
+			const opt = option;
+			const wrap = document.querySelector(`[data-radio-button="${opt.id}"]`);
+			const selected = wrap.querySelector('button[data-state="true"]');
+			const btns = wrap.querySelectorAll('button');
+			
+			wrap.setAttribute('role', 'listbox');
+			if (selected) selected.dataset.state = "";
+			if (opt.index !== null) btns[opt.index].dataset.state = "true";
+
+			const act = (e) => {
+				const _this = e.currentTarget;
+				const _wrap = _this.closest('[data-radio-button]');
+				const _selected = _wrap.querySelector('button[data-state="true"]');
+				console.log(_this);
+				if (_selected) _selected.dataset.state = "";
+
+				_this.dataset.state = "true";
+				opt.callback && opt.callback({
+					target: _this,
+					id: opt.id,
+					index: Number(_this.dataset.radioIdx)
+				});
+			}
+			btns.forEach((item, index) => {
+				item.dataset.radioIdx = index;
+				item.addEventListener('click', act);
+			})
+		}
+	}
+
 })();
+
+class TreeGroup {
+	constructor(opt) {
+		this.id = opt.id;
+		this.tree = document.querySelector(`.chbook-group--tree[data-id="${this.id}"]`);
+		this.btns = this.tree.querySelectorAll('.chbook-group--tree-btn');
+
+		this.init();
+	}
+	init() {
+		this.btns.forEach((item) => {
+			console.log(item);
+			item.addEventListener('click', this.toggleAct);
+		});
+	}
+	toggleAct(e) {
+		const _this = e.currentTarget;
+		const _item = _this.closest('.chbook-group--tree-item');
+		
+		if (!_item.dataset.treeView) _item.dataset.treeView = 'false';
+
+		_item.dataset.treeView = (_item.dataset.treeView === 'false') ? 'true' : 'false';
+
+	}
+}
 
 //PDF e-Book
 class PDFeBook {

@@ -12,16 +12,16 @@
     <title>E-Book</title>
 
     <link rel="stylesheet" href="../resources/css/ui.base.css">
+    <link rel="stylesheet" href="../resources/css/ui.ebook.css">
 
 </head>
 
 <body>
-<div class="chbook-wrap">
-    <header class="chbook-header">
-        header
-    </header>
+<div class="chbook-wrap" data-color="navy">
+    <header class="chbook-header" data-id="header"></header>
+
     <main class="chbook-content">
-        <div class="chbook-mobile-nav" data-tab-id="chbookTab">
+        <!-- <div class="chbook-mobile-nav" data-tab-id="chbookTab">
             <div class="chbook-mobile-nav-list">
                 <button type="button" data-tab="chbook-tab1">
                     Group
@@ -33,65 +33,271 @@
                     Document
                 </button>
             </div>
-        </div>
+        </div> -->
         <div class="left-nav">
-            <div class="left-nav-list">
-                <button type="button" class="order1">
-                    Group
+            <div class="left-nav-list" data-radio-button="nav">
+                <button type="button" class="left-nav-list-btn" data-name="group">
+                    <span>Group</span>
                 </button>
-                <button type="button" class="order2">
-                    Chatbot
+                <button type="button" class="left-nav-list-btn" data-name="chatbot">
+                    <span>Chatbot</span>
                 </button>
-                <button type="button" class="order3">
-                    Document
+                <button type="button" class="left-nav-list-btn" data-name="document">
+                    <span>Document</span>
+                </button>
+                <button type="button" class="left-nav-list-btn" data-name="setting">
+                    <span>Setting</span>
                 </button>
             </div>
         </div>
-        <div class="chbook-content-group" data-tab-id="chbookTab">
-            <div class="chbook-group-box order1" data-tab="chbook-tab1">
-                <div>
-                    Group
+        <div class="chbook-content-group">
+            <!-- 그룹 -->
+            <div class="chbook-group">
+                <div class="chbook-group--header">
+                    <button type="button" class="chbook-group--app"><span>신청하기</span></button>
+                    <button type="button" class="chbook-group--reset" aria-label="새로고침"></button>
+                    <button type="button" class="chbook-group--close" aria-label="그룹 닫기"></button>
+                </div>
+                <div class="chbook-group--body">
+                    <div class="chbook-group--ctg">
+                        <div class="chbook-group--ctg-item">
+                            <input type="checkbox" id="grp1" checked>
+                            <label for="grp1" class="lb-checkbox-group"><span>개인</span></label>
+                        </div>
+                        <div class="chbook-group--ctg-item">
+                            <input type="checkbox" id="grp2" checked>
+                            <label for="grp2" class="lb-checkbox-group"><span>그룹전체</span></label>
+                        </div>
+                    </div>
+
+                    <ul class="chbook-group--tree" data-id="group-tree">
+                        <li class="chbook-group--tree-item">
+                            <div class="chbook-group--tree-dep1">
+                                <div class="chbook-group--tree-dep1-check">
+                                    <input type="checkbox" id="tree_g1">
+                                    <label for="tree_g1" class="lb-checkbox-group"><span>Group1 (대그룹)</span></label>
+                                </div>
+                                <button type="button" class="chbook-group--tree-btn" aria-label="펼치기"></button>
+                            </div>
+                            <ul class="chbook-group--tree-group">
+                                <li class="chbook-group--tree-item">
+                                    <div class="chbook-group--tree-dep2">
+                                        <input type="checkbox" id="tree_g1_01">
+                                        <label for="tree_g1_01" class="lb-checkbox-group"><span>챗봇이름 챗봇이름 1</span></label>
+                                    </div>
+                                    <ul class="chbook-group--dep2-box">
+                                        <li>나의 best 챗봇</li>
+                                        <li>abc123@gmail.com</li>
+                                    </ul>
+                                </li>
+                                <li class="chbook-group--tree-item">
+                                    <div class="chbook-group--tree-dep2">
+                                        <input type="checkbox" id="tree_g1_02">
+                                        <label for="tree_g1_02" class="lb-checkbox-group"><span>챗봇이름 챗봇이름 2</span></label>
+                                    </div>
+                                    <ul class="chbook-group--dep2-box">
+                                        <li>나의 best 챗봇</li>
+                                        <li>abc123@gmail.com</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="chbook-group--tree-item">
+                            <div class="chbook-group--tree-dep1">
+                                <div class="chbook-group--tree-dep1-check">
+                                    <input type="checkbox" id="tree_g2">
+                                    <label for="tree_g2" class="lb-checkbox-group"><span>Group2 (대그룹)</span></label>
+                                </div>
+                                <button type="button" class="chbook-group--tree-btn" aria-label="펼치기"></button>
+                            </div>
+                            <ul class="chbook-group--tree-group">
+                                <li class="chbook-group--tree-item">
+                                    <div class="chbook-group--tree-dep2">
+                                        <input type="checkbox" id="tree_g2_01">
+                                        <label for="tree_g2_01" class="lb-checkbox-group"><span>챗봇이름 챗봇이름 1</span></label>
+                                    </div>
+                                    <ul class="chbook-group--dep2-box">
+                                        <li>나의 best 챗봇</li>
+                                        <li>abc123@gmail.com</li>
+                                    </ul>
+                                </li>
+                                <li class="chbook-group--tree-item">
+                                    <div class="chbook-group--tree-dep2">
+                                        <input type="checkbox" id="tree_g2_02">
+                                        <label for="tree_g2_02" class="lb-checkbox-group"><span>챗봇이름 챗봇이름 2</span></label>
+                                    </div>
+                                    <ul class="chbook-group--dep2-box">
+                                        <li>나의 best 챗봇</li>
+                                        <li>abc123@gmail.com</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="chbook-chatbot-box order2" data-tab="chbook-tab2">
-                <div>
-                    Chatbot
+
+            <!-- 쳇봇 -->
+            <div class="chbook-chatbot">
+                <div class="chbook-chatbot--box">
+                    <div class="chbook-chatbot--header">
+                        <button type="button" class="chbook-group--close" aria-label="그룹 닫기"></button>
+                    </div>
+                    <div class="chbook-chatbot--body">
+                        <div class="chbook-chatbot--body-start">
+                            <p role="text">안녕하세요. <br>질문을 입력하거나 파일을 등록해주세요</p>
+                        </div>
+
+                        <div class="chbook-chatbot--me">
+                            파트타임으로 1일 7시간 일하면 1년 연봉이 어떻게 되나요?
+                        </div>
+
+                        <div class="chbook-chatbot--you">
+                            <p>안녕하세요. 2024년 1월 1일 발행된 문서에 의하면 블라블라 이런 글을 찾을 수 있습니다. 관련된 문서를 찾았습니다.</p>
+                            
+                            <div role="listbox" class="chbook-chatbot--file">
+                               <button type="button"  class="chbook-chatbot--file-btn" data-file="pdf">노무정책_20241204.pdf</button>
+                               <button type="button"  class="chbook-chatbot--file-btn" data-file="pdf">노무정책_20241204.pdf</button>
+                               <button type="button"  class="chbook-chatbot--file-btn" data-file="pdf">노무정책_20241204.pdf</button>
+                            </div>
+                        </div>
+
+                        <div class="chbook-chatbot--me">
+                            파트타임으로 1일 7시간 일하면 1년 연봉이 어떻게 되나요? 파트타임으로 1일 7시간 일하면 1년 연봉이 어떻게 되나요?
+                        </div>
+                    </div>
                 </div>
+                <div class="chbook-chatbot--input">
+                    <textarea></textarea>
+                    <button type="button" class="chbook-chatbot--input-btn" aria-label="등록"></button>
+                </div>
+                
             </div>
-            <div class="chbook-e-book-box order3" data-tab="chbook-tab3">
+
+            <!-- 파일현황 -->
+            <!-- <div class="chbook-file">
                 <div>
                     Document
+                </div>
+            </div> -->
+
+             <!-- 파일현황 -->
+             <div class="chbook-ebook">
+                <div class="dmex-ebook--viewer">
+                    <!-- head -->
+                    <div class="dmex-ebook--viewer-header">
+                        <div class="dmex-ebook--viewer-info">
+                            <i class="icon-pdf"></i>
+                            <div>
+                                <h2 class="dmex-ebook--viewer-info-title">{{pdf 제목}}</h2>
+                                <div class="dmex-ebook--viewer-info-etc">
+                                    <span class="dmex-ebook--viewer-info-date">{{최종 등록일시}}</span>
+                                    <span class="dmex-ebook--viewer-info-etc-line">|</span>
+                                    <span class="dmex-ebook--viewer-info-size">{{용량}}</span>
+                                    <span class="dmex-ebook--viewer-info-etc-line">|</span>
+                                    <span class="dmex-ebook--viewer-info-name">{{최종 등록자}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dmex-ebook--viewer-util" data-auto="false">
+                            <button type="button" class="dmex-ebook--viewer-util-btn" data-act="auto" aria-label="자동넘기기"><i class="icon-auto-play"></i></button>
+                            <button type="button" class="dmex-ebook--viewer-util-btn" data-act="list" aria-label=""><i class="icon-e-b-list"></i>목차</button>
+                            <button type="button" class="dmex-ebook--viewer-util-btn" data-act="full" aria-label="확대"><i class="icon-e-b-full"></i></button>
+                        </div>
+                    </div>
+        
+                    <div class="dmex-ebook--viewer-body">
+                        <!-- body -->
+                        <div class="dmex-ebook--viewer-main">
+                            <div class="dmex-ebook--viewer-control">
+                                <button type="button" class="dmex-ebook--viewer-control-btn" data-act="prev" aria-label="이전페이지"><i class="icon-e-p-prev-big"></i></button>
+                                <button type="button" class="dmex-ebook--viewer-control-btn" data-act="next" aria-label="다음페이지"><i class="icon-e-p-next-big"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+        
+                    <!-- foot -->
+                    <div class="dmex-ebook--viewer-footer">
+                        <div class="dmex-ebook--viewer-paging">
+                            <button type="button" class="dmex-ebook--viewer-paging-btn" data-act="first"><i class="icon-e-p-first"></i></button>
+                            <button type="button" class="dmex-ebook--viewer-paging-btn" data-act="prev"><i class="icon-e-p-prev"></i></button>
+                            <div class="dmex-ebook--viewer-paging-number">
+                                <b class="dmex-ebook--viewer-paging-current"></b> /
+                                <span class="dmex-ebook--viewer-paging-total"></span>
+                            </div>
+                            <button type="button" class="dmex-ebook--viewer-paging-btn" data-act="next"><i class="icon-e-p-next"></i></button>
+                            <button type="button" class="dmex-ebook--viewer-paging-btn" data-act="last"><i class="icon-e-p-last"></i></button>
+                        </div>
+        
+                        <div class="dmex-ebook--viewer-zoom">
+                            <button type="button" class="dmex-ebook--viewer-zoom-btn" aria-label="축소" data-zoom-state="minus"><i class="icon-view-minus"></i></button>
+                            <div class="dmex-ebook--viewer-zoom-progress">
+                                <input type="range" step="1" min="0" max="100" value="0">
+                            </div>
+                            <button type="button" class="dmex-ebook--viewer-zoom-btn" aria-label="확대" data-zoom-state="plus"><i class="icon-view-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
-    <footer class="chbook-footer">
-        <div class="footer-link">
-            <a href="" class="footer-link-item">회사소개</a>
-            <a href="" class="footer-link-item">서비스 소개</a>
-            <a href="" class="footer-link-item">이용약관</a>
-            <a href="" class="footer-link-item">개인정보 취급방침</a>
-        </div>
-        <p class="footer-copy-desc">
-            <span class="footer-copy-desc-item">서울특별시 동작구 노량진로 100 8F 주식회사 디멕스</span>
-            <span class="footer-copy-desc-item">대표 : 김재환</span>
-        </p>
-        <p class="footer-copy-desc">
-            <span class="footer-copy-desc-item">사업자 : 108-81-81174</span>
-            <span class="footer-copy-desc-item">전화 : +82 2-6333-2586</span>
-            <span class="footer-copy-desc-item">E-mail : leemj@dmex.co.kr</span>
-            <span class="footer-copy-desc-item">통신판매 : 제2013-서울동작-0620호</span>
-            <span class="footer-copy-desc-item">부가통신 : 제2-01-13-0322호</span>
-        </p>
-        <p class="footer-copy-desc">
-            Copyright 2024 ©. DMEX all right reserved.
-        </p>
-    </footer>
 
-    <script src="../resources/js/ui.global.js"></script>
-    <script src="../resources/js/ui.common.js"></script>
-    <script>
-    </script>
+    <footer class="chbook-footer" data-id="footer"></footer>
 </div>
+
+<script src="../resources/lib/page-flip.browser.js"></script>
+<script src="../resources/js/ui.global.js"></script>
+<script src="../resources/js/ui.common.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        UI.radioButton.init({
+            id: 'nav',
+            index: 0,
+            callback: (v) => {
+                console.log(v)
+            }
+        });
+
+        const treeGroup = new TreeGroup({
+            id: 'group-tree'
+        });
+
+        const data_pdf = {
+            title: '노무정책.pdf',
+            date: '2024-11-11',
+            size: 204, //kb
+            name: '홍길동',
+            autoSpeed: 4000, //자동넘김 속도
+            page: [
+                { img: '../resources/dummy/page1.jpg', title: '1페이지 개요' },
+                { img: '../resources/dummy/page2.jpg', title: '2페이지 1. 역사의 흐름' },
+                { img: '../resources/dummy/page3.jpg', title: '3페이지 시간이란' },
+                { img: '../resources/dummy/page4.jpg', title: '4페이지' },
+                { img: '../resources/dummy/page5.jpg', title: '5페이지' },
+                { img: '../resources/dummy/page6.jpg', title: '6페이지' },
+                { img: '../resources/dummy/page7.jpg', title: '7페이지' },
+                { img: '../resources/dummy/page8.jpg', title: '8페이지' },
+                { img: '../resources/dummy/page9.jpg', title: '9페이지' },
+                { img: '../resources/dummy/page10.jpg', title: '10페이지' },
+                { img: '../resources/dummy/page11.jpg', title: '11페이지' },
+                { img: '../resources/dummy/page12.jpg', title: '12페이지' },
+                { img: '../resources/dummy/page13.jpg', title: '13페이지' },
+                { img: '../resources/dummy/page14.jpg', title: '14페이지' },
+                { img: '../resources/dummy/page15.jpg', title: '15페이지' },
+                { img: '../resources/dummy/page16.jpg', title: '16페이지' },
+                
+            ]
+        }
+        
+        UI.exe.ebook = new PDFeBook({
+            id: 'book',
+            data: data_pdf
+        });
+
+    });
+
+</script>
 </body>
 </html>
