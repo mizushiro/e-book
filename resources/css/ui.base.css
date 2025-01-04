@@ -2,6 +2,7 @@
 
 /* common */
 @import url(SUIT.css);
+@import url(ui.color.css);
 @import url(ui.common.css);
 @import url(ui.member.css);
 @import url(ui.chbook.css);

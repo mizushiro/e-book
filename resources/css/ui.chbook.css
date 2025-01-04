@@ -1,26 +1,26 @@
 /* wrap */
-.chbook-wrap {height:100%;display:flex;flex-direction:column;}
-.chbook-wrap[data-color="navy"] {
-    background-color: #2c3f6a;
-}
+.chbook-wrap {position:relative;height:100%;display:flex;flex-direction:column;background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100%);}
+.chbook-wrap[data-color="violet"]:before {content:'';position:absolute;width:60rem;height:60rem;display:block;background-color:#FFB6F5;filter:blur(10rem);left:30%;opacity:.5;top:-40%;pointer-events:none}
+.chbook-wrap[data-color="violet"]:after {content:'';position:absolute;width:30rem;height:30rem;display:block;background-color:#B6FFF8;filter:blur(10rem);left:10%;opacity:.5;top:-20%;pointer-events:none}
 
-/* footer */
+    /* footer */
 .chbook-footer {flex-shrink:0;background-color:#383838;padding:4rem 2rem 4.8rem;}
 .footer-link {display:flex;align-items:center;justify-content:center;gap:3.2rem;margin-bottom:2rem;}
 .footer-link-item {font-size:1.6rem;color:#fff;font-weight:600;line-height:3rem;text-decoration:none;}
+.footer-link-item[data-type="company"] {color:#8497C6}
 .footer-copy-desc {display:flex;justify-content:center;color:#fff;flex-wrap:wrap; line-height:2.4rem;font-size:1.6rem;gap:.2rem .8rem;font-weight:200}
 
 /* header */
+.chbook-header[data-bg="base"] {background-color:#2C3F6A}
 .chbook-header {
     flex-shrink:0;
     display: flex;
     min-height: 11.2rem;
-    padding:0 4.8rem;
+    padding:2rem 4.8rem 0;
     align-items: center;
     justify-content: space-between;
-    padding-top: 2rem;
 }
-.chbook-header--logo{
+.chbook-header--logo {
     display: block;
     width: 10.25rem;
 }
@@ -124,7 +124,7 @@
 /* group */
 .chbook-group {
     flex-shrink: 0;   
-    background-color: #F5F8FF;
+    background-color: var(--group-bg);
     border-radius: 2.8rem;
     width: 30.4rem;
     height: 100%;
@@ -168,13 +168,13 @@
     height: 5.2rem;
     flex:1;
     width: 100%;
-    background-color: #FFC646;
+    background: linear-gradient(90deg, var(--btn-primary-start) 0%, var(--btn-primary-end) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
     font-weight: 700;
-    color:#232E4B;
+    color:var(--btn-primary-text);
     border-radius: 1.6rem;
     gap:.8rem;
     letter-spacing: -0.04rem;
@@ -219,7 +219,7 @@
     display: flex;
     gap:.8rem;
     align-items: flex-start;
-    color: #2C3F6A;
+    color: var(--group-label-color);
     font-size: 1.8rem;
     font-weight: 700;
     font-family: 'SUIT';
@@ -260,7 +260,7 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem 4.4rem 1rem 1.2rem;
-    background-color: #fff;
+    background-color: var(--group-tree-bg);
     border-radius: .8rem;
 }
 
@@ -271,7 +271,7 @@
     z-index: 2;
 }
 .chbook-group--tree-dep1-check .lb-checkbox-group {
-    color: #2C3F6A;
+    color: var(--group-label-color);
     font-size: 1.6rem;
     font-weight: 700;
     font-family: 'SUIT';
@@ -279,7 +279,6 @@
 }
 .chbook-group--tree-group{
     padding: 1.2rem 1rem 1.6rem;
-    display: flex;
     flex-direction: column;
     gap:.8rem;
     display: none;
@@ -290,7 +289,7 @@
     position: relative;
     z-index: 2;
     padding: .4rem .2rem .4rem .2rem;
-    color: #4D65A5;
+    color: var(--group-label-color2);
     font-size: 1.6rem;
     font-weight: 600;
     font-family: 'SUIT';
@@ -313,7 +312,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #EAEBFA;
+    background-color: var(--group-tree-box-bg);
+    color: var(--group-label-color3);
     padding: 1.6rem;
     gap:.8rem;
     border-radius: 1.2rem;
@@ -340,7 +340,7 @@
     background-size: 2rem;
     border-radius: .4rem;
     background-position: 50% 50%;
-    background-color: #F5F8FF;
+    background-color: var(--group-tree-btn-bg);
     background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 9.88958L13.4233 13.3129C13.7178 13.6074 14.0736 13.7546 14.4908 13.7546C14.908 13.7546 15.2638 13.6074 15.5583 13.3129C15.8528 13.0184 16 12.6626 16 12.2454C16 11.8282 15.8528 11.4724 15.5583 11.1779L11.0307 6.65031C10.8834 6.50307 10.7239 6.39878 10.5521 6.33743C10.3804 6.27608 10.1963 6.24541 10 6.24541C9.80368 6.24541 9.61963 6.27608 9.44785 6.33743C9.27607 6.39878 9.11656 6.50307 8.96933 6.65031L4.44172 11.1779C4.14724 11.4724 4 11.8282 4 12.2454C4 12.6626 4.14724 13.0184 4.44172 13.3129C4.7362 13.6074 5.09202 13.7546 5.5092 13.7546C5.92638 13.7546 6.28221 13.6074 6.57669 13.3129L10 9.88958Z' fill='%232C3F6A'/%3E%3C/svg%3E%0A");
 }
 
@@ -359,7 +359,7 @@
     padding: 0 2rem 1.6rem;
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF;
+    background-color: var(--box-base-bg);
     border-radius: 2.8rem;
     width: 100%;
     flex:1;
@@ -392,7 +392,7 @@
     font-size: 1.6rem;
     font-weight: 400;
     font-family: 'SUIT';
-    background-color: #4D65A5;
+    background-color: var(--in-box-bg2);
     border-radius: 1.6rem;
     align-items: center;
     justify-content: space-between;
@@ -426,7 +426,7 @@
     padding-left:10rem;
     text-align: right;
     width: 100%;
-    color: #202020;
+    color: var(--text-color1);
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 2.4rem;
@@ -435,11 +435,11 @@
 }
 .chbook-chatbot--you {
     padding: 2rem;
-    background-color: #F2F4FF;
+    background-color: var(--in-box-bg);
     border-radius: 1.6rem;
     width: 100%;
     text-align: left;
-    color: #202020;
+    color: var(--text-color2);
     font-size: 1.6rem;
     font-weight: 400;
     line-height: 2.4rem;
@@ -525,10 +525,8 @@
 
 /* ebook */
 .chbook-ebook {
-    display: flex;
     flex:1;
     padding: .8rem 0 0;
-    display: flex;
     flex-direction: column;
     background-color: #FFFFFF;
     border-radius: 3.6rem;
@@ -541,12 +539,11 @@
 
 /* file */
 .chbook-file {
-    display: flex;
     flex:1;
     padding: 3.2rem 4rem;
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF;
+    background-color: var(--box-base-bg);
     border-radius: 3.6rem;
     width: 100%;
     height: 100%;
@@ -558,8 +555,7 @@
     font-size: 2.8rem;
     font-weight: 700;
     line-height: 3.6rem;
-    font-family: 'SUIT';
-    color:#111;
+    color:var(--text-color3);
 }
 .chbook-file--cont {
     display: flex;
@@ -604,27 +600,27 @@
     justify-content: center;
     align-items: center;
     gap:1.6rem;
-    border:.1rem dashed #BEC8E2;
-    background-color: #F2F4FF;
+    border:.1rem dashed var(--in-box-bg3-line);
+    background-color: var(--in-box-bg3);
     border-radius: 2rem;
     min-height: 22.4rem;
     text-align: center;
     font-size: 1.6rem;
-    color:#111;
+    color:var(--text-color4);
     line-height: 2.4rem;
     font-family: 'SUIT';
 }
 .chbook-file--file-btn {
     width: 12rem;
     height: 6.4rem;
-    background-color: #465E9C;
+    background-color: #597CFF;
     color: #fff;
     border-radius: 4rem;
     background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.5 23.1L19.4 26.2C19.1 26.5 18.7483 26.65 18.345 26.65C17.9417 26.65 17.5933 26.5 17.3 26.2C17 25.9 16.85 25.5417 16.85 25.125C16.85 24.7083 17 24.35 17.3 24.05L22.95 18.35C23.25 18.05 23.6 17.9 24 17.9C24.4 17.9 24.75 18.05 25.05 18.35L30.75 24.05C31.05 24.35 31.2 24.7 31.2 25.1C31.2 25.5 31.05 25.85 30.75 26.15C30.45 26.45 30.0917 26.6 29.675 26.6C29.2583 26.6 28.9 26.45 28.6 26.15L25.5 23.1V36H37.55C39.05 36 40.3333 35.4667 41.4 34.4C42.4667 33.3333 43 32.05 43 30.55C43 29.05 42.4667 27.7667 41.4 26.7C40.3333 25.6333 39.05 25.1 37.55 25.1H34.4V20.9C34.4 17.9333 33.3917 15.3833 31.375 13.25C29.3583 11.1167 26.8667 10.05 23.9 10.05C20.9333 10.05 18.4333 11.1167 16.4 13.25C14.3667 15.3833 13.35 17.9333 13.35 20.9H12.4C10.3333 20.9 8.58333 21.625 7.15 23.075C5.71667 24.525 5 26.3167 5 28.45C5 30.5167 5.73217 32.2917 7.1965 33.775C8.66083 35.2583 10.4287 36 12.5 36H18C18.425 36 18.7813 36.1447 19.069 36.434C19.3563 36.723 19.5 37.0813 19.5 37.509C19.5 37.9363 19.3563 38.2917 19.069 38.575C18.7813 38.8583 18.425 39 18 39H12.5C9.63333 39 7.16667 37.9667 5.1 35.9C3.03333 33.8333 2 31.3667 2 28.5C2 25.9 2.825 23.6083 4.475 21.625C6.125 19.6417 8.25 18.45 10.85 18.05C11.5167 14.8167 13.0833 12.175 15.55 10.125C18.0167 8.07499 20.8667 7.04999 24.1 7.04999C27.8667 7.04999 31.025 8.40832 33.575 11.125C36.125 13.8417 37.4 17.1 37.4 20.9V22.1C39.8 22.0333 41.8333 22.8083 43.5 24.425C45.1667 26.0417 46 28.0833 46 30.55C46 32.85 45.1667 34.8333 43.5 36.5C41.8333 38.1667 39.85 39 37.55 39H25.5C24.7 39 24 38.7 23.4 38.1C22.8 37.5 22.5 36.8 22.5 36V23.1Z' fill='%23F5F8FF'/%3E%3C/svg%3E%0A");
     background-position: 50% 50%;
     background-size: 4.8rem;
     background-repeat: no-repeat;
-    box-shadow: 0 .2rem 2rem #BEC8E2;
+    box-shadow: 0 .2rem 2rem var(--shadow-color1);
 }
 .chbook-file--about {
     display: flex;
