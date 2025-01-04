@@ -744,19 +744,21 @@
 
 @media (max-width:1023px) {
     html {font-size:10px;}
-    .chbook-wrap {
-        height: auto;
-    }
     .chbook-content {
         flex-direction: column;
         padding: 0;
-        min-height: 0;
+        min-height: 100dvh;
+    }
+    .chbook-wrap {
+        height: 100%;
+        min-height: 100dvh;
+        background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100dvh);
     }
     .chbook-header{
         position: sticky;
         top:0;
-        z-index: 10;
-        background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100dvh);
+        /* z-index: 10; */
+        /* background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100dvh); */
     }
     .left-nav{
         padding:0 1.6rem;
@@ -786,6 +788,8 @@
 
     [data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {z-index: 0; visibility: visible; position: relative;}
 
+    .service-info-title{margin-left: 0;}
+    .service-info-box,
     .chbook-document,
     .chbook-chatbot,
     .chbook-group{width: 100%;padding: 2.4rem 1.6rem;}
@@ -795,6 +799,8 @@
     .service-info-box,
     .chbook-chatbot--body{max-height: 100%;}
     .chbook-chatbot--box{padding: 0;}
-
-    
+    .chbook-group--body{max-height: 100%;}
+    .chbook-content-group > *{border-radius: 0;}
+    .chbook-content-group{padding-bottom: 0;}
+    .dmex-ebook--viewer-wrap{padding: 0;}
 }

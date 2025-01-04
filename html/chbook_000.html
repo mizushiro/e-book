@@ -791,6 +791,11 @@
        
         //menu callback
         const chbook_wrap = document.querySelector('.chbook-content');
+        const srv_img5 = document.querySelector('.srv-img5');
+        setTimeout(() => {
+            srv_img5.dataset.scrollPlay="on";
+        },300)
+        
         const mobileToggleNav = (v) => {
             console.log(v);
             const objects = document.querySelectorAll('.left-nav-list [data-toggle-object]');
