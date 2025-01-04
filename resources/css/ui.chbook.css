@@ -144,9 +144,9 @@
 .chbook-content-group > .chbook-ebook[data-toggle-state="true"]{display: flex;}
 
 .chbook-content-group > .chbook-document[data-toggle-state="true"] ~ .service-info-box,
-.chbook-content-group > .chbook-ebook[data-toggle-state="true"] ~ .service-info-box {z-index: -1; visibility: hidden; position: absolute;}
+.chbook-content-group > .chbook-ebook[data-toggle-state="true"] ~ .service-info-box {display: none;}
 
-[data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {z-index: -1; visibility: hidden; position: absolute;}
+[data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {display: none;}
 
 
 .chbook-group {
@@ -574,9 +574,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-
-    display: none;
-    
+    min-height: 100dvh;
 }
 
 /* file */
@@ -816,7 +814,7 @@
     [data-is="document"] .chbook-content-group > .chbook-document[data-toggle-state="true"],
     [data-is="ebook"] .chbook-content-group > .chbook-ebook[data-toggle-state="true"]{display: flex;}
 
-    [data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {z-index: 0; visibility: visible; position: relative;}
+    [data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {display: flex;}
 
     .service-info-title{margin-left: 0;}
     .service-info-box,
