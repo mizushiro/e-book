@@ -85,8 +85,10 @@
     gap:2.8rem;
     justify-content: flex-start;
 }
+.left-nav-list-btn:hover { background-color: #232E4B; }
 .left-nav-list-btn[data-toggle-state="true"] {
-    background-color: #232E4B;
+    background-color: #232E4B; 
+    display: none;
 }
 .left-nav-list-btn {
     width: 8.8rem;
@@ -766,6 +768,7 @@
 
 @media (max-width:1023px) {
     html {font-size:10px;}
+    html,body{height: auto;}
     .chbook-content {
         flex-direction: column;
         padding: 0;
@@ -777,14 +780,16 @@
         
     }
     .chbook-header{
-        position: sticky;
-        top:0;
+        
         /* z-index: 10; */
         
     }
     .left-nav{
         padding:0 1.6rem;
         margin: 0;
+        position: sticky;
+        top:0;
+        z-index: 100;
     }
     .left-nav-list {
         flex-direction: row;
@@ -798,7 +803,9 @@
     .chbook-content-group > .chbook-chatbot,
     .chbook-content-group > .chbook-document,
     .chbook-content-group > .chbook-ebook{display: none;}
-
+    .left-nav-list-btn[data-toggle-state="true"] {
+        display: flex;
+    }
     [data-is="group"] .service-info-box,
     [data-is="chatbot"] .service-info-box,
     [data-is="document"] .service-info-box,
