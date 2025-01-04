@@ -871,12 +871,13 @@ class PDFeBook {
 		this.size = opt.data.size;
 		this.name = opt.data.name;
 
+		this.resizeObserver;
 		this.autoSpeed = opt.data.autoSpeed ? opt.data.autoSpeed : 4000;
 		this.timer_auto = null;
 		this.auto_current = 0;
 		this.timer_reset = null;
 		this.once = true;
-console.log(this.autoSpeed)
+
 		this.list();
 		this.set();
 	}
@@ -923,7 +924,6 @@ console.log(this.autoSpeed)
 
 	}
 	list() {
-		
 		const viewer_body = document.querySelector('.dmex-ebook--viewer-wrap');
 		let html_list = `<ul class="dmex-ebook--viewer-list">`;
 		for (let i = 0, len = this.data.length; i < len; i++) {
@@ -1227,16 +1227,21 @@ console.log(this.autoSpeed)
 		//ebook resize
 		if (this.once) {
 			this.once = false;
-			const resizeObserver = new ResizeObserver(entries => {
-				console.log(entries.length);
+			this.resizeObserver = new ResizeObserver(entries => {
 				clearTimeout(this.timer_reset);
 				this.timer_reset = setTimeout(() => {
 					this.pageReset();
 					this.set();
 				}, 0);
 			});
-			resizeObserver.observe(viewer_main);
+			this.resizeObserver.observe(viewer_main);
 		}
+	}
+	destory() {
+		console.log(this.id);
+		const viewer_main = document.querySelector('.dmex-ebook--viewer-main');
+		this.resizeObserver.unobserve(viewer_main);
+		UI.ebook[this.id].destroy();
 	}
 }
 

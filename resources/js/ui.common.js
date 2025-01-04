@@ -11,6 +11,8 @@
         callback:() => {
         }
     });
+
+    UI.exe.toggleUI = new ToggleUI();
     
     UI.callback.nav = (v) => {
         console.log(v.state);
