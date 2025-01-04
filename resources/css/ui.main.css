@@ -564,13 +564,14 @@
 .srv-img8[data-scroll-play="on"] .img6{top:11.3rem;left:15.5rem;z-index:4;opacity:1;transition-delay:.4s;}
 
 /* S :service */
-.main-service-item {min-height:85.6rem;padding-top:1.6rem;position:relative;}
+.main-service-item {min-height:64.8rem;padding-top:1.6rem;position:relative;}
 .main-service-title-box {display:flex;justify-content:center}
 .main-service-title {text-align:center;font-size:4rem;line-height:5.6rem;font-weight:800;letter-spacing:-.2rem;background:linear-gradient(90deg, var(--Gradient-Pink) 0%, var(--Gradient-Purple) 70%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.main-service-desc {margin-top:3.2rem;font-size:3.6rem;line-height:4rem;color:#000;letter-spacing:-.1rem;font-weight:700;word-break:keep-all;text-align:center;}
-.main-service-desc-small {margin:2.4rem auto 0;line-height:2.8rem;font-size:1.6rem;color:#000;font-weight:600;word-break:keep-all;text-align:center;max-width:68rem;}
+.main-service-desc {margin-top:1.6rem;font-size:2.8rem;line-height:3.6rem;color:#000;letter-spacing:-.1rem;font-weight:700;word-break:keep-all;text-align:center;}
+.main-service-desc-small {margin:.8rem auto 0;line-height:2.8rem;font-size:1.8rem;color:#000;font-weight:600;word-break:keep-all;text-align:center;max-width:68rem;}
+.main-service-desc-small .text-blue {color:#3B43BA;font-weight:700}
 .text-blue {color:var(--Text-Blue);}
-.main-service-img-area {margin-top:4.4rem;height:32rem;display:flex;align-items:center;justify-content:center;position:relative;}
+.main-service-img-area {margin-top:3rem;height:32rem;display:flex;align-items:center;justify-content:center;position:relative;}
 .main-service-btn-area { left:0;right:0;bottom:8rem;display:flex;align-items:center;justify-content:center;gap:1.6rem;}
 .main-service-keyword-box {position:absolute;width:24rem;height:15rem;border-radius:2.8rem;box-shadow:0 1rem 2rem 0 rgba(67, 37, 116, 0.05);border:1px solid #fff;display:flex;padding:3.2rem 2.4rem;flex-direction:column;justify-content:flex-end;gap:.8rem;}
 .keyword-bg1 {background:linear-gradient(180deg, rgba(237, 246, 254, 0.70) 0%, rgba(245, 237, 254, 0.70) 100%);}
