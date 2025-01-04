@@ -52,6 +52,7 @@
   max-height:calc(100dvh - 12rem);
   overflow:hidden;
   position:relative;
+  height: 100%;
 }
 .dmex-ebook--viewer-wrap {
   flex:1;
