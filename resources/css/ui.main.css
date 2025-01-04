@@ -576,12 +576,12 @@
 .main-service-keyword-box {position:absolute;width:24rem;height:15rem;border-radius:2.8rem;box-shadow:0 1rem 2rem 0 rgba(67, 37, 116, 0.05);border:1px solid #fff;display:flex;padding:3.2rem 2.4rem;flex-direction:column;justify-content:flex-end;gap:.8rem;}
 .keyword-bg1 {background:linear-gradient(180deg, rgba(237, 246, 254, 0.70) 0%, rgba(245, 237, 254, 0.70) 100%);}
 .keyword-bg2 {background:linear-gradient(138deg, rgba(248, 238, 253, 0.70) 2.31%, rgba(254, 245, 236, 0.70) 94.87%);}
-.keyword-position1 {top:0;left:6.875%;}
-.keyword-position2 {top:12.3rem;left:15.9375%;}
+.keyword-position1 {top:-2rem;left:6.875%;}
+.keyword-position2 {top:7.3rem;left:15.9375%;}
 .keyword-position3 {top:12.4rem;right:14.6875%;}
 .keyword-position4 {top:0;right:6.875%;}
 .keyword-position5 {top:5.7rem;right:7.8125%;}
-.keyword-position6 {top:7rem;left:9.609375%;}
+.keyword-position6 {top:16.3rem;left:6.875%;}
 .main-service-keyword-desc {font-size:1.2rem;font-weight:500;line-height:2.6rem;background:linear-gradient(90deg, #EB5C8D 0%, #9A67F3 76.01%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .main-service-keyword {font-size:2rem;font-weight:700;line-height:2.6rem;color:#060B24;}
 
