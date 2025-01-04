@@ -45,9 +45,9 @@
                 <button type="button" class="left-nav-list-btn" data-name="document" data-toggle-object="document" data-callback="document">
                     <span>Document</span>
                 </button>
-                <button type="button" class="left-nav-list-btn" data-name="setting"  data-toggle-object="setting" data-callback="setting">
+                <!-- <button type="button" class="left-nav-list-btn" data-name="setting"  data-toggle-object="setting" data-callback="setting">
                     <span>Setting</span>
-                </button>
+                </button> -->
 
                 <button type="button" class="left-nav-list-btn"   data-toggle-object="ebook" data-callback="ebookShow">
                     <span>이북열기</span>
@@ -790,41 +790,77 @@
         }
        
         //menu callback
+        const chbook_wrap = document.querySelector('.chbook-content');
+        const mobileToggleNav = (v) => {
+            console.log(v);
+            const objects = document.querySelectorAll('.left-nav-list [data-toggle-object]');
+            const targets = document.querySelectorAll('.chbook-content-group [data-toggle-target]');
+
+            objects.forEach((item) => {
+                (v !== 'ebook') && UI.exe.ebook.destory();
+                if (v === item.dataset.toggleObject) {
+                    item.dataset.toggleState = 'true';
+                } else {
+                    item.dataset.toggleState = 'false';
+                }
+            });
+            targets.forEach((item) => {
+                if (v === item.dataset.toggleTarget) {
+                    item.dataset.toggleState = 'true';
+                } else {
+                    item.dataset.toggleState = 'false';
+                }
+            });
+        }
         //그룹
         UI.callback.group = (v) => {
-            console.log(v);
+            const isMobileSize = window.innerWidth < 1024 ? true : false;
+            isMobileSize && mobileToggleNav('group');
             const treeGroup = new TreeGroup({
                 id: 'group-tree'
             });
+            chbook_wrap.dataset.is= (v.state === 'true') ? 'group' : '';
         }
         //챗봇
         UI.callback.chatbot = (v) => {
+            const isMobileSize = window.innerWidth < 1024 ? true : false;
             console.log(v);
+            isMobileSize && mobileToggleNav('chatbot');
+            chbook_wrap.dataset.is= (v.state === 'true') ? 'chatbot' : '';
         }
         //파일
         UI.callback.document = (v) => {
+            const isMobileSize = window.innerWidth < 1024 ? true : false;
             console.log(v);
+            isMobileSize && mobileToggleNav('document');
+            chbook_wrap.dataset.is= (v.state === 'true') ? 'document' : '';
         }
         //세팅
         UI.callback.setting = (v) => {
+            const isMobileSize = window.innerWidth < 1024 ? true : false;
             console.log(v);
+            isMobileSize && mobileToggleNav('setting');
+            chbook_wrap.dataset.is= (v.state === 'true') ? 'setting' : '';
         }
         //이북
         UI.callback.ebookShow = (v) => {
-            const wrap = document.querySelector('.chbook-content');
-            console.log('callback', v.state === 'true')
+            const isMobileSize = window.innerWidth < 1024 ? true : false;
+
+            chbook_wrap.dataset.is= (v.state === 'true') ? 'ebookShow' : '';
+            console.log('callback', v.state === 'true');
+            isMobileSize && mobileToggleNav('ebook');
+        
             if (v.state === 'true') {
                 UI.exe.ebook = new PDFeBook({
                     id: 'book',
                     data: data_pdf
                 });
-                wrap.dataset.isEbook= 'true';
+                chbook_wrap.dataset.isEbook= 'true';
             } else {
-                const ebook = document.querySelector('.dmex-ebook--viewer-book');
-                console.log(ebook)
                 UI.exe.ebook.destory();
-                wrap.dataset.isEbook= 'false';
+                chbook_wrap.dataset.isEbook= 'false';
             }
+        
             
         }
     });
