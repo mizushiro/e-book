@@ -1,0 +1,95 @@
+:root {
+    --page-bg-start:#2C3F6A;
+    --page-bg-end:#2C3F6A;
+    --group-bg:#F5F8FF;
+    --group-label-color:#2C3F6A;
+    --group-tree-bg:#fff;
+    --group-label-color2:#4D65A5;
+    --group-tree-btn-bg:#F5F8FF;
+    --group-tree-box-bg:#EAEBFA;
+    --group-label-color3:#4D65A5;
+    --btn-primary-start:#FFC646;
+    --btn-primary-end:#FFC646;
+    --btn-primary-text:#232E4B;
+    --box-base-bg:#fff;
+    --text-color1:#202020;
+    --text-color2:#2C2C2C;
+    --text-color3:#111;
+    --text-color4:#111;
+    --in-box-bg:#F2F4FF;
+    --in-box-bg2:#4D65A5;
+    --in-box-bg3:#F2F4FF;
+    --in-box-bg3-line:#BEC8E2;
+    --shadow-color1:#BEC8E2;
+}
+[data-color="violet"] {
+    --page-bg-start:#7156DB;
+    --page-bg-end:#7B92E7;
+    --btn-primary-start:#7156DB;
+    --btn-primary-end:#7B92E7;
+    --btn-primary-text:#fff;
+    --in-box-bg2:#7278CF;
+}
+[data-color="green"] {
+    --page-bg-start:#44A998;
+    --page-bg-end:#44A998;
+}
+[data-color="blue-green"] {
+    --page-bg-start:#27788D;
+    --page-bg-end:#27788D;
+}
+[data-color="purple"] {
+    --page-bg-start:#855AAB;
+    --page-bg-end:#855AAB;
+}
+[data-color="beige"] {
+    --page-bg-start:#E1E0DB;
+    --page-bg-end:#E1E0DB;
+    --btn-primary-start:#7156DB;
+    --btn-primary-end:#7B92E7;
+    --btn-primary-text:#fff;
+    --in-box-bg2:#7278CF;
+}
+[data-color="light-violet"] {
+    --page-bg-start:#CCD4FF;
+    --page-bg-end:#CCD4FF;
+    --btn-primary-start:#7156DB;
+    --btn-primary-end:#7B92E7;
+    --btn-primary-text:#fff;
+    --in-box-bg2:#7278CF;
+}
+[data-color="light-green"] {
+    --page-bg-start:#82D28D;
+    --page-bg-end:#82D28D;
+    --in-box-bg2:#7278CF;
+}
+[data-color="sky"] {
+    --page-bg-start:#95D2EC;
+    --page-bg-end:#95D2EC;
+    --btn-primary-start:#7156DB;
+    --btn-primary-end:#7B92E7;
+    --btn-primary-text:#fff;
+    --in-box-bg2:#7278CF;
+}
+[data-color="dark"] {
+    --group-bg:#383838;
+    --group-label-color:#E8E8E8;
+    --group-tree-bg:#2C2C2C;
+    --group-label-color2:#E8E8E8;
+    --group-tree-btn-bg:#4D65A5;
+    --group-tree-box-bg:#2C2C2C;
+    --group-label-color3:#E8E8E8;
+    --btn-primary-start:#7278CF;
+    --btn-primary-end:#7278CF;
+    --btn-primary-text:#F5F8FF;
+    --box-base-bg:#383838;
+    --text-color1:#BBBBBB;
+    --text-color2:#BBBBBB;
+    --text-color3:#fff;
+    --text-color4:#F5F8FF;
+    --in-box-bg:#2C2C2C;
+    --in-box-bg2:#7278CF;
+    --in-box-bg3:#2C3F6A;
+    --in-box-bg3-line:#8497C6;
+    --shadow-color1:#3E5286;
+}

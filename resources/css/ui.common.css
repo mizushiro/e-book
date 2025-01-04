@@ -1,7 +1,10 @@
 @charset "utf-8";
 
 /* default */
-html {font-size:10px}
+html {font-size:0.5208vw;}
+@media (min-width:1280px) {
+    html {font-size:10px}
+}
 html, body{width:100%;height:100%;}
 body{font-family:'SUIT', 'Malgun Gothic', AppleGothicNeoSD, 'Apple SD 산돌고딕 Neo', 'Microsoft NeoGothic', 'Droid sans', Dotum, 돋움, 굴림, arial, sans-serif;font-size:1.3rem;line-height:1.5;letter-spacing:-0.03em;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;-moz-osx-font-smoothing:grayscale;overflow-y:auto;-webkit-overflow-scrolling:touch;overflow-x:hidden;}
 body:before{content:'';position:fixed;left:0;top:0;width:100%;height:0;}/* fix webkit bug(scroll event delay) */
