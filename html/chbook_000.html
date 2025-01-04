@@ -797,7 +797,7 @@
             const targets = document.querySelectorAll('.chbook-content-group [data-toggle-target]');
 
             objects.forEach((item) => {
-                (v !== 'ebook') && UI.exe.ebook.destory();
+                (v !== 'ebook' && UI.exe.ebook) && UI.exe.ebook.destory();
                 if (v === item.dataset.toggleObject) {
                     item.dataset.toggleState = 'true';
                 } else {
