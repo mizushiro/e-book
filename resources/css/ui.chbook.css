@@ -752,13 +752,13 @@
     .chbook-wrap {
         height: 100%;
         min-height: 100dvh;
-        background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100dvh);
+        
     }
     .chbook-header{
         position: sticky;
         top:0;
         /* z-index: 10; */
-        /* background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100dvh); */
+        
     }
     .left-nav{
         padding:0 1.6rem;
