@@ -11,16 +11,16 @@
 .footer-copy-desc {display:flex;justify-content:center;color:#fff;flex-wrap:wrap; line-height:2.4rem;font-size:1.6rem;gap:.2rem .8rem;font-weight:200}
 
 /* header */
+.chbook-header[data-bg="base"] {background-color:#2C3F6A}
 .chbook-header {
     flex-shrink:0;
     display: flex;
     min-height: 11.2rem;
-    padding:0 4.8rem;
+    padding:2rem 4.8rem 0;
     align-items: center;
     justify-content: space-between;
-    padding-top: 2rem;
 }
-.chbook-header--logo{
+.chbook-header--logo {
     display: block;
     width: 10.25rem;
 }
