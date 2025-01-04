@@ -2,6 +2,14 @@
 .chbook-wrap {position:relative;height:100%;display:flex;flex-direction:column;background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100dvh);}
 .chbook-wrap[data-color="violet"]:before {content:'';position:absolute;width:60rem;height:60rem;display:block;background-color:#FFB6F5;filter:blur(10rem);left:30%;opacity:.5;top:-40%;pointer-events:none}
 .chbook-wrap[data-color="violet"]:after {content:'';position:absolute;width:30rem;height:30rem;display:block;background-color:#B6FFF8;filter:blur(10rem);left:10%;opacity:.5;top:-20%;pointer-events:none}
+.chbook-wrap[data-color="dark"] .chbook-group--btn[data-type="change"]::before,
+.chbook-wrap[data-color="sky"] .chbook-group--btn[data-type="change"]::before,
+.chbook-wrap[data-color="beige"] .chbook-group--btn[data-type="change"]::before,
+.chbook-wrap[data-color="light-violet"] .chbook-group--btn[data-type="change"]::before,
+.chbook-wrap[data-color="violet"] .chbook-group--btn[data-type="change"]::before {background-image:url("../images/common/icon-write-w.svg")}
+.chbook-wrap[data-color="dark"] .chbook-group--close {background-image:url("../images/common/icon-close-w.svg")}
+.chbook-wrap[data-color="dark"] .chbook-chatbot .chbook-group--close {background-image:url("../images/common/icon-close-w-24.svg")}
+.chbook-wrap[data-color="dark"] .chbook-group--reset {background-image:url("../images/common/icon-re-w.svg")}
 
 /* footer */
 .chbook-footer {flex-shrink:0;background-color:#383838;padding:4rem 2rem 4.8rem;}
@@ -223,6 +231,7 @@
     height: 3.2rem;
     background: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.58369 26L6 24.4163L14.4163 16L6 7.58369L7.58369 6L16 14.4163L24.4163 6L26 7.58369L17.5837 16L26 24.4163L24.4163 26L16 17.5837L7.58369 26Z' fill='%233E5286'/%3E%3C/svg%3E%0A") no-repeat 50% 50% / 3.2rem;
 }
+.chbook-chatbot .chbook-group--close {background-image:url("../images/common/icon-close-24.svg");background-size:2.4rem}
 .chbook-group--ctg {
     display: flex;
     flex-direction: column;
