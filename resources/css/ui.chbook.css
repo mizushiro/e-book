@@ -85,8 +85,10 @@
     gap:2.8rem;
     justify-content: flex-start;
 }
+.left-nav-list-btn:hover { background-color: #232E4B; }
 .left-nav-list-btn[data-toggle-state="true"] {
     background-color: #232E4B;
+    display: none;
 }
 .left-nav-list-btn {
     width: 8.8rem;
@@ -142,9 +144,9 @@
 .chbook-content-group > .chbook-ebook[data-toggle-state="true"]{display: flex;}
 
 .chbook-content-group > .chbook-document[data-toggle-state="true"] ~ .service-info-box,
-.chbook-content-group > .chbook-ebook[data-toggle-state="true"] ~ .service-info-box {z-index: -1; visibility: hidden; position: absolute;}
+.chbook-content-group > .chbook-ebook[data-toggle-state="true"] ~ .service-info-box {display: none;}
 
-[data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {z-index: -1; visibility: hidden; position: absolute;}
+[data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {display: none;}
 
 
 .chbook-group {
@@ -572,9 +574,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-
-    display: none;
-    
+    /* min-height: 100dvh; */
 }
 
 /* file */
@@ -770,7 +770,7 @@
     .chbook-content {
         flex-direction: column;
         padding: 0;
-        min-height: 100dvh;
+        /* min-height: 100dvh; */
     }
     .chbook-wrap {
         height: 100%;
@@ -783,10 +783,15 @@
     .left-nav{
         padding:0 1.6rem;
         margin: 0;
+        position: sticky;
+        top:0;
+        z-index: 100;
+        background-color: #2C3F6A;
     }
     .left-nav-list {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
+        gap:10%;
     }
     .chbook-content-group{
         background-color: #fff;
@@ -795,7 +800,9 @@
     .chbook-content-group > .chbook-chatbot,
     .chbook-content-group > .chbook-document,
     .chbook-content-group > .chbook-ebook{display: none;}
-
+    .left-nav-list-btn[data-toggle-state="true"] {
+        display: flex;
+    }
     [data-is="group"] .service-info-box,
     [data-is="chatbot"] .service-info-box,
     [data-is="document"] .service-info-box,
@@ -806,7 +813,7 @@
     [data-is="document"] .chbook-content-group > .chbook-document[data-toggle-state="true"],
     [data-is="ebook"] .chbook-content-group > .chbook-ebook[data-toggle-state="true"]{display: flex;}
 
-    [data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {z-index: 0; visibility: visible; position: relative;}
+    [data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {display: flex;}
 
     .service-info-title{margin-left: 0;}
     .service-info-box,
