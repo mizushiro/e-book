@@ -223,7 +223,7 @@
     .main-service-keyword {font-size:1.6rem}
     .srv-img5 {scale:.8}
 }
-@container service-container (max-width:500px) {
+@container service-container (max-width:767px) {
     .keyword-position1 {left:-2rem}
     .keyword-position4 {right:-2rem}
     .keyword-position6 {left:-2rem}
