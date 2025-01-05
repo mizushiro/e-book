@@ -580,6 +580,8 @@
     height: 100%;
     overflow: hidden;
     /* min-height: 100dvh; */
+    container-name:e-book-container;
+    container-type:inline-size;
 }
 
 /* file */
@@ -786,6 +788,12 @@
 @container file-add-container (max-width:500px) {
     .gap-16 .box-group-col-4 {width:100%}
 }
+@container e-book-container (max-width:767px) {
+    .dmex-ebook--viewer-util {width:100%;background-color:#F6F6F8;padding:.8rem;border-radius:999em;margin-top:.8rem;}
+    .dmex-ebook--viewer-util-group {margin-left:auto}
+}
+
+
 
 
 

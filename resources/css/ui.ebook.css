@@ -41,7 +41,7 @@
 .dmex-ebook--viewer-info-title {font-size:1.6rem;font-weight:500;line-height:2rem;color:#000;}
 .dmex-ebook--viewer-info-etc {display:flex;margin-top:.4rem;font-size:1.4rem;line-height:1.6rem;color:#707070;gap:.4rem .8rem;flex-wrap:wrap}
 .dmex-ebook--viewer-info-etc-line {color:#E9E9E9}
-.dmex-ebook--viewer-footer {display:flex;justify-content:center;width:100%;padding:1.6rem 1.6rem 2.4rem;gap:4rem;}
+.dmex-ebook--viewer-footer {display:flex;justify-content:center;width:100%;padding:1.6rem 1.6rem 2.4rem;gap:.8rem 4rem;flex-wrap:wrap}
 .dmex-ebook--viewer-body {
   flex:1;
   width:100%;
@@ -117,9 +117,12 @@
   border-bottom:.1rem solid #ccc;
 }
 
-.dmex-ebook--viewer-util {display:flex;gap:.8rem;align-items:center;margin-left:auto}
+.dmex-ebook--viewer-util {display:flex;gap:.8rem;align-items:center;margin-left:auto;flex-shrink:0}
+.dmex-ebook--viewer-util-group {flex-shrink:0;display:flex;align-items:center}
+.icon-upload-16 {aspect-ratio:1/1;display:block;width:1.6rem;background:url("../images/common/icon-upload-16.svg") no-repeat 50% 50%;background-size:contain}
 .dmex-ebook--viewer-util-btn {display:flex;align-items:center;font-size:1.4rem;color:#000;font-weight:400;}
 .dmex-ebook--viewer-util-btn i {aspect-ratio:1/1;width:2.8rem;background-position:50% 50%;background-repeat:no-repeat;background-size:contain;pointer-events:none;}
+.btn-file-upload {display:flex;align-items:center;gap:.4rem;height:3.2rem;padding:0 1.6rem;background-color:#FFC646;border-radius:9999em;font-size:1.2rem;font-weight:700;color:#202020}
 .icon-auto-play {background-image:url("../images/common/icon-auto-play.svg");}
 .icon-e-b-list {background-image:url("../images/common/icon-e-b-list.svg");}
 .icon-e-b-full {background-image:url("../images/common/icon-e-b-full.svg");}
@@ -273,3 +276,7 @@
 
 [data-zoom-state='true'] .stf__wrapper {pointer-events:none;}
 [data-zoom-state='true'] .dmex-ebook--viewer-book {}
+
+@media (max-width:600px) {
+    .dmex-ebook--viewer {padding:0 1.6rem}
+}
