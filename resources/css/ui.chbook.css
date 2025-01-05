@@ -821,7 +821,7 @@
         flex-direction: row;
         justify-content:space-between;
         gap:.8em;
-        padding:1.2rem 2.4rem;
+        padding:1.2rem .8rem;
     }
     .chbook-content-group{
         background-color: #fff;
