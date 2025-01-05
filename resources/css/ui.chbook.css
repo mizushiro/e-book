@@ -614,6 +614,7 @@
     overflow-x: hidden;
     width: calc(100% + 1.8rem);
     max-height: calc(100dvh - 31rem);
+    padding-bottom:.4rem;
 }
 .chbook-document--cont::-webkit-scrollbar {
     position: absolute;
@@ -658,17 +659,26 @@
     line-height: 2.4rem;
     font-family: 'SUIT';
 }
+.chbook-document--refresh-btn,
 .chbook-document--file-btn {
-    width: 12rem;
-    height: 6.4rem;
     background-color: #597CFF;
     color: #fff;
     border-radius: 4rem;
-    background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.5 23.1L19.4 26.2C19.1 26.5 18.7483 26.65 18.345 26.65C17.9417 26.65 17.5933 26.5 17.3 26.2C17 25.9 16.85 25.5417 16.85 25.125C16.85 24.7083 17 24.35 17.3 24.05L22.95 18.35C23.25 18.05 23.6 17.9 24 17.9C24.4 17.9 24.75 18.05 25.05 18.35L30.75 24.05C31.05 24.35 31.2 24.7 31.2 25.1C31.2 25.5 31.05 25.85 30.75 26.15C30.45 26.45 30.0917 26.6 29.675 26.6C29.2583 26.6 28.9 26.45 28.6 26.15L25.5 23.1V36H37.55C39.05 36 40.3333 35.4667 41.4 34.4C42.4667 33.3333 43 32.05 43 30.55C43 29.05 42.4667 27.7667 41.4 26.7C40.3333 25.6333 39.05 25.1 37.55 25.1H34.4V20.9C34.4 17.9333 33.3917 15.3833 31.375 13.25C29.3583 11.1167 26.8667 10.05 23.9 10.05C20.9333 10.05 18.4333 11.1167 16.4 13.25C14.3667 15.3833 13.35 17.9333 13.35 20.9H12.4C10.3333 20.9 8.58333 21.625 7.15 23.075C5.71667 24.525 5 26.3167 5 28.45C5 30.5167 5.73217 32.2917 7.1965 33.775C8.66083 35.2583 10.4287 36 12.5 36H18C18.425 36 18.7813 36.1447 19.069 36.434C19.3563 36.723 19.5 37.0813 19.5 37.509C19.5 37.9363 19.3563 38.2917 19.069 38.575C18.7813 38.8583 18.425 39 18 39H12.5C9.63333 39 7.16667 37.9667 5.1 35.9C3.03333 33.8333 2 31.3667 2 28.5C2 25.9 2.825 23.6083 4.475 21.625C6.125 19.6417 8.25 18.45 10.85 18.05C11.5167 14.8167 13.0833 12.175 15.55 10.125C18.0167 8.07499 20.8667 7.04999 24.1 7.04999C27.8667 7.04999 31.025 8.40832 33.575 11.125C36.125 13.8417 37.4 17.1 37.4 20.9V22.1C39.8 22.0333 41.8333 22.8083 43.5 24.425C45.1667 26.0417 46 28.0833 46 30.55C46 32.85 45.1667 34.8333 43.5 36.5C41.8333 38.1667 39.85 39 37.55 39H25.5C24.7 39 24 38.7 23.4 38.1C22.8 37.5 22.5 36.8 22.5 36V23.1Z' fill='%23F5F8FF'/%3E%3C/svg%3E%0A");
     background-position: 50% 50%;
-    background-size: 4.8rem;
     background-repeat: no-repeat;
     box-shadow: 0 .2rem 2rem var(--shadow-color1);
+}
+.chbook-document--file-btn {
+    background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.5 23.1L19.4 26.2C19.1 26.5 18.7483 26.65 18.345 26.65C17.9417 26.65 17.5933 26.5 17.3 26.2C17 25.9 16.85 25.5417 16.85 25.125C16.85 24.7083 17 24.35 17.3 24.05L22.95 18.35C23.25 18.05 23.6 17.9 24 17.9C24.4 17.9 24.75 18.05 25.05 18.35L30.75 24.05C31.05 24.35 31.2 24.7 31.2 25.1C31.2 25.5 31.05 25.85 30.75 26.15C30.45 26.45 30.0917 26.6 29.675 26.6C29.2583 26.6 28.9 26.45 28.6 26.15L25.5 23.1V36H37.55C39.05 36 40.3333 35.4667 41.4 34.4C42.4667 33.3333 43 32.05 43 30.55C43 29.05 42.4667 27.7667 41.4 26.7C40.3333 25.6333 39.05 25.1 37.55 25.1H34.4V20.9C34.4 17.9333 33.3917 15.3833 31.375 13.25C29.3583 11.1167 26.8667 10.05 23.9 10.05C20.9333 10.05 18.4333 11.1167 16.4 13.25C14.3667 15.3833 13.35 17.9333 13.35 20.9H12.4C10.3333 20.9 8.58333 21.625 7.15 23.075C5.71667 24.525 5 26.3167 5 28.45C5 30.5167 5.73217 32.2917 7.1965 33.775C8.66083 35.2583 10.4287 36 12.5 36H18C18.425 36 18.7813 36.1447 19.069 36.434C19.3563 36.723 19.5 37.0813 19.5 37.509C19.5 37.9363 19.3563 38.2917 19.069 38.575C18.7813 38.8583 18.425 39 18 39H12.5C9.63333 39 7.16667 37.9667 5.1 35.9C3.03333 33.8333 2 31.3667 2 28.5C2 25.9 2.825 23.6083 4.475 21.625C6.125 19.6417 8.25 18.45 10.85 18.05C11.5167 14.8167 13.0833 12.175 15.55 10.125C18.0167 8.07499 20.8667 7.04999 24.1 7.04999C27.8667 7.04999 31.025 8.40832 33.575 11.125C36.125 13.8417 37.4 17.1 37.4 20.9V22.1C39.8 22.0333 41.8333 22.8083 43.5 24.425C45.1667 26.0417 46 28.0833 46 30.55C46 32.85 45.1667 34.8333 43.5 36.5C41.8333 38.1667 39.85 39 37.55 39H25.5C24.7 39 24 38.7 23.4 38.1C22.8 37.5 22.5 36.8 22.5 36V23.1Z' fill='%23F5F8FF'/%3E%3C/svg%3E%0A");
+    background-size: 4.8rem;
+    width: 12rem;
+    height: 6.4rem;
+}
+.chbook-document--refresh-btn {
+    background-image:url("../images/common/icon-re-w-32.svg");
+    background-size:3.2rem;
+    width:10.4rem;
+    height:4.8rem;
 }
 .chbook-document--about {
     display: flex;
@@ -733,6 +743,19 @@
 }
 
 .chbook-document .text-blue {font-weight:800;color:#3B43BA}
+.chbook-document-list-box {padding:2rem 2rem 2.4rem;background-color:var(--in-box-bg3);border-radius:2rem}
+.chbook-document-list-name {display:flex;align-items:center;font-size:1.6rem;color:var(--text-color5);font-weight:600}
+.chbook-document-list-name ~ .chbook-document-list-name {margin-top:1.6rem}
+.icon-file-20 {display:block;aspect-ratio:1/1;width:2rem;background:url("../images/common/icon-file-20.svg") no-repeat 50% 50%;background-size:contain}
+.icon-pdf-20 {display:block;aspect-ratio:20/18;width:2rem;background:url("../images/common/icon-pdf-20.svg") no-repeat 50% 50%;background-size:contain}
+.icon-sh-24 {display:block;aspect-ratio:1/1;width:2.4rem;background:url("../images/common/icon-sh-24.svg") no-repeat 50% 50%;background-size:contain}
+.chbook-document-list-group {margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.8rem;}
+.chbook-document-list-item {display:inline-flex;gap:.4rem;padding:0 .8rem;align-items:center;border-radius:.8rem;height:3.2rem;max-width:24rem;background-color:var(--in-box-bg4);color:var(--text-color6);font-weight:400}
+.chbook-document-sh-box {display:flex;justify-content:flex-end;margin-bottom:1.6rem}
+.chbook-document-sh-item {display:flex;align-items:center;width:100%;max-width:28rem;border-bottom:.1rem solid var(--in-box-line1);flex-shrink:0}
+.chbook-document-sh-item .in-sh {height:4rem;background-color:transparent;color:var(--text-color5);border:none;outline:none;width:100%;}
+[data-color="dark"] .icon-sh-24 {background-image:url("../images/common/icon-sh-24-w.svg")}
+
 @container file-container (max-width: 800px) {
     .chbook-document--about-item.n1 {
         grid-column:1 / 5;
@@ -743,7 +766,6 @@
         grid-row: 2 / 3;
     }
 }
-
 
 @container file-add-container (max-width:1023px) {
     .chbook-document .green-color-box {width:100%}
