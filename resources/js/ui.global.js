@@ -933,7 +933,6 @@ class PDFeBook {
 		}
 		html_list += `</ul>`;
 
-		console.log('l;list',viewer_body)
 		viewer_body.insertAdjacentHTML('beforeend', html_list);
 	}
 	set() {

@@ -62,6 +62,10 @@
     border-radius: 1.2rem;
     background:#232E4B url("data:image/svg+xml,%3Csvg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.79238 21C1.30879 21 0.889159 20.8221 0.533496 20.4663C0.177832 20.1106 0 19.691 0 19.2074V2.69789C0 2.2143 0.177832 1.79468 0.533496 1.43901C0.889159 1.08335 1.30879 0.905518 1.79238 0.905518H10V2.69789H1.79238V19.2074H10V21H1.79238ZM15.0001 15.9668L13.7217 14.698L16.5709 11.8488H6.66035V10.0565H16.533L13.6841 7.20728L14.9622 5.92915L20 10.9669L15.0001 15.9668Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat 50% 50% / 2rem;
 }
+.chbook-header--util .chbook-header--util-logoout,
+.chbook-menu {
+    display: none;
+}
 
 /* content */
 .chbook-content {
@@ -132,23 +136,21 @@
     gap: 2.8rem;
     padding-bottom: 8rem;
 }
+.chbook-area {
+    flex:1;
+    height: 100%;
+}
 [data-order="0"] {order: 0}
 [data-order="1"] {order: 1}
 [data-order="2"] {order: 2}
-/* group */
-.chbook-content-group .chbook-group,
-.chbook-content-group .chbook-chatbot,
-.chbook-content-group .chbook-document,
-.chbook-content-group .chbook-ebook{display: none;}
-.chbook-content-group .chbook-group[data-toggle-state="true"],
-.chbook-content-group .chbook-chatbot[data-toggle-state="true"],
-.chbook-content-group .chbook-document[data-toggle-state="true"],
-.chbook-content-group .chbook-ebook[data-toggle-state="true"]{display: flex;}
 
-.chbook-content-group > .chbook-document[data-toggle-state="true"] ~ .service-info-box,
-.chbook-content-group > .chbook-ebook[data-toggle-state="true"] ~ .service-info-box {display: none;}
+.chbook-area > [data-toggle-state="false"],
+.chbook-content-group > [data-toggle-state="false"] {display: none;}
+.chbook-area > [data-toggle-state="true"]
+.chbook-content-group > [data-toggle-state="true"] {display: flex;}
+.chbook-area[data-view="document"] .service-info-box,
+.chbook-area[data-view="ebook"] .service-info-box{display: none;}
 
-[data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {display: none;}
 
 
 .chbook-group {
@@ -795,10 +797,7 @@
 }
 
 
-
-
-
-
+/* mobile */
 @media (max-width:1023px) {
     html {font-size:10px;}
     .chbook-header--util-person span {display:none}
@@ -871,11 +870,165 @@
     .chbook-content-group > *{border-radius: 0;}
     .chbook-content-group{padding-bottom: 0;}
     .dmex-ebook--viewer-wrap{padding: 0;}
-}
-@media (max-width:1023px) {
+ 
     .chbook-footer {padding:2.8rem 2rem 3.6rem}
     .footer-link {flex-direction:column;gap:.4rem}
     .footer-link-item {font-size:1.2rem;line-height:2rem}
     .footer-copy-desc {font-size:1.2rem;line-height:2rem}
     .footer-copy-desc:last-child {margin-top:2rem}
-}
+
+    .chbook-header{z-index:2;}
+    .chbook-header--menu {
+        display: flex;
+        width: 3.6rem;
+        height:3.6rem;
+        background: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.17578 7.5C3.17578 6.67157 3.84735 6 4.67578 6H31.3229C32.1513 6 32.8229 6.67157 32.8229 7.5C32.8229 8.32843 32.1513 9 31.3229 9H4.67578C3.84735 9 3.17578 8.32843 3.17578 7.5Z' fill='white'/%3E%3Cpath d='M3.17578 18C3.17578 17.1716 3.84735 16.5 4.67578 16.5H31.3229C32.1513 16.5 32.8229 17.1716 32.8229 18C32.8229 18.8284 32.1513 19.5 31.3229 19.5H4.67578C3.84735 19.5 3.17578 18.8284 3.17578 18Z' fill='white'/%3E%3Cpath d='M4.67578 27C3.84735 27 3.17578 27.6716 3.17578 28.5C3.17578 29.3284 3.84735 30 4.67578 30H31.3229C32.1513 30 32.8229 29.3284 32.8229 28.5C32.8229 27.6716 32.1513 27 31.3229 27H4.67578Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat 50% 50% / 3.6rem;
+    }
+    .chbook-menu[data-toggle-state="false"] {
+        display: none;
+    }
+    .chbook-menu[data-toggle-state="true"] {
+        display: flex;
+    }
+    .chbook-menu {
+        display: flex;
+        position: fixed;
+        top:0; 
+        left:0;
+        width: 100%;
+        height: 100dvh;
+        justify-content: flex-end;
+    }
+    .chbook-menu--wrap {
+        position: relative;
+        z-index: 1;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 24rem;
+        padding: 5rem 2rem 3rem;
+    }
+    .chbook-menu--dim{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height: 100%;
+        background-color: #00000099;
+    }
+    .chbook-menu--close{
+        display: flex;
+        width: 3.6rem;
+        height:3.6rem;
+        background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.90043 24L0 22.0996L10.0996 12L0 1.90043L1.90043 0L12 10.0996L22.0996 0L24 1.90043L13.9004 12L24 22.0996L22.0996 24L12 13.9004L1.90043 24Z' fill='%23202020'/%3E%3C/svg%3E%0A") no-repeat 50% 50% / 2.4rem;
+    }
+    .chbook-menu--header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:.4rem;
+        padding-bottom: 2rem;
+    }
+    .chbook-header--menu-logout,
+    .chbook-header--menu-login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:.4rem;
+        color:#111111;
+        font-size: 1.6rem;
+        font-family: 'SUIT';
+        font-weight: 400;
+        line-height: 2.4rem;
+        text-decoration: none;
+        text-align: center;
+    }
+    .chbook-header--menu-login::before {
+        content: "";
+        display: block;
+        width: 3.6rem;
+        height: 3.6rem;
+        background: url(../images/ebook/ico_login.png) no-repeat 50% 50% / 3.6rem;
+    }
+    .chbook-header--menu-logout::before {
+        content: "";
+        display: block;
+        width: 3.6rem;
+        height: 3.6rem;
+        background: url(../images/ebook/ico_person.png) no-repeat 50% 50% / 3.6rem;
+    }
+    .chbook-header--util-logoout {
+        width: 8rem;
+        height: 3.2rem;
+        border-radius: 1.6rem;
+        background-size:1.6rem;
+    }
+    .chbook-menu--wrap hr {
+        margin: 0;
+        border-color: #E8E8E8;
+    }
+    .chbook-menu--body {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 0;
+        gap:.8rem;
+    }
+    .chbook-menu--btn {
+        width: 100%;
+        background-color: #ECF0FB;
+        height: 4.4rem;
+        border-radius: 2.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #232E4B;
+        font-size: 1.4rem;
+        font-family: 'SUIT';
+        font-weight: 700;
+        gap: .8rem;
+
+    }
+    .chbook-menu--btn span{
+        width: 6.6rem;
+        display: block;
+        text-align: left;
+    }
+    .chbook-menu--btn::before{
+        content:"";
+        display: block;
+        width: 2.6rem;
+        height: 2.6rem;
+    }
+    .chbook-menu--btn[data-name="group"]::before{
+        background:url(../images/ebook/ico_nav1.png) no-repeat 50% 50% / 2.6rem;
+    }
+    .chbook-menu--btn[data-name="chatbot"]::before{
+        background:url(../images/ebook/ico_nav2.png) no-repeat 50% 50% / 2.6rem;
+    }
+    .chbook-menu--btn[data-name="document"]::before{
+        background:url(../images/ebook/ico_nav3.png) no-repeat 50% 50% / 2.6rem;
+    }
+    .chbook-menu--btn[data-name="setting"]::before{
+        background:url(../images/ebook/ico_nav4.png) no-repeat 50% 50% / 2.6rem;
+    }
+    .chbook-menu--link[target="_blank"] {
+        margin-top: 1.6rem;
+    }
+    .chbook-menu--link[target="_blank"]::after{
+        content:"";
+        display: block;
+        width: 1.6rem;
+        height: 1.7rem;
+        background: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.9274 6.8324L4.90875 12.851C4.7995 12.9603 4.67536 13.0124 4.53631 13.0075C4.39727 13.0025 4.27312 12.9454 4.16387 12.8361C4.05462 12.7269 4 12.6002 4 12.4562C4 12.3122 4.05462 12.1856 4.16387 12.0764L10.1676 6.07263H7.17184C7.02029 6.07263 6.89321 6.02153 6.79061 5.91933C6.68812 5.81713 6.63687 5.6905 6.63687 5.53944C6.63687 5.38838 6.68822 5.26071 6.79091 5.15642C6.89361 5.05214 7.02088 5 7.17274 5H11.4594C11.6112 5 11.7393 5.05135 11.8436 5.15404C11.9479 5.25674 12 5.38401 12 5.53587V9.8225C12 9.97435 11.9489 10.1024 11.8467 10.2067C11.7445 10.311 11.6179 10.3631 11.4668 10.3631C11.3158 10.3631 11.1881 10.3119 11.0838 10.2094C10.9795 10.1068 10.9274 9.97971 10.9274 9.82816V6.8324Z' fill='%232C2C2C'/%3E%3C/svg%3E%0A") no-repeat 50% 50% / 1.6rem;
+    }
+    .chbook-menu--link{
+        color: #2C2C2C;
+        font-size: 1.6rem;
+        font-weight: 500;
+        font-family: 'SUIT';
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+}   

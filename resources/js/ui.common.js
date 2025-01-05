@@ -3,6 +3,7 @@
         src: 'header.html',
         dataId: 'header',
         callback:() => {
+            UI.exe.toggleUI = new ToggleUI();
         }
     });
     UI.parts.include({

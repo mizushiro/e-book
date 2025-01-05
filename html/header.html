@@ -3,5 +3,44 @@
     <a href="" class="chbook-header--util-person">
         <span>abc@gmail.com / 회사명</span>
     </a>
+
     <button type="button" class="chbook-header--util-logoout" aria-label="로그아웃"></button>
+
+    <button type="button" class="chbook-header--menu" aria-label="전체메뉴 열기" data-toggle-object="menu" data-toggle-state="false"></button>
+</div>
+
+<div class="chbook-menu" data-toggle-target="menu" data-toggle-state="false">
+    <div class="chbook-menu--wrap">
+        <button type="button" class="chbook-menu--close" aria-label="전체메뉴 닫기" data-toggle-object="menu" data-toggle-state="true"></button>
+
+        <div class="chbook-menu--header">
+            <a href="" class="chbook-header--menu-login">
+                <span>로그인 후 이용해주세요</span>
+            </a>
+            <a href="" class="chbook-header--menu-logout">
+                <span>abc@gmail.com <br> 회사명</span>
+            </a>
+            <button type="button" class="chbook-header--util-logoout" aria-label="로그아웃"></button>
+        </div>
+
+        <hr>
+
+        <div class="chbook-menu--body">
+            <button type="button" class="chbook-menu--btn" data-name="group" data-toggle-object="group" data-callback="group" data-toggle-state="false">
+                <span>Group</span>
+            </button>
+            <button type="button" class="chbook-menu--btn" data-name="chatbot" data-toggle-object="chatbot" data-callback="chatbot" data-toggle-state="false">
+                <span>Chatbot</span>
+            </button>
+            <button type="button" class="chbook-menu--btn" data-name="document" data-toggle-object="document" data-callback="document" data-toggle-state="false">
+                <span>Document</span>
+            </button>
+
+            <a href="#" class="chbook-menu--link" target="_blank">회사소개</a>
+            <a href="#" class="chbook-menu--link">서비스 소개</a>
+            <a href="#" class="chbook-menu--link">이용약관</a>
+            <a href="#" class="chbook-menu--link">개인정보취급방침</a>
+        </div>
+    </div>
+    <div class="chbook-menu--dim"></div>
 </div>
