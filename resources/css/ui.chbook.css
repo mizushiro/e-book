@@ -770,13 +770,14 @@
     .chbook-content {
         flex-direction: column;
         padding: 0;
+        flex:none;
         /* min-height: 100dvh; */
     }
     .chbook-wrap {
-        height: 100%;
+        height:auto;
         min-height: 100dvh;
-        
     }
+    .chbook-ebook {height:calc(100vh - 10rem)}
     .chbook-header{
         padding:0 2.4rem;
     }
@@ -792,6 +793,7 @@
         flex-direction: row;
         justify-content: center;
         gap:10%;
+        padding:1.2rem 0;
     }
     .chbook-content-group{
         background-color: #fff;
@@ -800,6 +802,8 @@
     .chbook-content-group > .chbook-chatbot,
     .chbook-content-group > .chbook-document,
     .chbook-content-group > .chbook-ebook{display: none;}
+    .left-nav-list-btn {height:6.8rem}
+    .left-nav-list-btn::before {width:2.8rem;height:2.8rem;background-size:contain !important;}
     .left-nav-list-btn[data-toggle-state="true"] {
         display: flex;
     }
