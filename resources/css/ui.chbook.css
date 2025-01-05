@@ -774,6 +774,7 @@
         flex-direction: column;
         padding: 0;
         flex:none;
+        gap:0;
         /* min-height: 100dvh; */
     }
     .chbook-wrap {
@@ -783,6 +784,7 @@
     .chbook-ebook {height:calc(100vh - 10rem)}
     .chbook-header{
         padding:0 2.4rem;
+        min-height:8rem
     }
     .left-nav{
         padding:0 1.6rem;
