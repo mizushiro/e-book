@@ -796,9 +796,9 @@
     }
     .left-nav-list {
         flex-direction: row;
-        justify-content: center;
-        gap:10%;
-        padding:1.2rem 0;
+        justify-content:space-between;
+        gap:2.4em;
+        padding:1.2rem 2.4rem;
     }
     .chbook-content-group{
         background-color: #fff;
@@ -807,7 +807,7 @@
     .chbook-content-group > .chbook-chatbot,
     .chbook-content-group > .chbook-document,
     .chbook-content-group > .chbook-ebook{display: none;}
-    .left-nav-list-btn {height:6.8rem}
+    .left-nav-list-btn {height:6.8rem;width:6.8rem;border-radius:1.6rem}
     .left-nav-list-btn::before {width:2.8rem;height:2.8rem;background-size:contain !important;}
     .left-nav-list-btn[data-toggle-state="true"] {
         display: flex;
