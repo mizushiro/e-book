@@ -132,16 +132,18 @@
     gap: 2.8rem;
     padding-bottom: 8rem;
 }
-
+[data-order="0"] {order: 0}
+[data-order="1"] {order: 1}
+[data-order="2"] {order: 2}
 /* group */
-.chbook-content-group > .chbook-group,
-.chbook-content-group > .chbook-chatbot,
-.chbook-content-group > .chbook-document,
-.chbook-content-group > .chbook-ebook{display: none;}
-.chbook-content-group > .chbook-group[data-toggle-state="true"],
-.chbook-content-group > .chbook-chatbot[data-toggle-state="true"],
-.chbook-content-group > .chbook-document[data-toggle-state="true"],
-.chbook-content-group > .chbook-ebook[data-toggle-state="true"]{display: flex;}
+.chbook-content-group .chbook-group,
+.chbook-content-group .chbook-chatbot,
+.chbook-content-group .chbook-document,
+.chbook-content-group .chbook-ebook{display: none;}
+.chbook-content-group .chbook-group[data-toggle-state="true"],
+.chbook-content-group .chbook-chatbot[data-toggle-state="true"],
+.chbook-content-group .chbook-document[data-toggle-state="true"],
+.chbook-content-group .chbook-ebook[data-toggle-state="true"]{display: flex;}
 
 .chbook-content-group > .chbook-document[data-toggle-state="true"] ~ .service-info-box,
 .chbook-content-group > .chbook-ebook[data-toggle-state="true"] ~ .service-info-box {display: none;}
