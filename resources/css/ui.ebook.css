@@ -35,7 +35,7 @@
   padding: 0 3rem;
   background-color: #fff;
 }
-.dmex-ebook--viewer-header {display:flex;justify-content:space-between;width:100%;padding:1.2rem 0 .8rem 0;}
+.dmex-ebook--viewer-header {display:flex;justify-content:space-between;width:100%;padding:1.2rem 0 .8rem 0;flex-wrap:wrap;gap:.4rem}
 .dmex-ebook--viewer-info {display:flex;align-items:center;gap:.7rem;}
 .icon-pdf {display:block;background:url("../images/common/icon-pdf.png") no-repeat 50% 50%;aspect-ratio:28/27;width:2.8rem;background-size:contain;}
 .dmex-ebook--viewer-info-title {font-size:1.6rem;font-weight:500;line-height:2rem;color:#000;}
@@ -117,7 +117,7 @@
   border-bottom:.1rem solid #ccc;
 }
 
-.dmex-ebook--viewer-util {display:flex;gap:.8rem;align-items:center;}
+.dmex-ebook--viewer-util {display:flex;gap:.8rem;align-items:center;margin-left:auto}
 .dmex-ebook--viewer-util-btn {display:flex;align-items:center;font-size:1.4rem;color:#000;font-weight:400;}
 .dmex-ebook--viewer-util-btn i {aspect-ratio:1/1;width:2.8rem;background-position:50% 50%;background-repeat:no-repeat;background-size:contain;pointer-events:none;}
 .icon-auto-play {background-image:url("../images/common/icon-auto-play.svg");}
