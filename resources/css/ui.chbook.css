@@ -815,7 +815,7 @@
         position: sticky;
         top:0;
         z-index: 100;
-        background-color: #2C3F6A;
+        background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100dvh);
     }
     .left-nav-list {
         flex-direction: row;
