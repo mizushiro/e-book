@@ -127,12 +127,12 @@
 [data-auto="true"] .dmex-ebook--viewer-util-btn[data-act="auto"]::after {content:"정지";}
 [data-full="true"] .dmex-ebook--viewer-util-btn[data-act="full"]::after{content:"축소";}
 
-.dmex-ebook--viewer-zoom {display:flex;gap:.8rem;align-items:center;}
+.dmex-ebook--viewer-zoom {display:flex;gap:.8rem;align-items:center;width:100%;max-width:28rem}
 .dmex-ebook--viewer-zoom-btn,
 .dmex-ebook--viewer-zoom-btn i {aspect-ratio:1/1;width:2.8rem;}
 .icon-view-minus {background-image:url("../images/common/icon-zoom-minus.svg");}
 .icon-view-plus {background-image:url("../images/common/icon-zoom-plus.svg");}
-.dmex-ebook--viewer-zoom-progress {width:24rem}
+.dmex-ebook--viewer-zoom-progress {width:100%}
 .dmex-ebook--viewer-zoom-progress input[type="range"] {width:100%;-webkit-appearance:none;appearance:none;border-radius:999em;background-color:#828282;box-shadow: 0 .1rem .2rem 0 #00000040 inset;outline:none;}
 /* 트랙 스타일 */
 .dmex-ebook--viewer-zoom-progress input[type="range"]::-webkit-slider-runnable-track {height:.8rem;border-radius:999em;background-color:#828282;box-shadow:0 .1rem .2rem 0 #00000040 inset;}
@@ -141,7 +141,7 @@
 .dmex-ebook--viewer-zoom-progress input[type="range"]::-webkit-slider-thumb {-webkit-appearance:none;appearance:none;width:4rem;height:1.6rem;background:#fff;border:.1rem solid #000;border-radius:999em;cursor:pointer;position:relative;top:-.4rem;}
 .dmex-ebook--viewer-zoom-progress input[type="range"]::-moz-range-thumb {width:4rem;height:1.6rem;background:#fff;border:.1rem solid #000;border-radius:999em;cursor:pointer;position:relative;top:-.4rem;}
 
-.dmex-ebook--viewer-paging {display:flex;gap:1.6rem;align-items:center;}
+.dmex-ebook--viewer-paging {display:flex;gap:1.6rem;align-items:center;flex-shrink:0}
 .dmex-ebook--viewer-zoom-btn,
 .dmex-ebook--viewer-paging-btn {display:flex;align-items:center;justify-content:center;}
 .dmex-ebook--viewer-paging-btn,
