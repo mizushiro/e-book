@@ -654,13 +654,14 @@
     border:.1rem dashed var(--in-box-bg3-line);
     background-color: var(--in-box-bg3);
     border-radius: 2rem;
-    min-height: 22.4rem;
+    padding:4.8rem 1.6rem;
     text-align: center;
     font-size: 1.6rem;
     color:var(--text-color4);
     line-height: 2.4rem;
     font-family: 'SUIT';
 }
+.chbook-document--file-desc {color:var(--text-color7);font-weight:600}
 .chbook-document--refresh-btn,
 .chbook-document--file-btn {
     background-color: #597CFF;
