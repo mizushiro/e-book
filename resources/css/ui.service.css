@@ -32,8 +32,9 @@
 .page-content .main-service-item:first-child {margin-top:0;padding-top:0;min-height:72rem;}
 .box-group-area {display:flex;flex-wrap:wrap;gap:2.4rem;}
 .box-group-area.gap-12 {gap:1.2rem;}
+.box-group-area.gap-16 {gap:1.6rem;}
 .w-full-type {width:100%;}
-.green-color-box {background-color:#EDFAF5;padding:4rem 4.8rem;border-radius:2.8rem;}
+.green-color-box {background-color:#EDFAF5;padding:2.8rem 3.2rem;border-radius:2.8rem;}
 .green-color-box[data-dir="start"] .green-color-box-content {align-items:flex-start}
 .green-color-box[data-dir="end"] .green-color-box-content {align-items:flex-end}
 .green-color-box-content {display:flex;align-items:flex-end;gap:4rem;}
@@ -47,6 +48,7 @@
 .gradation-color-box-2 {background:linear-gradient(138deg, rgba(248, 238, 253, 0.70) 2.31%, rgba(254, 245, 236, 0.70) 94.87%);}
 .box-group-col-2 {width:calc((100% - 2.4rem) / 2);}
 .box-group-col-4 {width:calc((100% - 3.6rem) / 4);}
+.gap-16 .box-group-col-4 {width:calc((100% - 5.4rem) / 4);}
 .gradation-color-content {display:flex;align-items:center;justify-content:center;flex-direction:column;}
 .gradation-color-content * {text-align:center;}
 .sky-color-box {background-color:#F3F6FF;padding:4rem;border-radius:2.8rem;}

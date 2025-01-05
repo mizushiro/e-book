@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<div class="chbook-wrap" data-color="">
+<div class="chbook-wrap" data-color="dark">
     <header class="chbook-header" data-id="header"></header>
 
     <main class="chbook-content">
@@ -43,6 +43,9 @@
                 </button>
                 <button type="button" class="left-nav-list-btn" data-name="chatbot"  data-toggle-object="chatbot" data-callback="chatbot">
                     <span>Chatbot</span>
+                </button>
+                <button type="button" class="left-nav-list-btn" data-name="document" data-toggle-object="document" data-callback="document">
+                    <span>Document</span>
                 </button>
                 <!-- <button type="button" class="left-nav-list-btn" data-name="document" data-toggle-object="document" data-callback="document">
                     <span>Document</span>
@@ -282,7 +285,7 @@
                     <div class="sub-content-area">
                         <h3 class="chbook-document--title-sub">이런 기능을 제공해요!</h3>
                         <div class="box-group-area">
-                            <div class="green-color-box" >
+                            <div class="green-color-box box-group-col-2" data-dir="end">
                                 <div class="green-color-box-content">
                                     <div class="green-color-box-data">
                                         <p class="service-desc-1">
@@ -301,7 +304,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="green-color-box" >
+                            <div class="green-color-box box-group-col-2" data-dir="end">
                                 <div class="green-color-box-content">
                                     <div class="green-color-box-data">
                                         <p class="service-desc-1">
@@ -320,10 +323,11 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="gradation-color-box-1 box-group-col-2">
+                        </div>
+                        <div class="box-group-area gap-16">
+                            <div class="gradation-color-box-1 box-group-col-4">
                                 <div class="gradation-color-content">
-                                    <p class="text-desc-size-24">정확한 출처를 확인해요</p>
+                                    <p class="text-desc-size-24">정확한 출처를 <br />확인해요</p>
                                     <i class="icon-ai-13"></i>
                                     <p class="text-desc-size-16">
                                         답변의 출처가 되는 문서와 함께 답변을 해주기 때문에<br>
@@ -332,9 +336,9 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="gradation-color-box-2 box-group-col-2">
+                            <div class="gradation-color-box-2 box-group-col-4">
                                 <div class="gradation-color-content">
-                                    <p class="text-desc-size-24">답변을 다양하게 확장해요</p>
+                                    <p class="text-desc-size-24">답변을 다양하게 <br />확장해요</p>
                                     <i class="icon-ai-14"></i>
                                     <p class="text-desc-size-16">
                                         AI eBOOK 기능을 제공해 <span class="text-blue">검색, 북마크</span>가 가능해요.<br />
@@ -343,9 +347,9 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="gradation-color-box-1 box-group-col-2">
+                            <div class="gradation-color-box-1 box-group-col-4">
                                 <div class="gradation-color-content">
-                                    <p class="text-desc-size-24">업로드로 쉬운 학습</p>
+                                    <p class="text-desc-size-24">업로드로 <br />쉬운 학습</p>
                                     <i class="icon-ai-15"></i>
                                     <p class="text-desc-size-16">
                                         미리 등록된 문서를 기반으로 답변해,<br />
@@ -354,9 +358,9 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="gradation-color-box-2 box-group-col-2">
+                            <div class="gradation-color-box-2 box-group-col-4">
                                 <div class="gradation-color-content">
-                                    <p class="text-desc-size-24">24시간 신속한 답변</p>
+                                    <p class="text-desc-size-24">24시간 <br />신속한 답변</p>
                                     <i class="icon-ai-16"></i>
                                     <p class="text-desc-size-16">
                                         <span class="text-blue">24시간</span> 필요할 때 언제든!<br />
