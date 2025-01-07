@@ -197,7 +197,6 @@
 	.left-nav-list-btn[data-name="document"] {display: flex;}
 	[data-is="group"] .service-info-box,
 	[data-is="chatbot"] .service-info-box,
-	[data-is="document"] .service-info-box,
 	[data-is="ebook"] .service-info-box {z-index: -1; visibility: hidden; position: absolute;}
 	[data-is="group"] .chbook-content-group > .chbook-group[data-toggle-state="true"],
 	[data-is="chatbot"] .chbook-content-group > .chbook-chatbot[data-toggle-state="true"],
