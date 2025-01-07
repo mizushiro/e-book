@@ -35,6 +35,7 @@
   padding: 0 3rem;
   background-color: #fff;
 }
+.dmex-ebook--viewer[data-full="true"] .btn-file-upload{display: none;}
 .dmex-ebook--viewer-header {display:flex;justify-content:space-between;width:100%;padding:1.2rem 0 .8rem 0;flex-wrap:wrap;gap:.4rem}
 .dmex-ebook--viewer-info {display:flex;align-items:flex-start;gap:.7rem;}
 .icon-pdf {display:block;background:url("../images/common/icon-pdf.png") no-repeat 50% 50%;aspect-ratio:28/27;width:2.8rem;background-size:contain;}

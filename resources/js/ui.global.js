@@ -1178,6 +1178,7 @@ class PDFeBook {
 				 	if (!document.fullscreenElement) {
 						viewer.requestFullscreen(); 
 						viewer.dataset.full = 'true';
+						
 						setTimeout(() => {
 							this.pageReset();
 							this.set();

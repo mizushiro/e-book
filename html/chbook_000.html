@@ -191,7 +191,7 @@
             <!--  -->
             <div class="chbook-area" data-order="2">
                 <!-- 이북 -->
-                <div class="chbook-ebook" data-order="2" data-toggle-target="ebook" data-toggle-state="false">
+                <div class="chbook-ebook" data-toggle-target="ebook" data-toggle-state="false">
                     <div class="dmex-ebook--viewer">
                         <!-- head -->
                         <div class="dmex-ebook--viewer-header">
@@ -258,8 +258,8 @@
                     </div>
                 </div>
 
-                <!-- 파일현황 -->
-                <div class="chbook-document" data-order="2" data-toggle-target="document" data-toggle-state="false">
+                <!-- 로그인 후 : 파일현황 -->
+                <div class="chbook-document">
                     <h2 class="chbook-document--title">파일 등록 현황</h2>
                     <div class="chbook-document--cont">
                         <div class="chbook-document--file">
@@ -420,9 +420,9 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Group AI Chatbot 서비스 소개 -->
-                <div class="service-info-box" data-order="2">
+                
+                <!-- 로그인 전 : Group AI Chatbot 서비스 소개 
+                <div class="service-info-box">
                     <div class="service-info-box-inner">
                         <p class="service-info-title">Group AI Chatbot 서비스 소개</p>
                         <div class="main-service-item">
@@ -806,6 +806,7 @@
                         </div>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </main>
@@ -851,10 +852,12 @@
         const chbook_area = document.querySelector('.chbook-area');
         const srv_img5 = document.querySelector('.srv-img5');
         setTimeout(() => {
-            srv_img5.dataset.scrollPlay="on";
+            if (srv_img5) srv_img5.dataset.scrollPlay="on";
         },300)
         
         const switchArea = (v) => {
+            console.log(v);
+
             document.querySelectorAll('[data-toggle-object="'+ v +'"]').forEach(item => {
                 item.dataset.toggleState = 'false';
             });
@@ -862,10 +865,10 @@
         }
         const mobileToggleNav = (v) => {            
             const objects = document.querySelectorAll('.left-nav-list [data-toggle-object]');
-            const targets = document.querySelectorAll('.chbook-content-group [data-toggle-target]');
+            const targets = document.querySelectorAll('.chbook-content-group > [data-toggle-target]');
 
             objects.forEach((item) => {
-                (v !== 'ebook' && UI.exe.ebook) && UI.exe.ebook.destory();
+                // (v !== 'ebook' && UI.exe.ebook) && UI.exe.ebook.destory();
                 if (v === item.dataset.toggleObject) {
                     item.dataset.toggleState = 'true';
                 } else {
@@ -890,7 +893,7 @@
         //그룹
         UI.callback.group = (v) => {
             navAct(v);
-            console.log('group')
+            
             const treeGroup = new TreeGroup({
                 id: 'group-tree'
             });
@@ -904,42 +907,43 @@
              * [data-ebook]클릭시 해당 pdf경로 정보를 이미지로 변환하여 json파일로 가져와 실행.
              */
             const ebookBtn = document.querySelectorAll('[data-ebook]');
-            UI.exe.ebookact = (e) => {
-                const ebookArea = document.querySelector('.chbook-ebook');
-                const _this = e.target;
-
-                navAct({
-                    state: 'true',
-                    name: 'ebook'
-                });
-
-                console.log(_this.dataset.ebook)
-
-                switchArea('document');
-                chbook_area.dataset.view = 'ebook';
-                ebookArea.dataset.toggleState = 'true';
-                UI.exe.ebook && UI.exe.ebook.destory();
-                UI.exe.ebook = new PDFeBook({
-                    id: 'book',
-                    data: data_pdf // _this.
-                });
-            }
             ebookBtn.forEach(item => {
-                item.addEventListener('click', UI.exe.ebookact)
+                item.addEventListener('click', UI.exe.ebookShow)
             });
-          
         }
-        //파일
+        //파일등록&이북
         UI.callback.document = (v) => {
             navAct(v);
-            switchArea('ebook');
-            UI.exe.ebook && UI.exe.ebook.destory();
-            chbook_area.dataset.view = (v.state === 'true') ? 'document' : ''; 
         }
+        //이북 hide
+        UI.exe.ebookHide = (e) => {
+            const ebookArea = document.querySelector('.chbook-ebook');
+            UI.exe.ebook.destory();
+            chbook_area.dataset.view = '';
+            ebookArea.dataset.toggleState = 'false';
+        }
+        //이북 show
+        UI.exe.ebookShow= (e) => {
+            const ebookArea = document.querySelector('.chbook-ebook');
+            const _this = e.target;
 
-        //세팅
-        UI.callback.setting = (v) => {
-            console.log(v);
+            navAct({
+                state: 'true',
+                name: 'ebook'
+            });
+
+            //pdf파일 경로를 가지고 data_pdf 처럼 json 파일로 변경 필요.
+            chbook_area.dataset.view = 'ebook';
+            ebookArea.dataset.toggleState = 'true';
+            UI.exe.ebook && UI.exe.ebook.destory();
+            UI.exe.ebook = new PDFeBook({
+                id: 'book',
+                data: data_pdf
+            });
+
+            //파일 업로드 버튼
+            const btnFileUpload = document.querySelector('.btn-file-upload');
+            btnFileUpload.addEventListener('click',  UI.exe.ebookHide);
         }
     });
 
