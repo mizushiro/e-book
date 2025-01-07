@@ -174,7 +174,7 @@
 @media (max-width:1023px) {
 	.chbook-document--cont,
 	.chbook-chatbot--body,
-	.chbook-group--body{width: 100%;}
+	.chbook-group--body{width: 100%; overflow-y: auto;}
 	html {font-size:10px;}
 	.chbook-header--util .chbook-header--util-logoout{display: none;}
 	.chbook-header--util-person span {display:none}
