@@ -184,14 +184,14 @@
 	.chbook-wrap {height:auto;min-height: 100dvh;}
 	.chbook-ebook {height:calc(100vh - 10rem)}
 	.chbook-header{padding:0 2.4rem;min-height:8rem}
-	.left-nav{padding:0 1.6rem;margin: 0;position: sticky;top:0;z-index: 100;background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100dvh);}
-	.left-nav-list {flex-direction: row;justify-content:space-between;gap:.8em;padding:1.2rem .8rem;}
+	.left-nav{margin: 0;position: sticky;top:0;z-index: 100;background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100dvh);}
+	.left-nav-list {flex-direction: row;padding:.8rem 0 0;gap:0}
 	.chbook-content-group{background-color: #fff;}
 	.chbook-content-group > .chbook-group,
 	.chbook-content-group > .chbook-chatbot,
 	.chbook-content-group > .chbook-document,
 	.chbook-content-group > .chbook-ebook{display: none;}
-	.left-nav-list-btn {height:6.8rem;width:7.2rem;border-radius:1.4rem}
+	.left-nav-list-btn {height:7.2rem;width:100%;flex:1;border-radius:2rem 2rem 0 0}
 	.left-nav-list-btn::before {width:2.8rem;height:2.8rem;background-size:contain !important;}
 	.left-nav-list-btn[data-toggle-state="true"] {display: flex; pointer-events: none;}
 	.left-nav-list-btn[data-name="document"] {display: flex;}
