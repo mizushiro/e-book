@@ -860,9 +860,7 @@
             });
             document.querySelector('[data-toggle-target="'+ v +'"]').dataset.toggleState = 'false';
         }
-        const mobileToggleNav = (v) => {
-            console.log(v);
-            
+        const mobileToggleNav = (v) => {            
             const objects = document.querySelectorAll('.left-nav-list [data-toggle-object]');
             const targets = document.querySelectorAll('.chbook-content-group [data-toggle-target]');
 
@@ -892,6 +890,7 @@
         //그룹
         UI.callback.group = (v) => {
             navAct(v);
+            console.log('group')
             const treeGroup = new TreeGroup({
                 id: 'group-tree'
             });

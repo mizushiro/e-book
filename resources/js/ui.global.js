@@ -846,7 +846,6 @@ class TreeGroup {
 	}
 	init() {
 		this.btns.forEach((item) => {
-			console.log(item);
 			item.addEventListener('click', this.toggleAct);
 		});
 	}

@@ -172,6 +172,9 @@
 
 /* mobile */
 @media (max-width:1023px) {
+	.chbook-document--cont,
+	.chbook-chatbot--body,
+	.chbook-group--body{width: 100%;}
 	html {font-size:10px;}
 	.chbook-header--util .chbook-header--util-logoout{display: none;}
 	.chbook-header--util-person span {display:none}
@@ -188,7 +191,7 @@
 	.chbook-content-group > .chbook-ebook{display: none;}
 	.left-nav-list-btn {height:6.8rem;width:7.2rem;border-radius:1.4rem}
 	.left-nav-list-btn::before {width:2.8rem;height:2.8rem;background-size:contain !important;}
-	.left-nav-list-btn[data-toggle-state="true"] {display: flex;}
+	.left-nav-list-btn[data-toggle-state="true"] {display: flex; pointer-events: none;}
 	[data-is="group"] .service-info-box,
 	[data-is="chatbot"] .service-info-box,
 	[data-is="document"] .service-info-box,
@@ -198,6 +201,10 @@
 	[data-is="document"] .chbook-content-group > .chbook-document[data-toggle-state="true"],
 	[data-is="ebook"] .chbook-content-group > .chbook-ebook[data-toggle-state="true"]{display: flex;min-height:calc(100vh - 9rem)}
 	[data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {display: flex;}
+
+	.chbook-group[data-toggle-state="true"] ~ .chbook-area{display: none;}
+	.chbook-chatbot[data-toggle-state="true"] ~ .chbook-area{display: none;}
+
 	.service-info-title{margin-left: 0;}
 	.service-info-box,
 	.chbook-document,
