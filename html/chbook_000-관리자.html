@@ -33,9 +33,9 @@
                     <span>Document</span>
                 </button>
               
-                <!-- <button type="button" class="left-nav-list-btn" data-name="setting"  data-toggle-object="setting" data-callback="setting">
+                <button type="button" class="left-nav-list-btn" data-name="setting">
                     <span>Setting</span>
-                </button> -->
+                </button>
                  
             </div>
         </div>
@@ -258,7 +258,170 @@
                     </div>
                 </div>
 
-                <!-- 로그인 전 : Group AI Chatbot 서비스 소개  -->
+                <!-- 로그인 후 : 파일현황 -->
+                <div class="chbook-document">
+                    <h2 class="chbook-document--title">파일 등록 현황</h2>
+                    <div class="chbook-document--cont">
+                        <div class="chbook-document--file">
+                            <p>
+                                학습된 파일이 없습니다. <br>
+                                파일을 등록해주세요
+                            </p>
+                            <button type="button" class="chbook-document--file-btn" aria-label="파일등록"></button>
+                            <p class="chbook-document--file-desc">
+                                파일을 드래그해서 가져오세요.<br>
+                                가능한 파일 : PPT, TXT. XLS, CSV, JPEG., JPG, GIF, PNG, PDF., DOC, EPUB
+                            </p>
+                        </div>
+
+                        <div class="sub-content-area">
+                            <h3 class="chbook-document--title-sub">이런 기능을 제공해요!</h3>
+                            <div class="box-group-area">
+                                <div class="green-color-box box-group-col-2" data-dir="end">
+                                    <div class="green-color-box-content">
+                                        <div class="green-color-box-data">
+                                            <p class="service-desc-1">
+                                                따로 또 같이!<br>
+                                                원하는대로 사용하는 챗봇 그룹
+                                            </p>
+                                            <p class="service-desc-2">
+                                                <span class="text-blue">그룹 별 특화 학습</span>으로 똑똑해진 챗봇을 묶어 통합 챗봇을 만들 수 있어요.<br />
+                                                그룹 별 특화 질문은 물론, 통합 <span class="text-blue">질문에도 최상의 답변을 찾는 더 똑똑해진 챗봇</span>을 만나 보세요.
+                                            </p>
+                                        </div>
+                                        <div class="color-box-img">
+                                            <div class="round-102-item">
+                                                <i class="icon-ai-9"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="green-color-box box-group-col-2" data-dir="end">
+                                    <div class="green-color-box-content">
+                                        <div class="green-color-box-data">
+                                            <p class="service-desc-1">
+                                                프롬프트 학습으로<br />
+                                                더 정밀한 답변
+                                            </p>
+                                            <p class="service-desc-2">
+                                                <span class="text-blue">챗봇 별 프롬프트 학습</span>이 가능해 챗봇 별로 다양한 요구사항을 설정할 수 있어요. <br />
+                                                사용 목적에 맞는 프롬프트를 설정해 기업에 딱 맞는 챗봇을 경험하세요.
+                                            </p>
+                                        </div>
+                                        <div class="color-box-img">
+                                            <div class="round-102-item">
+                                                <i class="icon-ai-11"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-group-area gap-16">
+                                <div class="gradation-color-box-1 box-group-col-4">
+                                    <div class="gradation-color-content">
+                                        <p class="text-desc-size-24">정확한 출처를 <br />확인해요</p>
+                                        <i class="icon-ai-13"></i>
+                                        <p class="text-desc-size-16">
+                                            답변의 출처가 되는 문서와 함께 답변을 해주기 때문에<br>
+                                            <span class="text-blue"> 답변의 출처를 바로 확인</span>할 수 있어<br>
+                                            신뢰도 높은 답변을 확인 할 수 있어요.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="gradation-color-box-2 box-group-col-4">
+                                    <div class="gradation-color-content">
+                                        <p class="text-desc-size-24">답변을 다양하게 <br />확장해요</p>
+                                        <i class="icon-ai-14"></i>
+                                        <p class="text-desc-size-16">
+                                            AI eBOOK 기능을 제공해 <span class="text-blue">검색, 북마크</span>가 가능해요.<br />
+                                            원하는 정보를 검색하고 중요한 정보를 북마크해<br />
+                                            답변을 확장해 보세요.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="gradation-color-box-1 box-group-col-4">
+                                    <div class="gradation-color-content">
+                                        <p class="text-desc-size-24">업로드로 <br />쉬운 학습</p>
+                                        <i class="icon-ai-15"></i>
+                                        <p class="text-desc-size-16">
+                                            미리 등록된 문서를 기반으로 답변해,<br />
+                                            <span class="text-blue">문서만 업로드 하면 바로 챗봇을 시작</span>할 수 있고,<br />
+                                            <span class="text-blue">수정 문서 업로드 시 실시간 업데이트</span> 됩니다.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="gradation-color-box-2 box-group-col-4">
+                                    <div class="gradation-color-content">
+                                        <p class="text-desc-size-24">24시간 <br />신속한 답변</p>
+                                        <i class="icon-ai-16"></i>
+                                        <p class="text-desc-size-16">
+                                            <span class="text-blue">24시간</span> 필요할 때 언제든!<br />
+                                            <span class="text-blue">다양한 추론</span>이 가능해 기다림없이<br />
+                                            원하는 답변을 얻을 수 있어요.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="chbook-document-sh-box">
+                                <div class="chbook-document-sh-item">
+                                    <input type="search" class="in-sh" />
+                                    <button type="button" class="btn-sh-in">
+                                        <i class="icon-sh-24"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="chbook-document-list-box">
+                                <h3 class="chbook-document-list-name">
+                                    <i class="icon-file-20"></i>
+                                    챗봇 이름 챗봇이름 1
+                                </h3>
+                                <div class="chbook-document-list-group">
+                                    <button type="button" class="chbook-document-list-item">
+                                        <i class="icon-pdf-20"></i>
+                                        <span data-ellipsis="1">노무정책_20241204000000000000.pdf</span>
+                                    </button>
+                                    <button type="button" class="chbook-document-list-item">
+                                        <i class="icon-pdf-20"></i>
+                                        <span data-ellipsis="1">노무정책_20241204.pdf</span>
+                                    </button>
+                                    <button type="button" class="chbook-document-list-item">
+                                        <i class="icon-pdf-20"></i>
+                                        <span data-ellipsis="1">노무정책_20241204.pdf</span>
+                                    </button>
+                                </div>
+                                <h3 class="chbook-document-list-name">
+                                    <i class="icon-file-20"></i>
+                                    챗봇 이름 챗봇이름 1
+                                </h3>
+                                <div class="chbook-document-list-group">
+                                    <button type="button" class="chbook-document-list-item">
+                                        <i class="icon-pdf-20"></i>
+                                        <span data-ellipsis="1">노무정책_20241204000000000000.pdf</span>
+                                    </button>
+                                    <button type="button" class="chbook-document-list-item">
+                                        <i class="icon-pdf-20"></i>
+                                        <span data-ellipsis="1">노무정책_20241204.pdf</span>
+                                    </button>
+                                    <button type="button" class="chbook-document-list-item">
+                                        <i class="icon-pdf-20"></i>
+                                        <span data-ellipsis="1">노무정책_20241204.pdf</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="chbook-document--file">
+                                <p>
+                                    검색결과가 없습니다.
+                                </p>
+                                <button type="button" class="chbook-document--refresh-btn" aria-label="파일등록"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 로그인 전 : Group AI Chatbot 서비스 소개 
                 <div class="service-info-box">
                     <div class="service-info-box-inner">
                         <p class="service-info-title">Group AI Chatbot 서비스 소개</p>
@@ -643,7 +806,7 @@
                         </div>
                     </div>
                 </div>
-               
+                -->
             </div>
         </div>
     </main>
