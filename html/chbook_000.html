@@ -851,18 +851,27 @@
         const chbook_wrap = document.querySelector('.chbook-content');
         const chbook_area = document.querySelector('.chbook-area');
         const srv_img5 = document.querySelector('.srv-img5');
+        
+        //소개애니메이션
         setTimeout(() => {
             if (srv_img5) srv_img5.dataset.scrollPlay="on";
         },300)
         
-        const switchArea = (v) => {
-            console.log(v);
-
-            document.querySelectorAll('[data-toggle-object="'+ v +'"]').forEach(item => {
-                item.dataset.toggleState = 'false';
-            });
-            document.querySelector('[data-toggle-target="'+ v +'"]').dataset.toggleState = 'false';
+        let _isMobileSize = window.innerWidth < 1024 ? true : false;
+        const reset = (v) => {
+            const isMobileSize = window.innerWidth < 1024 ? true : false;
+            if (isMobileSize && !_isMobileSize) {
+                document.querySelectorAll('[data-toggle-object]').forEach(item => {
+                    item.dataset.toggleState = 'false';
+                });
+                document.querySelectorAll('[data-toggle-target]').forEach(item => {
+                    item.dataset.toggleState = 'false';
+                });
+            } 
+            _isMobileSize = (!isMobileSize) ? false : true;
         }
+        window.addEventListener('resize', reset);
+        
         const mobileToggleNav = (v) => {            
             const objects = document.querySelectorAll('.left-nav-list [data-toggle-object]');
             const targets = document.querySelectorAll('.chbook-content-group > [data-toggle-target]');
@@ -893,7 +902,7 @@
         //그룹
         UI.callback.group = (v) => {
             navAct(v);
-            
+
             const treeGroup = new TreeGroup({
                 id: 'group-tree'
             });
