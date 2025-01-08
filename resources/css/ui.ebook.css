@@ -85,7 +85,7 @@
   position:relative;
   top:0;
   right:0;
-  padding:1.4rem;
+  padding:0 .8rem;
   background-color:#fff;
   height:100%;
   overflow-y:auto;
@@ -93,6 +93,9 @@
   display:none;
   flex-direction:column;
   gap:.4rem;
+  max-width: 40%;
+  border-left:.1rem dashed #ccc;
+  margin-left: .8rem;
 }
 .dmex-ebook--viewer-list::-webkit-scrollbar {
     position:absolute;
@@ -114,8 +117,11 @@
 }
 .dmex-ebook--viewer-list-btn {
   width:100%;
-  padding:1rem;
+  padding:1rem 0;
   border-bottom:.1rem solid #ccc;
+  text-align: left;
+  color: #000;
+  font-size: 1.2rem;
 }
 
 .dmex-ebook--viewer-util {display:flex;gap:.8rem;align-items:center;margin-left:auto;flex-shrink:0}
