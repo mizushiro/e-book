@@ -225,7 +225,7 @@
 		height: 100%;
 		border-radius: 0;
 	}
-	.chbook-document{background-color: transparent;}
+	.chbook-document{border-radius:0}
 	.chbook-group[data-toggle-state="true"] ~ .chbook-area,
 	.chbook-chatbot[data-toggle-state="true"] ~ .chbook-area{z-index: -1; position: absolute;}
 	.dmex-ebook--viewer-wrap{padding: 0 !important;}
