@@ -204,6 +204,26 @@
 	[data-is="ebook"] .chbook-content-group > .chbook-ebook[data-toggle-state="true"]{display: flex;min-height:calc(100vh - 9rem)}
 	[data-is-ebook="true"] .chbook-content-group > .chbook-document[data-toggle-state="true"] {display: flex;}
 
+	.ebook-full .chbook-content-group{
+		z-index: 300;
+		position: relative;
+	}
+	.ebook-full .chbook-content{
+		z-index: 300;
+	}
+	.ebook-full .chbook-area{
+		position: fixed;
+		top:0;
+		left:0;
+		width: 100%;
+		height: 100%;
+		z-index: 300;
+	}
+	.ebook-full .chbook-area .chbook-ebook {
+		height: 100%;
+		border-radius: 0;
+	}
+	.chbook-document{background-color: transparent;}
 	.chbook-group[data-toggle-state="true"] ~ .chbook-area,
 	.chbook-chatbot[data-toggle-state="true"] ~ .chbook-area{z-index: -1; position: absolute;}
 	.dmex-ebook--viewer-wrap{padding: 0 !important;}

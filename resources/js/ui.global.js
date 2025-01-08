@@ -1175,22 +1175,31 @@ class PDFeBook {
 					}
 					break;
 				case 'full': 
-				 	if (!document.fullscreenElement) {
-						viewer.requestFullscreen(); 
-						viewer.dataset.full = 'true';
-						
-						setTimeout(() => {
-							this.pageReset();
-							this.set();
-						},500)
+					if (UI.state.device.mobile) {
+						console.log('모바일 전체')
+						if (document.querySelector('body.ebook-full')) {
+							document.querySelector('body').classList.remove('ebook-full');
+						} else {
+							document.querySelector('body').classList.add('ebook-full');
+						}
 					} else {
-						if (document.exitFullscreen) {
-							viewer.dataset.full = 'false';
-							document.exitFullscreen();
+						if (!document.fullscreenElement) {
+							viewer.requestFullscreen(); 
+							viewer.dataset.full = 'true';
+							
 							setTimeout(() => {
 								this.pageReset();
 								this.set();
-							},500);
+							},500)
+						} else {
+							if (document.exitFullscreen) {
+								viewer.dataset.full = 'false';
+								document.exitFullscreen();
+								setTimeout(() => {
+									this.pageReset();
+									this.set();
+								},500);
+							}
 						}
 					}
 					break;
