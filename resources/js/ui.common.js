@@ -1,4 +1,5 @@
  document.addEventListener('DOMContentLoaded', () => {
+    UI.ebook = {};
     UI.parts.include({
         src: 'header.html',
         dataId: 'header',

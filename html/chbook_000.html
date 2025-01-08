@@ -944,12 +944,14 @@
             //pdf파일 경로를 가지고 data_pdf 처럼 json 파일로 변경 필요.
             chbook_area.dataset.view = 'ebook';
             ebookArea.dataset.toggleState = 'true';
+            console.log('show',UI.exe.ebook)
+
             UI.exe.ebook && UI.exe.ebook.destory();
             UI.exe.ebook = new PDFeBook({
                 id: 'book',
                 data: data_pdf
             });
-
+           
             //파일 업로드 버튼
             const btnFileUpload = document.querySelector('.btn-file-upload');
             btnFileUpload.addEventListener('click',  UI.exe.ebookHide);
