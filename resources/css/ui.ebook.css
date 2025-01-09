@@ -128,7 +128,7 @@
 .dmex-ebook--viewer-util-group {flex-shrink:0;display:flex;align-items:center}
 .icon-upload-16 {aspect-ratio:1/1;display:block;width:1.6rem;background:url("../images/common/icon-upload-16.svg") no-repeat 50% 50%;background-size:contain}
 .dmex-ebook--viewer-util-btn {display:flex;align-items:center;font-size:1.4rem;color:#000;font-weight:400;}
-.dmex-ebook--viewer-util-btn i {aspect-ratio:1/1;width:2.8rem;background-position:50% 50%;background-repeat:no-repeat;background-size:contain;pointer-events:none;}
+.dmex-ebook--viewer-util-btn i {aspect-ratio:1/1;width:2.8rem;background-position:50% 50%;background-repeat:no-repeat;background-size:contain;pointer-events:none;display:block;height:2.8rem;}
 .btn-file-upload {display:flex;align-items:center;gap:.4rem;height:3.2rem;padding:0 1.6rem;background-color:#FFC646;border-radius:9999em;font-size:1.2rem;font-weight:700;color:#202020}
 .icon-auto-play {background-image:url("../images/common/icon-auto-play.svg");}
 .icon-e-b-list {background-image:url("../images/common/icon-e-b-list.svg");}
