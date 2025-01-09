@@ -1214,8 +1214,9 @@ class PDFeBook {
 		const _this = e.target;
 		const _data = _this.dataset.act;
 		const _util = document.querySelector('.dmex-ebook--viewer-util');
-
+		const _range = document.querySelector('.dmex-ebook--viewer-zoom-progress input');
 		console.log('pageMove', _data)
+		_range.value = 0;
 
 		clearTimeout(this.timer_auto);
 		_util.dataset.auto = false;
