@@ -1252,6 +1252,7 @@ class PDFeBook {
 		this.util.dataset.auto = false;
 		this.auto_current = _num;
 		UI.ebook[this.id].turnToPage(_num); 
+		this.zoomReset();
 	}
 	//act - auto play stop
 	utilAct = (e) => {
