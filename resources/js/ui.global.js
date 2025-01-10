@@ -887,6 +887,7 @@ class PDFeBook {
 		const viewer_book = document.querySelector('.dmex-ebook--viewer-book');	
 		viewer_book.style.transform = `translate(0, 0)`;
 		viewer_body.dataset.zoomState = 'false';
+		viewer_book.dataset.zoomArea = '1';
 		viewer_book.style.zoom = 1;
 	}
 	autoPlayStop(v) {
