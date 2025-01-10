@@ -132,10 +132,14 @@
 .btn-file-upload {display:flex;align-items:center;gap:.4rem;height:3.2rem;padding:0 1.6rem;background-color:#FFC646;border-radius:9999em;font-size:1.2rem;font-weight:700;color:#202020}
 .icon-auto-play {background-image:url("../images/common/icon-auto-play.svg");}
 .icon-e-b-list {background-image:url("../images/common/icon-e-b-list.png");}
-.icon-e-b-full {background-image:url("../images/common/icon-e-b-full.svg");}
+.icon-e-b-full {background-image:url("../images/common/icon-e-b-base.svg");}
+
 .dmex-ebook--viewer-util-btn[data-act="auto"]::after {content:"자동넘김";}
 [data-auto="true"] .dmex-ebook--viewer-util-btn[data-act="auto"]::after {content:"정지";}
 [data-full="true"] .dmex-ebook--viewer-util-btn[data-act="full"]::after{content:"축소";}
+
+[data-full="true"] .icon-e-b-full {background-image:url("../images/common/icon-e-b-full.svg");}
+[data-auto="true"] .icon-auto-play{background-image:url("../images/common/icon-auto-pause.svg");}
 
 .dmex-ebook--viewer-zoom {display:flex;gap:.8rem;align-items:center;width:100%;max-width:28rem}
 .dmex-ebook--viewer-zoom-btn,
