@@ -882,7 +882,6 @@ class PDFeBook {
 		this.set();
 	}
 	zoomReset() {
-		console.log('zoomreset')
 		const viewer_body = document.querySelector('.dmex-ebook--viewer-body');
 		const viewer_book = document.querySelector('.dmex-ebook--viewer-book');	
 		viewer_book.style.transform = `translate(0, 0)`;
@@ -1216,7 +1215,6 @@ class PDFeBook {
 		const _data = _this.dataset.act;
 		const _util = document.querySelector('.dmex-ebook--viewer-util');
 		const _range = document.querySelector('.dmex-ebook--viewer-zoom-progress input');
-		console.log('pageMove', _data)
 		_range.value = 0;
 
 		clearTimeout(this.timer_auto);
@@ -1226,19 +1224,29 @@ class PDFeBook {
 				UI.ebook[this.id].flipPrev();
 				this.auto_current = this.auto_current - 1;
 				this.auto_current < 0 ? this.auto_current = 0 : '';
+
+				console.log(this.auto_current)
 				break;
 			case 'next': 
 				UI.ebook[this.id].flipNext(); 
 				this.auto_current = this.auto_current + 1;
 				this.auto_current > UI.ebook[this.id].getPageCount() - 1 ? this.auto_current = UI.ebook[this.id].getPageCount() - 1 : '';
+
+				console.log(this.auto_current)
 				break;
 			case 'first': 
-				UI.ebook[this.id].turnToPage(0); 
-				this.auto_current = 0;
+				
+				setTimeout(() => {
+					UI.ebook[this.id].turnToPage(0); 
+					this.auto_current = 0;
+				},400);
 				break;
 			case 'last': 
-				UI.ebook[this.id].turnToPage(UI.ebook[this.id].getPageCount() - 1); 
-				this.auto_current = UI.ebook[this.id].getPageCount() - 1;
+				console.log(UI.ebook[this.id].getPageCount()-1);
+				setTimeout(() => {
+					UI.ebook[this.id].turnToPage(UI.ebook[this.id].getPageCount() - 1); 
+				
+				},400);
 				break;
 		}
 		this.zoomReset();
