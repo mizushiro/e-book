@@ -875,6 +875,8 @@
         const reset = (v) => {
             const isMobileSize = window.innerWidth < 1024 ? true : false;
             if (isMobileSize && !_isMobileSize) {
+                UI.exe.ebook && UI.exe.ebook.destory();
+                document.querySelector('.chbook-area').dataset.view = '';
                 document.querySelectorAll('[data-toggle-object]').forEach(item => {
                     item.dataset.toggleState = 'false';
                 });
