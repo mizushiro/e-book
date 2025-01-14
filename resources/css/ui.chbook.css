@@ -18,6 +18,7 @@
 .chbook-header--util {display: flex;justify-content: flex-end;align-items: center;gap:2.4rem;}
 .chbook-header--util-person {display: flex;align-items: center;gap:.4rem;color: #fff;font-size: 1.6rem;font-family: 'SUIT';font-weight: 500;line-height: 2rem;text-decoration: none;}
 .chbook-header--util-person::before {content: "";display: block;width: 3.6rem;height: 3.6rem;background: url(../images/ebook/ico_person.png) no-repeat 50% 50% / 3.6rem;}
+.chbook-header--util-person[data-type="logout"]::before {background-image:url(../images/ebook/ico_login.png)}
 .chbook-header--util-logoout {width: 4rem;height: 4rem;border-radius: 1.2rem;background:#232E4B url("data:image/svg+xml,%3Csvg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.79238 21C1.30879 21 0.889159 20.8221 0.533496 20.4663C0.177832 20.1106 0 19.691 0 19.2074V2.69789C0 2.2143 0.177832 1.79468 0.533496 1.43901C0.889159 1.08335 1.30879 0.905518 1.79238 0.905518H10V2.69789H1.79238V19.2074H10V21H1.79238ZM15.0001 15.9668L13.7217 14.698L16.5709 11.8488H6.66035V10.0565H16.533L13.6841 7.20728L14.9622 5.92915L20 10.9669L15.0001 15.9668Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat 50% 50% / 2rem;}
 
 /* content */
@@ -37,7 +38,7 @@
 .left-nav-list-btn[data-name="document"] {display: none;}
 
 /* content */
-.chbook-content-group {flex: 1;display: flex;align-items: flex-start;gap: 2.8rem;padding-bottom: 8rem;}
+.chbook-content-group {flex: 1;display: flex;align-items: flex-start;gap: 2.8rem;padding-bottom: 8rem; position:relative}
 .chbook-area {flex:1;height: 100%;}[data-order="0"] {order: 0}[data-order="1"] {order: 1}[data-order="2"] {order: 2}
 .chbook-area > [data-toggle-state="false"],.chbook-content-group > [data-toggle-state="false"] {display: none;}
 .chbook-area > [data-toggle-state="true"].chbook-content-group > [data-toggle-state="true"] {display: flex;}
@@ -197,6 +198,7 @@
 	.left-nav-list-btn::before {width:2.8rem;height:2.8rem;background-size:contain !important;}
 	.left-nav-list-btn[data-toggle-state="true"] {display: flex; pointer-events: none;}
 	.left-nav-list-btn[data-name="document"] {display: flex;}
+    .left-nav-list-btn[data-name="setting"] {display:none}
 	[data-is="group"] .service-info-box,
 	[data-is="chatbot"] .service-info-box,
 	[data-is="ebook"] .service-info-box {z-index: -1; visibility: hidden; position: absolute;}
@@ -274,4 +276,19 @@
 	.chbook-menu--link[target="_blank"] {margin-top: 1.6rem;}
 	.chbook-menu--link[target="_blank"]::after{content:"";display: block;width: 1.6rem;height: 1.7rem;background: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.9274 6.8324L4.90875 12.851C4.7995 12.9603 4.67536 13.0124 4.53631 13.0075C4.39727 13.0025 4.27312 12.9454 4.16387 12.8361C4.05462 12.7269 4 12.6002 4 12.4562C4 12.3122 4.05462 12.1856 4.16387 12.0764L10.1676 6.07263H7.17184C7.02029 6.07263 6.89321 6.02153 6.79061 5.91933C6.68812 5.81713 6.63687 5.6905 6.63687 5.53944C6.63687 5.38838 6.68822 5.26071 6.79091 5.15642C6.89361 5.05214 7.02088 5 7.17274 5H11.4594C11.6112 5 11.7393 5.05135 11.8436 5.15404C11.9479 5.25674 12 5.38401 12 5.53587V9.8225C12 9.97435 11.9489 10.1024 11.8467 10.2067C11.7445 10.311 11.6179 10.3631 11.4668 10.3631C11.3158 10.3631 11.1881 10.3119 11.0838 10.2094C10.9795 10.1068 10.9274 9.97971 10.9274 9.82816V6.8324Z' fill='%232C2C2C'/%3E%3C/svg%3E%0A") no-repeat 50% 50% / 1.6rem;}
 	.chbook-menu--link{color: #2C2C2C;font-size: 1.6rem;font-weight: 500;font-family: 'SUIT';text-decoration: none;display: flex;align-items: center;}
-}   
+}
+/* 셋팅 */
+.admin-setting-box {position:absolute;top:0;left:0;right:0;bottom:8rem;border-radius:2.8rem;z-index:10;overflow:hidden;display:flex;flex-direction:column}
+.admin-setting-title-area {position:relative;height:6rem;display:flex;align-items:center;justify-content:space-between;padding:0 2rem 0 3.2rem;background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100dvh);flex-shrink:0;border-bottom:.1rem solid rgba(255,255,255,.3)}
+.admin-setting-title-area:before {content:'';position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,.3)}
+.admin-setting-title {font-size:2rem;font-weight:800;color:#fff;line-height:1;position:relative}
+.admin-setting-content-box {flex:1;background-color:#fff;display:flex;overflow:hidden}
+.btn-admin-setting-close {width:3.2rem;height:3.2rem;background:url("../images/common/ico-x-w.svg") no-repeat 50% 50%;position:relative}
+.mdl-tab[data-type="admin"] {width:20rem;}
+.mdl-tab[data-type="admin"] .mdl-tab-wrap {flex-direction:column;justify-content:flex-start;height:100%;background-color:#F2F4FF;border-right:.1rem solid #e3e3e3}
+.mdl-tab[data-type="admin"] .mdl-tab-btn {flex:none;height:4.8rem;border-width:0 0 .1rem 0;border-color:#e3e3e3}
+.mdl-tab[data-type="admin"] .mdl-tab-btn[data-selected=true] {border-bottom:.1rem solid #e3e3e3;background:linear-gradient(90deg, var(--page-bg-start) 0%, var(--page-bg-end) 100%);position:relative}
+.mdl-tab[data-type="admin"] .mdl-tab-btn[data-selected=true]:before {content:'';position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,.3)}
+.mdl-tab[data-type="admin"] .mdl-tab-btn[data-selected=true] .mdl-tab-text-16 {position:relative;color:#fff}
+.admin-setting-content-box .mdl-tab-pnl {flex:1;height:100%;overflow-y:auto;overflow-x:hidden}
+.admin-setting-content-box .tab-content-box {margin:0;padding:2.4rem}

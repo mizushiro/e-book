@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<div class="chbook-wrap" data-color="">
+<div class="chbook-wrap" data-color="purple">
     <header class="chbook-header" data-id="header"></header>
 
     <main class="chbook-content">
@@ -808,6 +808,69 @@
                 </div>
                 -->
             </div>
+
+            <!-- setting -->
+            <div class="admin-setting-box">
+                <div class="admin-setting-title-area">
+                    <h2 class="admin-setting-title">
+                        챗봇 설정
+                    </h2>
+                    <button type="button" class="btn-admin-setting-close">
+                        <span class="for-a11y">닫기</span>
+                    </button>
+                </div>
+                <div class="admin-setting-content-box">
+                    <div class="mdl-tab" data-tab-id="settingTab" data-type="admin">
+                        <div class="mdl-tab-wrap">
+                            <button type="button" class="mdl-tab-btn" data-tab="setting1">
+                                <span class="mdl-tab-text-16">기본 설정</span>
+                            </button>
+                            <button type="button" class="mdl-tab-btn" data-tab="setting2">
+                                <span class="mdl-tab-text-16">디자인 설정</span>
+                            </button>
+                            <button type="button" class="mdl-tab-btn" data-tab="setting3">
+                                <span class="mdl-tab-text-16">AI 설정</span>
+                            </button>
+                            <button type="button" class="mdl-tab-btn" data-tab="setting4">
+                                <span class="mdl-tab-text-16">모델 설정</span>
+                            </button>
+                            <button type="button" class="mdl-tab-btn" data-tab="setting5">
+                                <span class="mdl-tab-text-16">업로드 설정</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mdl-tab-pnl scrollbar-8" data-tab-id="settingTab">
+                        <section class="mdl-tab-item" data-tab="setting1">
+                            <div class="tab-content-box">
+                                기본 설정
+                            </div>
+                        </section>
+                        <section class="mdl-tab-item" data-tab="setting2">
+                            <div class="tab-content-box">
+                                디자인 설정
+                            </div>
+                        </section>
+
+                        <section class="mdl-tab-item" data-tab="setting3">
+                            <div class="tab-content-box">
+                                AI 설정
+                            </div>
+                        </section>
+
+                        <section class="mdl-tab-item" data-tab="setting4">
+                            <div class="tab-content-box">
+                                모델 설정
+                            </div>
+                        </section>
+
+                        <section class="mdl-tab-item" data-tab="setting5">
+                            <div class="tab-content-box">
+                                업로드 설정
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -954,6 +1017,14 @@
             const btnFileUpload = document.querySelector('.btn-file-upload');
             btnFileUpload.addEventListener('click',  UI.exe.ebookHide);
         }
+
+        UI.exe.idpwTab = new Tab({
+            id: 'settingTab',
+            current: 'setting1',
+            callback: (v) => {
+                console.log(v)
+            }
+        });
     });
 
 </script>
