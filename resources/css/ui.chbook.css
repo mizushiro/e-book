@@ -292,3 +292,12 @@
 .mdl-tab[data-type="admin"] .mdl-tab-btn[data-selected=true] .mdl-tab-text-16 {position:relative;color:#fff}
 .admin-setting-content-box .mdl-tab-pnl {flex:1;height:100%;overflow-y:auto;overflow-x:hidden}
 .admin-setting-content-box .tab-content-box {margin:0;padding:2.4rem}
+.admin-setting-sub-title {font-size:1.8rem;font-weight:700;color:#111;margin-bottom:1.2rem}
+.admin-setting-sub-title ~ .admin-setting-sub-title {margin-top:3.2rem}
+.admin-setting-radio-group {display:flex;flex-wrap:wrap;gap:1.2rem 3.2rem}
+.admin-setting-order-group {display:flex;gap:1.2rem}
+.admin-setting-order-group .left-nav-list-btn {border:.1rem solid #e3e3e3;border-radius:1.6rem;cursor:pointer}
+.admin-setting-order-group .left-nav-list-btn:hover {background-color:var(--page-bg-start)}
+.admin-setting-order-group .left-nav-list-btn:hover span {color:#fff}
+.admin-setting-order-group span {color:#111;font-weight:800}
+.admin-setting-order-group .left-nav-list-btn[data-name="document"] {display:flex}

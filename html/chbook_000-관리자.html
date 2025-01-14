@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<div class="chbook-wrap" data-color="purple">
+<div class="chbook-wrap" data-color="">
     <header class="chbook-header" data-id="header"></header>
 
     <main class="chbook-content">
@@ -847,7 +847,57 @@
                         </section>
                         <section class="mdl-tab-item" data-tab="setting2">
                             <div class="tab-content-box">
-                                디자인 설정
+                                <h3 class="admin-setting-sub-title">
+                                    글꼴
+                                </h3>
+                                <div class="mdl-selection-wrap w-full">
+                                    <div class="mdl-select select-size-48" data-id="select_date1">
+                                        <select title="글꼴 선택" id="select_date1_2">
+                                            <option value="1" selected="">돋움</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <h3 class="admin-setting-sub-title">
+                                    테마
+                                </h3>
+                                <div class="admin-setting-radio-group">
+                                    <span class="form_element-radio">
+                                        <input type="radio" id="typeA-1" name="choiceA">
+                                        <label for="typeA-1">violet</label>
+                                    </span>
+                                    <span class="form_element-radio">
+                                        <input type="radio" id="typeA-2" name="choiceA">
+                                        <label for="typeA-2">dark</label>
+                                    </span>
+                                    <span class="form_element-radio">
+                                        <input type="radio" id="typeA-3" name="choiceA">
+                                        <label for="typeA-3">green</label>
+                                    </span>
+                                    <span class="form_element-radio">
+                                        <input type="radio" id="typeA-4" name="choiceA">
+                                        <label for="typeA-4">purple</label>
+                                    </span>
+                                    <span class="form_element-radio">
+                                        <input type="radio" id="typeA-5" name="choiceA">
+                                        <label for="typeA-5">blue-green</label>
+                                    </span>
+                                </div>
+
+                                <h3 class="admin-setting-sub-title">
+                                    창 순서 변경 (드래그해서 순서를 변경하세요.)
+                                </h3>
+
+                                <div class="admin-setting-order-group">
+                                    <div class="left-nav-list-btn" data-name="group">
+                                        <span>Group</span>
+                                    </div>
+                                    <div class="left-nav-list-btn" data-name="chatbot">
+                                        <span>Chatbot</span>
+                                    </div>
+                                    <div class="left-nav-list-btn" data-name="document">
+                                        <span>Document</span>
+                                    </div>
+                                </div>
                             </div>
                         </section>
 
@@ -1020,7 +1070,7 @@
 
         UI.exe.idpwTab = new Tab({
             id: 'settingTab',
-            current: 'setting1',
+            current: 'setting2',
             callback: (v) => {
                 console.log(v)
             }
