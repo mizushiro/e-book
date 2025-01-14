@@ -33,7 +33,7 @@
                     <span>Document</span>
                 </button>
               
-                <button type="button" class="left-nav-list-btn" data-name="setting">
+                <button type="button" class="left-nav-list-btn" data-name="setting" data-toggle-object="setting" data-toggle-state="false">
                     <span>Setting</span>
                 </button>
                  
@@ -810,14 +810,12 @@
             </div>
 
             <!-- setting -->
-            <div class="admin-setting-box">
+            <div class="admin-setting-box" data-toggle-target="setting" data-toggle-state="false">
                 <div class="admin-setting-title-area">
                     <h2 class="admin-setting-title">
                         챗봇 설정
                     </h2>
-                    <button type="button" class="btn-admin-setting-close">
-                        <span class="for-a11y">닫기</span>
-                    </button>
+                    <button type="button" class="btn-admin-setting-close" aria-label="세팅 닫기" data-toggle-object="setting"></button>
                 </div>
                 <div class="admin-setting-content-box">
                     <div class="mdl-tab" data-tab-id="settingTab" data-type="admin">
