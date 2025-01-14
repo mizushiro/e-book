@@ -301,3 +301,6 @@
 .admin-setting-order-group .left-nav-list-btn:hover span {color:#fff}
 .admin-setting-order-group span {color:#111;font-weight:800}
 .admin-setting-order-group .left-nav-list-btn[data-name="document"] {display:flex}
+@media (max-width:1023px) {
+    .admin-setting-box {display:none;}
+}
