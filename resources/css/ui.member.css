@@ -181,3 +181,9 @@
     .terms-content {font-size:1.4rem;line-height:2rem;}
 }
 /* E : 약관 */
+
+/* 회원가입 기본 레이아웃 */
+.base-wrap {display:flex;height:100%;flex-direction:column}
+.base-wrap .chbook-header {flex-shrink:0}
+.base-wrap .chbook-footer {flex-shrink:0}
+.page-content {flex:1}
