@@ -17,7 +17,20 @@
 </head>
 
 <body>
-<div class="chbook-wrap" data-color="dark">
+<!-- D : [data-color=""]에서 테마적용 컨트롤 가능 예 [data-color="dark"] -->
+<!--
+    테마 값
+    violet
+    green
+    blue-green
+    purple
+    beige
+    light-violet
+    light-green
+    sky
+    dark
+-->
+<div class="chbook-wrap" data-color="">
     <header class="chbook-header" data-id="header"></header>
 
     <main class="chbook-content">
@@ -40,6 +53,7 @@
             </div>
         </div>
         <div class="chbook-content-group">
+            <!-- D : [data-order=""] 값으로 순서 설정 가능 -->
             <!-- 그룹 -->
             <div class="chbook-group" data-order="0" data-toggle-target="group" data-toggle-state="false">
                 <div class="chbook-group--header">
@@ -861,6 +875,8 @@
         const reset = (v) => {
             const isMobileSize = window.innerWidth < 1024 ? true : false;
             if (isMobileSize && !_isMobileSize) {
+                UI.exe.ebook && UI.exe.ebook.destory();
+                document.querySelector('.chbook-area').dataset.view = '';
                 document.querySelectorAll('[data-toggle-object]').forEach(item => {
                     item.dataset.toggleState = 'false';
                 });

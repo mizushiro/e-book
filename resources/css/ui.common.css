@@ -187,7 +187,7 @@ select::-ms-expand {display:none}
 /* radio */
 .form_element-radio {position:relative;min-height:2.4rem;line-height:2.4rem;display:inline-block}
 .form_element-radio input[type="radio"] {position:absolute;opacity:0;left:0}
-.form_element-radio label {display:block;position:relative;padding:0 0 0 3.2rem;line-height:2.4rem;font-size:1.6rem;color:#111;font-weight:400;}
+.form_element-radio label {display:block;position:relative;padding:0 0 0 3.2rem;line-height:2.4rem;font-size:1.6rem;color:#111;font-weight:600;cursor:pointer}
 .form_element-radio label:before {content:'';width:2.4rem;height:2.4rem;position:absolute;top:0;left:0;flex-shrink:0;;background-repeat:no-repeat;background-position:50% 50%;background-size:contain;background-image:url("../images/common/radio-off.svg")}
 .form_element-radio input[type="radio"]:checked + label:before {background-image:url("../images/common/radio-on.svg")}
 .form_element-radio.size-16 {min-height:1.6rem;line-height:1.6rem;}

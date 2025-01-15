@@ -33,7 +33,7 @@
                     <span>Document</span>
                 </button>
               
-                <button type="button" class="left-nav-list-btn" data-name="setting">
+                <button type="button" class="left-nav-list-btn" data-name="setting" data-toggle-object="setting" data-toggle-state="false">
                     <span>Setting</span>
                 </button>
                  
@@ -808,6 +808,121 @@
                 </div>
                 -->
             </div>
+
+            <!-- setting -->
+            <div class="admin-setting-box" data-toggle-target="setting" data-toggle-state="false">
+                <div class="admin-setting-title-area">
+                    <h2 class="admin-setting-title">
+                        챗봇 설정
+                    </h2>
+                    <button type="button" class="btn-admin-setting-close" aria-label="세팅 닫기" data-toggle-object="setting"></button>
+                </div>
+                <div class="admin-setting-content-box">
+                    <div class="mdl-tab" data-tab-id="settingTab" data-type="admin">
+                        <div class="mdl-tab-wrap">
+                            <button type="button" class="mdl-tab-btn" data-tab="setting1">
+                                <span class="mdl-tab-text-16">기본 설정</span>
+                            </button>
+                            <button type="button" class="mdl-tab-btn" data-tab="setting2">
+                                <span class="mdl-tab-text-16">디자인 설정</span>
+                            </button>
+                            <button type="button" class="mdl-tab-btn" data-tab="setting3">
+                                <span class="mdl-tab-text-16">AI 설정</span>
+                            </button>
+                            <button type="button" class="mdl-tab-btn" data-tab="setting4">
+                                <span class="mdl-tab-text-16">모델 설정</span>
+                            </button>
+                            <button type="button" class="mdl-tab-btn" data-tab="setting5">
+                                <span class="mdl-tab-text-16">업로드 설정</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mdl-tab-pnl" data-tab-id="settingTab">
+                        <section class="mdl-tab-item" data-tab="setting1">
+                            <div class="tab-content-box">
+                                기본 설정
+                            </div>
+                        </section>
+                        <section class="mdl-tab-item" data-tab="setting2">
+                            <div class="tab-content-box scrollbar-8">
+                                <h3 class="admin-setting-sub-title">
+                                    글꼴
+                                </h3>
+                                <div class="mdl-selection-wrap w-full">
+                                    <div class="mdl-select select-size-48" data-id="select_date1">
+                                        <select title="글꼴 선택" id="select_date1_2">
+                                            <option value="1" selected="">돋움</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <h3 class="admin-setting-sub-title">
+                                    테마
+                                </h3>
+                                <div class="admin-setting-radio-group">
+                                    <span class="form_element-radio">
+                                        <input type="radio" id="typeA-1" name="choiceA">
+                                        <label for="typeA-1">violet</label>
+                                    </span>
+                                    <span class="form_element-radio">
+                                        <input type="radio" id="typeA-2" name="choiceA">
+                                        <label for="typeA-2">dark</label>
+                                    </span>
+                                    <span class="form_element-radio">
+                                        <input type="radio" id="typeA-3" name="choiceA">
+                                        <label for="typeA-3">green</label>
+                                    </span>
+                                    <span class="form_element-radio">
+                                        <input type="radio" id="typeA-4" name="choiceA">
+                                        <label for="typeA-4">purple</label>
+                                    </span>
+                                    <span class="form_element-radio">
+                                        <input type="radio" id="typeA-5" name="choiceA">
+                                        <label for="typeA-5">blue-green</label>
+                                    </span>
+                                </div>
+
+                                <h3 class="admin-setting-sub-title">
+                                    창 순서 변경 (드래그해서 순서를 변경하세요.)
+                                </h3>
+
+                                <div class="admin-setting-order-group">
+                                    <div class="left-nav-list-btn" data-name="group">
+                                        <span>Group</span>
+                                    </div>
+                                    <div class="left-nav-list-btn" data-name="chatbot">
+                                        <span>Chatbot</span>
+                                    </div>
+                                    <div class="left-nav-list-btn" data-name="document">
+                                        <span>Document</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="admin-setting-btn">
+                                <button type="button" class="btn-base btn-color-gray btn-size-58">취소</button>
+                                <button type="button" class="btn-base btn-color-blue btn-size-58">저장</button>
+                            </div>
+                        </section>
+
+                        <section class="mdl-tab-item" data-tab="setting3">
+                            <div class="tab-content-box">
+                                AI 설정
+                            </div>
+                        </section>
+
+                        <section class="mdl-tab-item" data-tab="setting4">
+                            <div class="tab-content-box">
+                                모델 설정
+                            </div>
+                        </section>
+
+                        <section class="mdl-tab-item" data-tab="setting5">
+                            <div class="tab-content-box">
+                                업로드 설정
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -954,6 +1069,14 @@
             const btnFileUpload = document.querySelector('.btn-file-upload');
             btnFileUpload.addEventListener('click',  UI.exe.ebookHide);
         }
+
+        UI.exe.idpwTab = new Tab({
+            id: 'settingTab',
+            current: 'setting2',
+            callback: (v) => {
+                console.log(v)
+            }
+        });
     });
 
 </script>
